@@ -16,6 +16,7 @@
   --text:#2a2a2a;
   --muted:#777;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:"Inter",sans-serif;background:var(--cream);color:var(--text)}
@@ -23,145 +24,725 @@ body.rtl{font-family:"Cairo",sans-serif;direction:rtl}
 
 /* NAV */
 nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  padding:1rem 6%;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(26,39,68,.94);backdrop-filter:blur(14px)
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:1rem 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(26,39,68,.94);
+  backdrop-filter:blur(14px);
 }
-.nav-logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:48px;width:auto;object-fit:contain}
-.logo-text{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.35rem;line-height:1.1;letter-spacing:1.5px}
-.logo-text small{display:block;font-family:"Inter",sans-serif;font-size:.63rem;color:rgba(255,255,255,.6);letter-spacing:2.5px;margin-top:3px}
-.nav-links{display:flex;gap:1.05rem;align-items:center}
-.nav-links a,.lang-btn{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;letter-spacing:1px;transition:.3s;background:transparent;border:0;cursor:pointer}
-.nav-links a:hover,.lang-btn:hover{color:var(--gold)}
-.nav-cta{padding:.7rem 1.4rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:40px;font-size:.82rem;transition:.3s}
-.nav-cta:hover{background:var(--gold);color:var(--navy)}
+
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+
+.logo-img{
+  height:48px;
+  width:auto;
+  object-fit:contain;
+}
+
+.logo-text{
+  font-family:"Playfair Display",serif;
+  color:var(--gold);
+  font-size:1.35rem;
+  line-height:1.1;
+  letter-spacing:1.5px;
+}
+
+.logo-text small{
+  display:block;
+  font-family:"Inter",sans-serif;
+  font-size:.63rem;
+  color:rgba(255,255,255,.6);
+  letter-spacing:2.5px;
+  margin-top:3px;
+}
+
+.nav-links{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+}
+
+.nav-links a,
+.lang-btn{
+  color:rgba(255,255,255,.78);
+  text-decoration:none;
+  font-size:.83rem;
+  letter-spacing:1px;
+  transition:.3s;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+}
+
+.nav-links a:hover,
+.lang-btn:hover{
+  color:var(--gold);
+}
+
+.nav-cta{
+  padding:.7rem 1.4rem;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  text-decoration:none;
+  border-radius:40px;
+  font-size:.82rem;
+  transition:.3s;
+}
+
+.nav-cta:hover{
+  background:var(--gold);
+  color:var(--navy);
+}
 
 /* HERO */
 .hero{
-  min-height:100vh;background:url("villa_hero_bg.png") center/cover no-repeat;
-  position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
-  animation:heroZoom 14s ease-in-out infinite alternate
+  min-height:100vh;
+  background:url("villa_hero_bg.png") center/cover no-repeat;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  animation:heroZoom 14s ease-in-out infinite alternate;
 }
+
 .hero::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),
-  linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72))
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),
+    linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72));
 }
-.hero-content{position:relative;z-index:2;max-width:900px;padding:2rem;animation:fadeUp 1.5s ease forwards}
-.hero-label{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;font-weight:600}
-.hero h1{font-family:"Playfair Display",serif;color:white;font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;margin-bottom:1.2rem;text-shadow:0 20px 50px rgba(0,0,0,.55)}
-.hero p{color:rgba(255,255,255,.9);font-size:1.07rem;line-height:1.9;max-width:720px;margin:0 auto 2rem}
-.hero-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 
-.btn{padding:.95rem 1.85rem;border-radius:40px;text-decoration:none;transition:.3s;font-size:.9rem;display:inline-block;cursor:pointer}
-.btn-gold{background:var(--gold);color:var(--navy);font-weight:700}
-.btn-outline{border:1px solid rgba(255,255,255,.75);color:white}
-.btn:hover{transform:translateY(-4px)}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:2rem;
+  animation:fadeUp 1.5s ease forwards;
+}
 
-.section{padding:6rem 6%}
-.section-title{text-align:center;margin-bottom:3rem}
-.label{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.75rem;margin-bottom:.8rem;font-weight:700}
-.section-title h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:clamp(2rem,4vw,3.4rem)}
-.section-subtitle{max-width:760px;margin:1rem auto 0;color:var(--muted);line-height:1.8;font-size:1rem}
-.gold-line{width:70px;height:2px;background:var(--gold);margin:1rem auto 0}
+.hero-label{
+  color:var(--gold);
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font-size:.78rem;
+  margin-bottom:1rem;
+  font-weight:600;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  color:white;
+  font-size:clamp(3rem,7vw,5.6rem);
+  line-height:1.05;
+  margin-bottom:1.2rem;
+  text-shadow:0 20px 50px rgba(0,0,0,.55);
+}
+
+.hero p{
+  color:rgba(255,255,255,.9);
+  font-size:1.07rem;
+  line-height:1.9;
+  max-width:720px;
+  margin:0 auto 2rem;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:.95rem 1.85rem;
+  border-radius:40px;
+  text-decoration:none;
+  transition:.3s;
+  font-size:.9rem;
+  display:inline-block;
+  cursor:pointer;
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--navy);
+  font-weight:700;
+}
+
+.btn-outline{
+  border:1px solid rgba(255,255,255,.75);
+  color:white;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+/* COMMON */
+.section{
+  padding:6rem 6%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:3rem;
+}
+
+.label{
+  color:var(--gold);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:.75rem;
+  margin-bottom:.8rem;
+  font-weight:700;
+}
+
+.section-title h2{
+  font-family:"Playfair Display",serif;
+  color:var(--navy);
+  font-size:clamp(2rem,4vw,3.4rem);
+}
+
+.section-subtitle{
+  max-width:760px;
+  margin:1rem auto 0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:1rem;
+}
+
+.gold-line{
+  width:70px;
+  height:2px;
+  background:var(--gold);
+  margin:1rem auto 0;
+}
 
 /* PORTFOLIO */
-.portfolio{background:var(--cream)}
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.catalog-card{
-  min-height:390px;border-radius:28px;overflow:hidden;position:relative;background-size:cover;background-position:center;
-  cursor:pointer;box-shadow:0 25px 55px rgba(0,0,0,.15);transition:.45s;background-color:#1a2744
+.portfolio{
+  background:var(--cream);
 }
-.catalog-card:hover{transform:translateY(-9px) scale(1.02)}
-.catalog-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18),rgba(0,0,0,.02))}
-.catalog-info{position:absolute;bottom:0;z-index:2;color:white;padding:1.8rem}
-.catalog-info span{color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.72rem;font-weight:700}
-.catalog-info h3{font-family:"Playfair Display",serif;font-size:2rem;margin:.45rem 0}
-.catalog-info p{color:rgba(255,255,255,.84);line-height:1.6;font-size:.9rem}
-.catalog-count{display:inline-block;margin-top:.9rem;padding:.45rem .8rem;border:1px solid rgba(201,165,90,.65);border-radius:40px;font-size:.78rem;color:var(--gold);background:rgba(0,0,0,.25)}
-.loading-note{text-align:center;color:var(--muted);padding:2rem}
+
+.catalog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:1.5rem;
+}
+
+.catalog-card{
+  min-height:390px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  cursor:pointer;
+  box-shadow:0 25px 55px rgba(0,0,0,.15);
+  transition:.45s;
+  background-color:#1a2744;
+}
+
+.catalog-card:hover{
+  transform:translateY(-9px) scale(1.02);
+}
+
+.catalog-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18),rgba(0,0,0,.02));
+}
+
+.catalog-info{
+  position:absolute;
+  bottom:0;
+  z-index:2;
+  color:white;
+  padding:1.8rem;
+}
+
+.catalog-info span{
+  color:var(--gold);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.catalog-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:2rem;
+  margin:.45rem 0;
+}
+
+.catalog-info p{
+  color:rgba(255,255,255,.84);
+  line-height:1.6;
+  font-size:.9rem;
+}
+
+.catalog-count{
+  display:inline-block;
+  margin-top:.9rem;
+  padding:.45rem .8rem;
+  border:1px solid rgba(201,165,90,.65);
+  border-radius:40px;
+  font-size:.78rem;
+  color:var(--gold);
+  background:rgba(0,0,0,.25);
+}
+
+.loading-note{
+  text-align:center;
+  color:var(--muted);
+  padding:2rem;
+}
 
 /* FEATURED */
-.featured-block{margin-top:5rem}
-.featured-title{margin-bottom:2.5rem}
-.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
-.featured-card{
-  height:300px;border-radius:24px;overflow:hidden;position:relative;background-size:cover;background-position:center;
-  cursor:pointer;box-shadow:0 20px 45px rgba(0,0,0,.12);transition:.4s ease
+.featured-block{
+  margin-top:5rem;
 }
-.featured-card:hover{transform:translateY(-7px) scale(1.02)}
-.featured-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.08))}
-.featured-info{position:absolute;bottom:0;z-index:2;padding:1.4rem;color:white}
-.featured-info span{color:var(--gold);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
-.featured-info h3{font-family:"Playfair Display",serif;font-size:1.45rem;margin-top:.35rem}
+
+.featured-title{
+  margin-bottom:2.5rem;
+}
+
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.2rem;
+}
+
+.featured-card{
+  height:300px;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  cursor:pointer;
+  box-shadow:0 20px 45px rgba(0,0,0,.12);
+  transition:.4s ease;
+}
+
+.featured-card:hover{
+  transform:translateY(-7px) scale(1.02);
+}
+
+.featured-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.08));
+}
+
+.featured-info{
+  position:absolute;
+  bottom:0;
+  z-index:2;
+  padding:1.4rem;
+  color:white;
+}
+
+.featured-info span{
+  color:var(--gold);
+  font-size:.7rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:700;
+}
+
+.featured-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:1.45rem;
+  margin-top:.35rem;
+}
 
 /* ABOUT */
-.about{background:white}
-.architect-wrap{max-width:1120px;margin:auto;display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center}
-.architect-card{text-align:center}
-.architect-img{width:100%;max-width:360px;border-radius:28px;display:block;margin:auto;box-shadow:0 28px 75px rgba(0,0,0,.22)}
-.architect-info{margin:-35px auto 0;width:86%;position:relative;background:rgba(26,39,68,.96);border:1px solid rgba(201,165,90,.55);border-radius:22px;padding:1.35rem 1rem;color:white;box-shadow:0 20px 45px rgba(0,0,0,.2)}
-.architect-info span{display:block;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.72rem;font-weight:700;margin-bottom:.5rem}
-.architect-info h2{font-family:"Playfair Display",serif;font-size:2rem;margin-bottom:.35rem}
-.architect-info p{color:rgba(255,255,255,.82);font-size:.95rem}
-.about-text h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:2.8rem;line-height:1.15;margin-bottom:1.2rem}
-.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1rem;font-size:1rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.stat{background:var(--cream);padding:1.1rem;border-radius:18px;text-align:center}
-.stat strong{color:var(--gold);font-size:1.45rem}
-.stat span{display:block;font-size:.78rem;color:var(--muted);margin-top:.3rem}
+.about{
+  background:white;
+}
+
+.architect-wrap{
+  max-width:1120px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.architect-card{
+  text-align:center;
+}
+
+.architect-img{
+  width:100%;
+  max-width:360px;
+  border-radius:28px;
+  display:block;
+  margin:auto;
+  box-shadow:0 28px 75px rgba(0,0,0,.22);
+}
+
+.architect-info{
+  margin:-35px auto 0;
+  width:86%;
+  position:relative;
+  background:rgba(26,39,68,.96);
+  border:1px solid rgba(201,165,90,.55);
+  border-radius:22px;
+  padding:1.35rem 1rem;
+  color:white;
+  box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+.architect-info span{
+  display:block;
+  color:var(--gold);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:.72rem;
+  font-weight:700;
+  margin-bottom:.5rem;
+}
+
+.architect-info h2{
+  font-family:"Playfair Display",serif;
+  font-size:2rem;
+  margin-bottom:.35rem;
+}
+
+.architect-info p{
+  color:rgba(255,255,255,.82);
+  font-size:.95rem;
+}
+
+.about-text h2{
+  font-family:"Playfair Display",serif;
+  color:var(--navy);
+  font-size:2.8rem;
+  line-height:1.15;
+  margin-bottom:1.2rem;
+}
+
+.about-text p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-bottom:1rem;
+  font-size:1rem;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:2rem;
+}
+
+.stat{
+  background:var(--cream);
+  padding:1.1rem;
+  border-radius:18px;
+  text-align:center;
+}
+
+.stat strong{
+  color:var(--gold);
+  font-size:1.45rem;
+}
+
+.stat span{
+  display:block;
+  font-size:.78rem;
+  color:var(--muted);
+  margin-top:.3rem;
+}
 
 /* SERVICES */
-.services{background:var(--warm)}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem}
-.service-card{background:white;border-radius:24px;padding:2rem;box-shadow:0 20px 45px rgba(0,0,0,.07);transition:.35s;min-height:260px}
-.service-card:hover{transform:translateY(-8px)}
-.service-icon{width:54px;height:54px;display:flex;align-items:center;justify-content:center;background:rgba(201,165,90,.12);border-radius:18px;font-size:1.9rem;margin-bottom:1rem}
-.service-card h3{color:var(--navy);margin-bottom:.7rem}
-.service-card p{color:var(--muted);line-height:1.75;font-size:.93rem}
+.services{
+  background:var(--warm);
+}
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.4rem;
+}
+
+.service-card{
+  background:white;
+  border-radius:24px;
+  padding:2rem;
+  box-shadow:0 20px 45px rgba(0,0,0,.07);
+  transition:.35s;
+  min-height:260px;
+}
+
+.service-card:hover{
+  transform:translateY(-8px);
+}
+
+.service-icon{
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(201,165,90,.12);
+  border-radius:18px;
+  font-size:1.9rem;
+  margin-bottom:1rem;
+}
+
+.service-card h3{
+  color:var(--navy);
+  margin-bottom:.7rem;
+}
+
+.service-card p{
+  color:var(--muted);
+  line-height:1.75;
+  font-size:.93rem;
+}
 
 /* CONTACT */
-.contact{background:var(--navy);color:white;text-align:center}
-.contact h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:3rem;margin-bottom:1rem}
-.contact p{color:rgba(255,255,255,.78);line-height:1.8;max-width:720px;margin:0 auto 2rem}
-.contact-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.contact{
+  background:var(--navy);
+  color:white;
+  text-align:center;
+}
+
+.contact h2{
+  font-family:"Playfair Display",serif;
+  color:var(--gold);
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+
+.contact p{
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+  max-width:720px;
+  margin:0 auto 2rem;
+}
+
+.contact-actions{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
 
 /* MODALS */
-.catalog-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;overflow-y:auto;padding:2rem}
-.catalog-modal.active{display:block}
-.modal-head{max-width:1200px;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:white}
-.modal-head h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:2.3rem}
-.modal-head p{color:rgba(255,255,255,.7);margin-top:.3rem}
-.close-modal{background:transparent;border:1px solid rgba(255,255,255,.35);color:white;border-radius:50%;width:46px;height:46px;font-size:1.7rem;cursor:pointer}
-.modal-gallery{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
-.modal-gallery img{width:100%;height:250px;object-fit:cover;border-radius:18px;cursor:pointer;box-shadow:0 18px 40px rgba(0,0,0,.45);transition:.3s;background:#222}
-.modal-gallery img:hover{transform:scale(1.03)}
-.modal-actions{max-width:1200px;margin:1.2rem auto 0;text-align:center}
+.catalog-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.94);
+  z-index:9999;
+  overflow-y:auto;
+  padding:2rem;
+}
 
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:10000;justify-content:center;align-items:center;padding:2rem}
-.lightbox img{max-width:94%;max-height:88vh;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.7)}
-.close-lightbox{position:fixed;top:22px;right:32px;color:white;font-size:44px;cursor:pointer}
+.catalog-modal.active{
+  display:block;
+}
 
-.whatsapp{position:fixed;right:22px;bottom:22px;z-index:1500;background:#25D366;color:white;padding:.9rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 16px 40px rgba(37,211,102,.36)}
-footer{background:#111827;color:white;text-align:center;padding:2.5rem 6%}
-.footer-logo{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.8rem;margin-bottom:.4rem}
-footer p{color:rgba(255,255,255,.55);font-size:.85rem}
+.modal-head{
+  max-width:1200px;
+  margin:0 auto 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  color:white;
+}
 
-.reveal{opacity:0;transform:translateY(45px);transition:.8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
-@keyframes heroZoom{from{background-size:100%}to{background-size:112%}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
+.modal-head h2{
+  font-family:"Playfair Display",serif;
+  color:var(--gold);
+  font-size:2.3rem;
+}
 
+.modal-head p{
+  color:rgba(255,255,255,.7);
+  margin-top:.3rem;
+}
+
+.close-modal{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.35);
+  color:white;
+  border-radius:50%;
+  width:46px;
+  height:46px;
+  font-size:1.7rem;
+  cursor:pointer;
+}
+
+.modal-gallery{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1rem;
+}
+
+.modal-gallery img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:18px;
+  cursor:pointer;
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
+  transition:.3s;
+  background:#222;
+}
+
+.modal-gallery img:hover{
+  transform:scale(1.03);
+}
+
+.modal-actions{
+  max-width:1200px;
+  margin:1.2rem auto 0;
+  text-align:center;
+}
+
+.lightbox{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.96);
+  z-index:10000;
+  justify-content:center;
+  align-items:center;
+  padding:2rem;
+}
+
+.lightbox img{
+  max-width:94%;
+  max-height:88vh;
+  border-radius:18px;
+  box-shadow:0 25px 80px rgba(0,0,0,.7);
+}
+
+.close-lightbox{
+  position:fixed;
+  top:22px;
+  right:32px;
+  color:white;
+  font-size:44px;
+  cursor:pointer;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:1500;
+  background:#25D366;
+  color:white;
+  padding:.9rem 1.3rem;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 16px 40px rgba(37,211,102,.36);
+}
+
+/* FOOTER */
+footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:2.5rem 6%;
+}
+
+.footer-logo{
+  font-family:"Playfair Display",serif;
+  color:var(--gold);
+  font-size:1.8rem;
+  margin-bottom:.4rem;
+}
+
+footer p{
+  color:rgba(255,255,255,.55);
+  font-size:.85rem;
+}
+
+/* ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(45px);
+  transition:.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes heroZoom{
+  from{background-size:100%}
+  to{background-size:112%}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(45px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MOBILE */
 @media(max-width:850px){
-  nav{padding:.9rem 5%}
-  .nav-links,.nav-cta{display:none}
-  .architect-wrap{grid-template-columns:1fr;text-align:center;gap:2.5rem}
-  .about-text h2{font-size:2.2rem}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .catalog-card{min-height:310px}
-  .hero p{font-size:.95rem}
-  .modal-gallery img{height:220px}
+  nav{
+    padding:.9rem 5%;
+  }
+
+  .nav-links,
+  .nav-cta{
+    display:none;
+  }
+
+  .architect-wrap{
+    grid-template-columns:1fr;
+    text-align:center;
+    gap:2.5rem;
+  }
+
+  .about-text h2{
+    font-size:2.2rem;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .catalog-card{
+    min-height:310px;
+  }
+
+  .hero p{
+    font-size:.95rem;
+  }
+
+  .modal-gallery img{
+    height:220px;
+  }
 }
 </style>
 </head>
@@ -216,6 +797,7 @@ footer p{color:rgba(255,255,255,.55);font-size:.85rem}
       <p class="section-subtitle" data-i18n="featuredSubtitle">A curated selection from the original portfolio visuals.</p>
       <div class="gold-line"></div>
     </div>
+
     <div class="featured-grid" id="featuredGrid"></div>
   </div>
 </section>
@@ -328,56 +910,117 @@ const rootFeaturedImages = [
 
 const translations = {
   en:{
-    navHome:"Home",navPortfolio:"Portfolio",navAbout:"About",navSectors:"Sectors",navContact:"Contact",
-    bookConsultation:"Book Consultation",heroLabel:"Luxury Interior Design",heroTitle:"Royal Designs by Asmaa Allam",
+    navHome:"Home",
+    navPortfolio:"Portfolio",
+    navAbout:"About",
+    navSectors:"Sectors",
+    navContact:"Contact",
+    bookConsultation:"Book Consultation",
+    heroLabel:"Luxury Interior Design",
+    heroTitle:"Royal Designs by Asmaa Allam",
     heroText:"Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.",
-    explorePortfolio:"Explore Portfolio",whatsappConsultation:"WhatsApp Consultation",
-    portfolioLabel:"Image-Based Portfolio",portfolioTitle:"Explore Our Design Catalogs",loadingCatalogs:"Loading portfolio catalogs...",
-    featuredLabel:"Featured Designs",featuredTitle:"Selected Highlights",featuredSubtitle:"A curated selection from the original portfolio visuals.",featuredTag:"Featured",
-    leadArchitect:"Lead Architect",interiorEngineer:"Interior Design Engineer",aboutLabel:"About",
+    explorePortfolio:"Explore Portfolio",
+    whatsappConsultation:"WhatsApp Consultation",
+    portfolioLabel:"Image-Based Portfolio",
+    portfolioTitle:"Explore Our Design Catalogs",
+    loadingCatalogs:"Loading portfolio catalogs...",
+    featuredLabel:"Featured Designs",
+    featuredTitle:"Selected Highlights",
+    featuredSubtitle:"A curated selection from the original portfolio visuals.",
+    featuredTag:"Featured",
+    leadArchitect:"Lead Architect",
+    interiorEngineer:"Interior Design Engineer",
+    aboutLabel:"About",
     aboutTitle:"Design with Vision, Elegance & Precision",
     aboutP1:"With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.",
     aboutP2:"The portfolio covers hotels, restaurants, retail spaces, doors, kitchens, dressing rooms, villa furnishing, apartment furnishing, and more.",
-    projects:"Projects",designSectors:"Design Sectors",yearsExperience:"Years of Experience",updatedPortfolio:"Updated Portfolio",
-    sectorsLabel:"20 Design Sectors",sectorsTitle:"Specialized Interior Design Solutions",
+    projects:"Projects",
+    designSectors:"Design Sectors",
+    yearsExperience:"Years of Experience",
+    updatedPortfolio:"Updated Portfolio",
+    sectorsLabel:"20 Design Sectors",
+    sectorsTitle:"Specialized Interior Design Solutions",
     sectorsSubtitle:"Over 600 projects delivered across hospitality, commercial, and residential interiors over 30 years of experience.",
-    hotelsTitle:"Hotels",hotelsText:"Premium hospitality interiors focused on comfort, elegance, and memorable guest experience.",
-    restaurantsTitle:"Restaurants",restaurantsText:"Atmospheric dining spaces designed for flow, identity, and strong visual impact.",
-    shopsTitle:"Retail Shops",shopsText:"Retail interiors that highlight products, guide movement, and strengthen brand presence.",
-    doorsTitle:"Doors",doorsText:"Statement doors and refined entrance details that create a strong first impression.",
-    kitchensTitle:"Kitchens",kitchensText:"Functional luxury kitchens with smart storage, durable materials, and premium finishes.",
-    dressingTitle:"Dressing Rooms",dressingText:"Organized dressing rooms with tailored storage, elegant lighting, and luxury details.",
-    villaTitle:"Villa Furnishing",villaText:"Complete villa furnishing concepts with refined materials, balanced colors, and timeless comfort.",
-    apartmentTitle:"Apartment Furnishing",apartmentText:"Smart apartment interiors designed for comfort, function, and elegant everyday living.",
-    contactTitle:"Start Your Project",contactText:"Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
-    chatWhatsapp:"Chat on WhatsApp",callButton:"Call 0111 621 1118",footerLine:"by Asmaa Allam · Interior Design Engineer",
-    openCatalog:"Open Catalog",images:"Images"
+    hotelsTitle:"Hotels",
+    hotelsText:"Premium hospitality interiors focused on comfort, elegance, and memorable guest experience.",
+    restaurantsTitle:"Restaurants",
+    restaurantsText:"Atmospheric dining spaces designed for flow, identity, and strong visual impact.",
+    shopsTitle:"Retail Shops",
+    shopsText:"Retail interiors that highlight products, guide movement, and strengthen brand presence.",
+    doorsTitle:"Doors",
+    doorsText:"Statement doors and refined entrance details that create a strong first impression.",
+    kitchensTitle:"Kitchens",
+    kitchensText:"Functional luxury kitchens with smart storage, durable materials, and premium finishes.",
+    dressingTitle:"Dressing Rooms",
+    dressingText:"Organized dressing rooms with tailored storage, elegant lighting, and luxury details.",
+    villaTitle:"Villa Furnishing",
+    villaText:"Complete villa furnishing concepts with refined materials, balanced colors, and timeless comfort.",
+    apartmentTitle:"Apartment Furnishing",
+    apartmentText:"Smart apartment interiors designed for comfort, function, and elegant everyday living.",
+    contactTitle:"Start Your Project",
+    contactText:"Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
+    chatWhatsapp:"Chat on WhatsApp",
+    callButton:"Call 0111 621 1118",
+    footerLine:"by Asmaa Allam · Interior Design Engineer",
+    openCatalog:"Open Catalog",
+    images:"Images"
   },
+
   ar:{
-    navHome:"الرئيسية",navPortfolio:"الأعمال",navAbout:"عن الشركة",navSectors:"القطاعات",navContact:"تواصل معنا",
-    bookConsultation:"احجز استشارة",heroLabel:"تصميم داخلي فاخر",heroTitle:"Royal Designs by Asmaa Allam",
+    navHome:"الرئيسية",
+    navPortfolio:"الأعمال",
+    navAbout:"عن الشركة",
+    navSectors:"القطاعات",
+    navContact:"تواصل معنا",
+    bookConsultation:"احجز استشارة",
+    heroLabel:"تصميم داخلي فاخر",
+    heroTitle:"Royal Designs by Asmaa Allam",
     heroText:"تصميمات داخلية راقية للمساحات الفندقية والتجارية والسكنية، تجمع بين الدقة الهندسية والذوق الرفيع ورؤية واضحة للتنفيذ.",
-    explorePortfolio:"استعرض الأعمال",whatsappConsultation:"استشارة عبر واتساب",
-    portfolioLabel:"كتالوج الأعمال المصور",portfolioTitle:"استكشف كتالوجات التصميم",loadingCatalogs:"جاري تحميل كتالوجات الأعمال...",
-    featuredLabel:"تصميمات مختارة",featuredTitle:"مختارات من الأعمال",featuredSubtitle:"مجموعة مختارة من صور البورتفوليو الأصلية.",featuredTag:"مختارات",
-    leadArchitect:"المهندسة المسؤولة",interiorEngineer:"مهندسة تصميم داخلي",aboutLabel:"عن الشركة",
+    explorePortfolio:"استعرض الأعمال",
+    whatsappConsultation:"استشارة عبر واتساب",
+    portfolioLabel:"كتالوج الأعمال المصور",
+    portfolioTitle:"استكشف كتالوجات التصميم",
+    loadingCatalogs:"جاري تحميل كتالوجات الأعمال...",
+    featuredLabel:"تصميمات مختارة",
+    featuredTitle:"مختارات من الأعمال",
+    featuredSubtitle:"مجموعة مختارة من صور البورتفوليو الأصلية.",
+    featuredTag:"مختارات",
+    leadArchitect:"المهندسة المسؤولة",
+    interiorEngineer:"مهندسة تصميم داخلي",
+    aboutLabel:"عن الشركة",
     aboutTitle:"تصميم برؤية وأناقة ودقة تنفيذ",
     aboutP1:"بخبرة تمتد لأكثر من 30 عامًا، نفذت Royal Designs by Asmaa Allam أكثر من 600 مشروع في 20 قطاعًا تصميميًا.",
     aboutP2:"تشمل الأعمال الفنادق، المطاعم، المحلات، الأبواب، المطابخ، الدريسنج، فرش الفيلات، فرش الشقق، والمزيد.",
-    projects:"مشروع",designSectors:"قطاع تصميم",yearsExperience:"سنة خبرة",updatedPortfolio:"كتالوج محدث",
-    sectorsLabel:"20 قطاع تصميم",sectorsTitle:"حلول تصميم داخلي متخصصة",
+    projects:"مشروع",
+    designSectors:"قطاع تصميم",
+    yearsExperience:"سنة خبرة",
+    updatedPortfolio:"كتالوج محدث",
+    sectorsLabel:"20 قطاع تصميم",
+    sectorsTitle:"حلول تصميم داخلي متخصصة",
     sectorsSubtitle:"أكثر من 600 مشروع تم تنفيذها في قطاعات فندقية وتجارية وسكنية بخبرة تمتد لأكثر من 30 عامًا.",
-    hotelsTitle:"الفنادق",hotelsText:"تصميمات فندقية راقية تركز على الراحة والأناقة وتجربة ضيافة مميزة.",
-    restaurantsTitle:"المطاعم",restaurantsText:"مساحات طعام مصممة بأجواء قوية وهوية واضحة وحركة عملاء مدروسة.",
-    shopsTitle:"المحلات",shopsText:"تصميمات تجارية تبرز المنتجات وتدعم حركة العملاء وتعزز حضور البراند.",
-    doorsTitle:"الأبواب",doorsText:"أبواب ومداخل بتفاصيل راقية تخلق انطباعًا أول قويًا عن المكان.",
-    kitchensTitle:"المطابخ",kitchensText:"مطابخ فاخرة وعملية بتخزين ذكي وخامات متينة وتشطيبات راقية.",
-    dressingTitle:"الدريسنج",dressingText:"غرف دريسنج منظمة بتخزين مخصص وإضاءة أنيقة وتفاصيل فاخرة.",
-    villaTitle:"فرش الفيلات",villaText:"تصورات متكاملة لفرش الفيلات بخامات راقية وألوان متوازنة وراحة طويلة المدى.",
-    apartmentTitle:"فرش الشقق",apartmentText:"تصميمات شقق ذكية تجمع بين الراحة والوظيفة والأناقة اليومية.",
-    contactTitle:"ابدأ مشروعك",contactText:"شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
-    chatWhatsapp:"تواصل عبر واتساب",callButton:"اتصل 0111 621 1118",footerLine:"بواسطة أسماء علام · مهندسة تصميم داخلي",
-    openCatalog:"افتح الكتالوج",images:"صورة"
+    hotelsTitle:"الفنادق",
+    hotelsText:"تصميمات فندقية راقية تركز على الراحة والأناقة وتجربة ضيافة مميزة.",
+    restaurantsTitle:"المطاعم",
+    restaurantsText:"مساحات طعام مصممة بأجواء قوية وهوية واضحة وحركة عملاء مدروسة.",
+    shopsTitle:"المحلات",
+    shopsText:"تصميمات تجارية تبرز المنتجات وتدعم حركة العملاء وتعزز حضور البراند.",
+    doorsTitle:"الأبواب",
+    doorsText:"أبواب ومداخل بتفاصيل راقية تخلق انطباعًا أول قويًا عن المكان.",
+    kitchensTitle:"المطابخ",
+    kitchensText:"مطابخ فاخرة وعملية بتخزين ذكي وخامات متينة وتشطيبات راقية.",
+    dressingTitle:"الدريسنج",
+    dressingText:"غرف دريسنج منظمة بتخزين مخصص وإضاءة أنيقة وتفاصيل فاخرة.",
+    villaTitle:"فرش الفيلات",
+    villaText:"تصورات متكاملة لفرش الفيلات بخامات راقية وألوان متوازنة وراحة طويلة المدى.",
+    apartmentTitle:"فرش الشقق",
+    apartmentText:"تصميمات شقق ذكية تجمع بين الراحة والوظيفة والأناقة اليومية.",
+    contactTitle:"ابدأ مشروعك",
+    contactText:"شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
+    chatWhatsapp:"تواصل عبر واتساب",
+    callButton:"اتصل 0111 621 1118",
+    footerLine:"بواسطة أسماء علام · مهندسة تصميم داخلي",
+    openCatalog:"افتح الكتالوج",
+    images:"صورة"
   }
 };
 
@@ -388,9 +1031,9 @@ const folderMeta = {
   "doors":{en:"Doors",ar:"الأبواب",tagEn:"Details",tagAr:"تفاصيل",descEn:"Statement doors and refined entrance details.",descAr:"أبواب ومداخل بتفاصيل راقية وحضور قوي."},
   "kitchens":{en:"Kitchens",ar:"المطابخ",tagEn:"Residential",tagAr:"سكني",descEn:"Modern kitchens with practical storage and premium finishes.",descAr:"مطابخ عصرية بتخزين عملي وتشطيبات فاخرة."},
   "dressing-rooms":{en:"Dressing Rooms",ar:"الدريسنج",tagEn:"Residential",tagAr:"سكني",descEn:"Organized dressing rooms with luxury storage details.",descAr:"غرف دريسنج منظمة بتفاصيل تخزين فاخرة."},
-  "living rooms":{en:"Living Rooms",ar:"فرش الفيلات والشقق",tagEn:"Residential",tagAr:"سكني",descEn:"Living spaces for villas and apartments with comfortable luxury.",descAr:"فرش ومساحات معيشة للفيلات والشقق بطابع راقٍ ومريح."},
-  "apartment-furnishing":{en:"Apartment Furnishing",ar:"فرش الشقق",tagEn:"Residential",tagAr:"سكني",descEn:"Smart apartment interiors for elegant everyday living.",descAr:"تصميمات شقق ذكية تجمع بين الراحة والوظيفة والأناقة اليومية."},
   "villa-furnishing":{en:"Villa Furnishing",ar:"فرش الفيلات",tagEn:"Residential",tagAr:"سكني",descEn:"Complete villa furnishing concepts with refined materials.",descAr:"تصورات متكاملة لفرش الفيلات بخامات راقية وألوان متوازنة."},
+  "apartment-furnishing":{en:"Apartment Furnishing",ar:"فرش الشقق",tagEn:"Residential",tagAr:"سكني",descEn:"Smart apartment interiors for elegant everyday living.",descAr:"تصميمات شقق ذكية تجمع بين الراحة والوظيفة والأناقة اليومية."},
+  "living rooms":{en:"Living Rooms",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Living spaces for villas and apartments with comfortable luxury.",descAr:"مساحات معيشة للفيلات والشقق بطابع راقٍ ومريح."},
   "bed-rooms":{en:"Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Calm bedroom interiors with balanced materials and lighting.",descAr:"غرف نوم هادئة بخامات وإضاءة متوازنة."},
   "dinning-rooms":{en:"Dining Rooms",ar:"غرف الطعام",tagEn:"Residential",tagAr:"سكني",descEn:"Elegant dining spaces designed for refined hosting.",descAr:"غرف طعام أنيقة لاستقبال راقٍ ومريح."},
   "bathrooms":{en:"Bathrooms",ar:"الحمامات",tagEn:"Residential",tagAr:"سكني",descEn:"Bathroom interiors with smart layout and premium selections.",descAr:"حمامات بتوزيع ذكي واختيارات تشطيب راقية."},
@@ -403,10 +1046,24 @@ const folderMeta = {
 };
 
 const preferredOrder = [
-  "hotels","restaurants","shops","doors","kitchens","dressing-rooms",
-  "villa-furnishing","apartment-furnishing","living rooms","bed-rooms",
-  "dinning-rooms","bathrooms","ceilings","finishes","offices","booths",
-  "Exhibitions","units"
+  "hotels",
+  "restaurants",
+  "shops",
+  "doors",
+  "kitchens",
+  "dressing-rooms",
+  "villa-furnishing",
+  "apartment-furnishing",
+  "living rooms",
+  "bed-rooms",
+  "dinning-rooms",
+  "bathrooms",
+  "ceilings",
+  "finishes",
+  "offices",
+  "booths",
+  "Exhibitions",
+  "units"
 ];
 
 const featuredNames = {
@@ -423,13 +1080,16 @@ const featuredNames = {
 function setLang(lang){
   currentLang = lang;
   localStorage.setItem("siteLang", lang);
+
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   document.body.classList.toggle("rtl", lang === "ar");
 
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.getAttribute("data-i18n");
-    if(translations[lang][key]) el.textContent = translations[lang][key];
+    if(translations[lang][key]){
+      el.textContent = translations[lang][key];
+    }
   });
 
   renderCatalogCards();
@@ -457,21 +1117,30 @@ function trackWhatsApp(source, catalogName = ""){
   window.open(`https://wa.me/${WHATSAPP_NUMBER}`,"_blank");
 }
 
-function isImage(fileName){return /\.(jpg|jpeg)$/i.test(fileName)}
+function isImage(fileName){
+  return /\.(jpg|jpeg)$/i.test(fileName);
+}
 
 function titleFromFolder(folderName){
   const meta = folderMeta[folderName];
   if(meta) return currentLang === "ar" ? meta.ar : meta.en;
-  return folderName.replace(/-/g," ").replace(/\b\w/g,char=>char.toUpperCase());
+
+  return folderName
+    .replace(/-/g," ")
+    .replace(/\b\w/g,char=>char.toUpperCase());
 }
+
 function tagFromFolder(folderName){
   const meta = folderMeta[folderName];
   if(meta) return currentLang === "ar" ? meta.tagAr : meta.tagEn;
+
   return currentLang === "ar" ? "أعمال" : "Portfolio";
 }
+
 function descFromFolder(folderName){
   const meta = folderMeta[folderName];
   if(meta) return currentLang === "ar" ? meta.descAr : meta.descEn;
+
   return currentLang === "ar" ? "صور مختارة من هذا التصنيف." : "Selected images from this design category.";
 }
 
@@ -479,6 +1148,7 @@ function sortImages(files){
   return files.sort((a,b)=>{
     const an = parseInt((a.name.match(/\d+/) || ["999999"])[0],10);
     const bn = parseInt((b.name.match(/\d+/) || ["999999"])[0],10);
+
     if(an !== bn) return an - bn;
     return a.name.localeCompare(b.name);
   });
@@ -487,6 +1157,7 @@ function sortImages(files){
 async function githubContents(path){
   const encodedPath = path ? path.split("/").filter(Boolean).map(encodeURIComponent).join("/") : "";
   const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${encodedPath}?ref=${GITHUB_BRANCH}`;
+
   try{
     const response = await fetch(apiUrl);
     if(!response.ok) return [];
@@ -499,9 +1170,11 @@ async function githubContents(path){
 
 async function loadFolderImages(folderName){
   const data = await githubContents(folderName);
+
   return sortImages(
-    data.filter(item=>item.type === "file" && isImage(item.name))
-        .map(item=>({name:item.name,src:item.download_url}))
+    data
+      .filter(item=>item.type === "file" && isImage(item.name))
+      .map(item=>({name:item.name,src:item.download_url}))
   );
 }
 
@@ -515,16 +1188,23 @@ async function buildCatalogs(){
   folders.sort((a,b)=>{
     const ai = preferredOrder.indexOf(a.name);
     const bi = preferredOrder.indexOf(b.name);
+
     if(ai !== -1 && bi !== -1) return ai - bi;
     if(ai !== -1) return -1;
     if(bi !== -1) return 1;
+
     return a.name.localeCompare(b.name);
   });
 
   for(const folder of folders){
     const images = await loadFolderImages(folder.name);
     if(images.length === 0) continue;
-    catalogs.push({folder:folder.name,images:images,cover:images[0].src});
+
+    catalogs.push({
+      folder:folder.name,
+      images:images,
+      cover:images[0].src
+    });
   }
 
   loadingNote.style.display = "none";
@@ -544,6 +1224,7 @@ async function buildCatalogs(){
 function renderCatalogCards(){
   const grid = document.getElementById("catalogGrid");
   if(!grid) return;
+
   grid.innerHTML = "";
 
   catalogs.forEach((item,index)=>{
@@ -564,6 +1245,7 @@ function renderCatalogCards(){
         <div class="catalog-count">${translations[currentLang].openCatalog} · ${item.images.length} ${translations[currentLang].images}</div>
       </div>
     `;
+
     grid.appendChild(card);
   });
 }
@@ -571,6 +1253,7 @@ function renderCatalogCards(){
 async function renderFeaturedRootImages(){
   const featuredGrid = document.getElementById("featuredGrid");
   const featuredBlock = document.getElementById("featuredBlock");
+
   if(!featuredGrid || !featuredBlock) return;
 
   featuredGrid.innerHTML = "";
@@ -580,6 +1263,7 @@ async function renderFeaturedRootImages(){
     try{
       const test = await fetch(file,{method:"HEAD"});
       if(!test.ok) continue;
+
       found++;
 
       const card = document.createElement("div");
@@ -609,12 +1293,14 @@ function openCatalog(index){
   const item = catalogs[index];
   const modal = document.getElementById("catalogModal");
   const gallery = document.getElementById("modalGallery");
+
   activeCatalogName = titleFromFolder(item.folder);
 
   document.getElementById("modalTitle").textContent = activeCatalogName;
   document.getElementById("modalDesc").textContent = `${descFromFolder(item.folder)} · ${item.images.length} ${translations[currentLang].images}`;
 
   gallery.innerHTML = "";
+
   item.images.forEach(image=>{
     const img = document.createElement("img");
     img.src = image.src;
@@ -638,23 +1324,29 @@ function closeCatalog(){
   document.getElementById("catalogModal").classList.remove("active");
   document.body.style.overflow = "";
 }
+
 function openImage(src){
   document.getElementById("lightbox").style.display = "flex";
   document.getElementById("lightboxImg").src = src;
 }
+
 function closeImage(){
   document.getElementById("lightbox").style.display = "none";
 }
 
 const revealItems = document.querySelectorAll(".reveal");
+
 function revealOnScroll(){
   revealItems.forEach(item=>{
     const top = item.getBoundingClientRect().top;
-    if(top < window.innerHeight - 90) item.classList.add("active");
+    if(top < window.innerHeight - 90){
+      item.classList.add("active");
+    }
   });
 }
 
 window.addEventListener("scroll",revealOnScroll);
+
 window.addEventListener("load",()=>{
   revealOnScroll();
   setLang(currentLang);
