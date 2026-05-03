@@ -1,474 +1,346 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Designs by Asmaa Allam</title>
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, LayoutGrid, Home, Phone, Info, PenTool, Briefcase, ShoppingBag, Utensils, Building, Monitor, Star, Layers, Globe, Mail } from 'lucide-react';
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --navy:#1a2744;
-  --gold:#c9a55a;
-  --cream:#faf7f2;
-  --warm:#f5ede0;
-  --text:#2a2a2a;
-  --muted:#777;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Inter",sans-serif;background:var(--cream);color:var(--text)}
-
-nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  padding:1rem 6%;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(26,39,68,.94);backdrop-filter:blur(14px)
-}
-.nav-logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:48px;width:auto;object-fit:contain}
-.logo-text{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.35rem;line-height:1.1;letter-spacing:1.5px}
-.logo-text small{display:block;font-family:"Inter",sans-serif;font-size:.63rem;color:rgba(255,255,255,.6);letter-spacing:2.5px;margin-top:3px}
-.nav-links{display:flex;gap:1.8rem}
-.nav-links a{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;letter-spacing:1px;transition:.3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{padding:.7rem 1.4rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:40px;font-size:.82rem;transition:.3s}
-.nav-cta:hover{background:var(--gold);color:var(--navy)}
-
-.hero{
-  min-height:100vh;
-  background:url("villa_hero_bg.jpg") center/cover no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-  animation:heroZoom 14s ease-in-out infinite alternate
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),
-  linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72))
-}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:2rem;animation:fadeUp 1.5s ease forwards}
-.hero-label{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;font-weight:600}
-.hero h1{font-family:"Playfair Display",serif;color:white;font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;margin-bottom:1.2rem;text-shadow:0 20px 50px rgba(0,0,0,.55)}
-.hero p{color:rgba(255,255,255,.9);font-size:1.07rem;line-height:1.9;max-width:720px;margin:0 auto 2rem}
-.hero-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-.btn{padding:.95rem 1.85rem;border-radius:40px;text-decoration:none;transition:.3s;font-size:.9rem}
-.btn-gold{background:var(--gold);color:var(--navy);font-weight:700}
-.btn-outline{border:1px solid rgba(255,255,255,.75);color:white}
-.btn:hover{transform:translateY(-4px)}
-
-.section{padding:6rem 6%}
-.section-title{text-align:center;margin-bottom:3rem}
-.label{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.75rem;margin-bottom:.8rem;font-weight:700}
-.section-title h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:clamp(2rem,4vw,3.4rem)}
-.gold-line{width:70px;height:2px;background:var(--gold);margin:1rem auto 0}
-
-.portfolio{background:var(--cream)}
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.catalog-card{
-  min-height:390px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background-size:cover;
-  background-position:center;
-  cursor:pointer;
-  box-shadow:0 25px 55px rgba(0,0,0,.15);
-  transition:.45s;
-  background-color:#1a2744
-}
-.catalog-card:hover{transform:translateY(-9px) scale(1.02)}
-.catalog-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18),rgba(0,0,0,.02))
-}
-.catalog-info{position:absolute;bottom:0;z-index:2;color:white;padding:1.8rem}
-.catalog-info span{color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.72rem;font-weight:700}
-.catalog-info h3{font-family:"Playfair Display",serif;font-size:2rem;margin:.45rem 0}
-.catalog-info p{color:rgba(255,255,255,.84);line-height:1.6;font-size:.9rem}
-.catalog-count{
-  display:inline-block;margin-top:.9rem;padding:.45rem .8rem;
-  border:1px solid rgba(201,165,90,.65);border-radius:40px;
-  font-size:.78rem;color:var(--gold);background:rgba(0,0,0,.25)
-}
-.loading-note{text-align:center;color:var(--muted);padding:2rem}
-
-.about{background:white}
-.architect-wrap{max-width:1120px;margin:auto;display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center}
-.architect-card{text-align:center}
-.architect-img{width:100%;max-width:360px;border-radius:28px;display:block;margin:auto;box-shadow:0 28px 75px rgba(0,0,0,.22)}
-.architect-info{
-  margin:-35px auto 0;width:86%;position:relative;
-  background:rgba(26,39,68,.96);
-  border:1px solid rgba(201,165,90,.55);
-  border-radius:22px;padding:1.35rem 1rem;color:white;
-  box-shadow:0 20px 45px rgba(0,0,0,.2)
-}
-.architect-info span{display:block;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.72rem;font-weight:700;margin-bottom:.5rem}
-.architect-info h2{font-family:"Playfair Display",serif;font-size:2rem;margin-bottom:.35rem}
-.architect-info p{color:rgba(255,255,255,.82);font-size:.95rem}
-.about-text h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:2.8rem;line-height:1.15;margin-bottom:1.2rem}
-.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1rem;font-size:1rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.stat{background:var(--cream);padding:1.1rem;border-radius:18px;text-align:center}
-.stat strong{color:var(--gold);font-size:1.45rem}
-.stat span{display:block;font-size:.78rem;color:var(--muted);margin-top:.3rem}
-
-.services{background:var(--warm)}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem}
-.service-card{background:white;border-radius:24px;padding:2rem;box-shadow:0 20px 45px rgba(0,0,0,.07);transition:.35s}
-.service-card:hover{transform:translateY(-8px)}
-.service-icon{font-size:2rem;margin-bottom:1rem}
-.service-card h3{color:var(--navy);margin-bottom:.7rem}
-.service-card p{color:var(--muted);line-height:1.75;font-size:.93rem}
-
-.contact{background:var(--navy);color:white;text-align:center}
-.contact h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:3rem;margin-bottom:1rem}
-.contact p{color:rgba(255,255,255,.78);line-height:1.8;max-width:720px;margin:0 auto 2rem}
-.contact-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
-
-.catalog-modal{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);
-  z-index:9999;overflow-y:auto;padding:2rem
-}
-.catalog-modal.active{display:block}
-.modal-head{max-width:1200px;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:white}
-.modal-head h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:2.3rem}
-.modal-head p{color:rgba(255,255,255,.7);margin-top:.3rem}
-.close-modal{background:transparent;border:1px solid rgba(255,255,255,.35);color:white;border-radius:50%;width:46px;height:46px;font-size:1.7rem;cursor:pointer}
-.modal-gallery{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
-.modal-gallery img{width:100%;height:250px;object-fit:cover;border-radius:18px;cursor:pointer;box-shadow:0 18px 40px rgba(0,0,0,.45);transition:.3s;background:#222}
-.modal-gallery img:hover{transform:scale(1.03)}
-
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:10000;justify-content:center;align-items:center;padding:2rem}
-.lightbox img{max-width:94%;max-height:88vh;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.7)}
-.close-lightbox{position:fixed;top:22px;right:32px;color:white;font-size:44px;cursor:pointer}
-
-.whatsapp{position:fixed;right:22px;bottom:22px;z-index:1500;background:#25D366;color:white;padding:.9rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 16px 40px rgba(37,211,102,.36)}
-
-footer{background:#111827;color:white;text-align:center;padding:2.5rem 6%}
-.footer-logo{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.8rem;margin-bottom:.4rem}
-footer p{color:rgba(255,255,255,.55);font-size:.85rem}
-
-.reveal{opacity:0;transform:translateY(45px);transition:.8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
-@keyframes heroZoom{from{background-size:100%}to{background-size:112%}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
-
-@media(max-width:850px){
-  nav{padding:.9rem 5%}
-  .nav-links,.nav-cta{display:none}
-  .architect-wrap{grid-template-columns:1fr;text-align:center;gap:2.5rem}
-  .about-text h2{font-size:2.2rem}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .catalog-card{min-height:310px}
-  .hero p{font-size:.95rem}
-  .modal-gallery img{height:220px}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <div class="nav-logo">
-    <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
-    <div class="logo-text">
-      Royal Designs
-      <small>BY ASMAA ALLAM</small>
-    </div>
-  </div>
-
-  <div class="nav-links">
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#services">Sectors</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <a class="nav-cta" href="https://wa.me/201116211118" target="_blank">Book Consultation</a>
-</nav>
-
-<header class="hero">
-  <div class="hero-content">
-    <div class="hero-label">Luxury Interior Design</div>
-    <h1>Royal Designs by Asmaa Allam</h1>
-    <p>
-      Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision,
-      elegant styling, and a clear execution vision.
-    </p>
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-gold">Explore Portfolio</a>
-      <a href="https://wa.me/201116211118" target="_blank" class="btn btn-outline">WhatsApp Consultation</a>
-    </div>
-  </div>
-</header>
-
-<section class="section portfolio reveal" id="portfolio">
-  <div class="section-title">
-    <div class="label">Image-Based Portfolio</div>
-    <h2>Explore Our Design Catalogs</h2>
-    <div class="gold-line"></div>
-  </div>
-
-  <div id="loadingNote" class="loading-note">Loading JPG portfolio catalogs...</div>
-  <div class="catalog-grid" id="catalogGrid"></div>
-</section>
-
-<section class="section about reveal" id="about">
-  <div class="architect-wrap">
-    <div class="architect-card">
-      <img src="engineer.jpg" alt="Asmaa Allam" class="architect-img">
-      <div class="architect-info">
-        <span>Lead Architect</span>
-        <h2>Asmaa Allam</h2>
-        <p>Interior Design Engineer</p>
-      </div>
-    </div>
-
-    <div class="about-text">
-      <div class="label">About</div>
-      <h2>Design with Vision, Elegance & Precision</h2>
-      <p>
-        Royal Designs creates complete interior experiences that combine aesthetic clarity,
-        practical space planning, and accurate execution details.
-      </p>
-      <p>
-        The portfolio covers hospitality, restaurants, retail spaces, offices, kitchens, dressing rooms,
-        bedrooms, living rooms, exhibitions, booths, ceilings, finishes, bathrooms, and custom units.
-      </p>
-
-      <div class="stats">
-        <div class="stat"><strong>+600</strong><span>Projects</span></div>
-        <div class="stat"><strong>20</strong><span>Design Sectors</span></div>
-        <div class="stat"><strong>+10</strong><span>Years</span></div>
-        <div class="stat"><strong>2026</strong><span>Portfolio</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section services reveal" id="services">
-  <div class="section-title">
-    <div class="label">Design Sectors</div>
-    <h2>Specialized Interior Categories</h2>
-    <div class="gold-line"></div>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card"><div class="service-icon">🏨</div><h3>Hotels</h3><p>Hospitality interiors with comfort, identity, and premium guest experience.</p></div>
-    <div class="service-card"><div class="service-icon">🍽️</div><h3>Restaurants & Dining</h3><p>Dining spaces designed for atmosphere, flow, and visual impact.</p></div>
-    <div class="service-card"><div class="service-icon">🛍️</div><h3>Retail & Booths</h3><p>Commercial interiors and displays that support customer movement.</p></div>
-    <div class="service-card"><div class="service-icon">🏠</div><h3>Residential Spaces</h3><p>Living rooms, bedrooms, kitchens, bathrooms, and customized units.</p></div>
-  </div>
-</section>
-
-<section class="section contact reveal" id="contact">
-  <h2>Start Your Project</h2>
-  <p>
-    Share your space details and receive a professional design direction tailored to your project type,
-    budget level, and preferred style.
-  </p>
-  <div class="contact-actions">
-    <a href="https://wa.me/201116211118" target="_blank" class="btn btn-gold">Chat on WhatsApp</a>
-    <a href="tel:01116211118" class="btn btn-outline">Call 0111 621 1118</a>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">Royal Designs</div>
-  <p>by Asmaa Allam · Interior Design Engineer</p>
-  <p>© 2026 Royal Designs. All Rights Reserved.</p>
-</footer>
-
-<div class="catalog-modal" id="catalogModal">
-  <div class="modal-head">
-    <div>
-      <h2 id="modalTitle">Catalog</h2>
-      <p id="modalDesc">Selected JPG images from this category.</p>
-    </div>
-    <button class="close-modal" onclick="closeCatalog()">×</button>
-  </div>
-  <div class="modal-gallery" id="modalGallery"></div>
-</div>
-
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-  <span class="close-lightbox">&times;</span>
-  <img id="lightboxImg" src="">
-</div>
-
-<a href="https://wa.me/201116211118" target="_blank" class="whatsapp">WhatsApp</a>
-
-<script>
-const GITHUB_OWNER = "royaldesignseg-arch";
-const GITHUB_REPO = "royal-designs";
-const GITHUB_BRANCH = "main";
-
-const catalogConfig = [
-  {title:"Offices",tag:"Commercial",folder:"offices",desc:"Professional office interiors with refined executive style."},
-  {title:"Dining Rooms",tag:"Residential",folder:"dinning-rooms",desc:"Elegant dining spaces designed for comfort and refined hosting."},
-  {title:"Bedrooms",tag:"Residential",folder:"bed-rooms",desc:"Calm bedroom interiors with balanced materials and lighting."},
-  {title:"Booths",tag:"Commercial",folder:"booths",desc:"Display booths and presentation units designed for visual attraction."},
-  {title:"Restaurants",tag:"Commercial",folder:"restaurants",desc:"Dining spaces with strong atmosphere and customer flow."},
-  {title:"Kitchens",tag:"Residential",folder:"kitchens",desc:"Modern kitchens with practical storage and premium finishes."},
-  {title:"Dressing Rooms",tag:"Residential",folder:"dressing-rooms",desc:"Organized dressing rooms with luxury storage details."},
-  {title:"Exhibitions",tag:"Commercial",folder:"Exhibitions",desc:"Exhibition interiors and display zones with strong visual impact."},
-  {title:"Finishes",tag:"Details",folder:"finishes",desc:"Material, marble, wall, floor, and finishing details."},
-  {title:"Hotels",tag:"Hospitality",folder:"hotels",desc:"Premium hospitality interiors with refined guest experience."},
-  {title:"Living Rooms",tag:"Residential",folder:"living rooms",desc:"Living spaces for villas and apartments with comfortable luxury."},
-  {title:"Retail Shops",tag:"Commercial",folder:"shops",desc:"Retail interiors designed for attractive product display."},
-  {title:"TV Units",tag:"Residential",folder:"units",desc:"Custom TV units and wall compositions with clean styling."},
-  {title:"Ceilings",tag:"Details",folder:"ceilings",desc:"Ceiling treatments, lighting lines, and decorative finishing."},
-  {title:"Bathrooms",tag:"Residential",folder:"bathrooms",desc:"Bathroom interiors with smart layout and premium selections."},
-  {title:"Selections",tag:"Details",folder:"selections-20260503T111652Z-3-001",desc:"Curated selections and additional design references."}
-];
-
-let catalogs = [];
-
-function isImage(fileName){
-  return /\.jpg$/i.test(fileName);
-}
-
-function sortImages(files){
-  return files.sort((a,b)=>{
-    const an = parseInt(a.name.match(/\d+/)?.[0] || "999999",10);
-    const bn = parseInt(b.name.match(/\d+/)?.[0] || "999999",10);
-    if(an !== bn) return an - bn;
-    return a.name.localeCompare(b.name);
-  });
-}
-
-async function loadFolderImages(folder){
-  const encodedFolder = folder.split("/").map(encodeURIComponent).join("/");
-  const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${encodedFolder}?ref=${GITHUB_BRANCH}`;
-
-  try{
-    const response = await fetch(apiUrl);
-    if(!response.ok) throw new Error("Folder not found");
-
-    const data = await response.json();
-
-    return sortImages(
-      data
-      .filter(item => item.type === "file" && isImage(item.name))
-      .map(item => ({
-        name:item.name,
-        src:item.download_url
-      }))
-    );
-  }catch(error){
-    console.warn("Could not load folder:", folder, error);
-    return [];
-  }
-}
-
-async function buildCatalogs(){
-  const grid = document.getElementById("catalogGrid");
-  const loadingNote = document.getElementById("loadingNote");
-
-  catalogs = [];
-  grid.innerHTML = "";
-
-  for(const item of catalogConfig){
-    const images = await loadFolderImages(item.folder);
-    if(images.length === 0) continue;
-
-    catalogs.push({
-      ...item,
-      images:images,
-      cover:images[0].src
-    });
-  }
-
-  loadingNote.style.display = "none";
-
-  if(catalogs.length === 0){
-    loadingNote.style.display = "block";
-    loadingNote.textContent = "No JPG images found. Check GitHub repo name, folder names, and .jpg extensions.";
-    return;
-  }
-
-  catalogs.forEach((item,index)=>{
-    const card = document.createElement("div");
-    card.className = "catalog-card";
-    card.style.backgroundImage = `url('${item.cover}')`;
-    card.onclick = () => openCatalog(index);
-
-    card.innerHTML = `
-      <div class="catalog-info">
-        <span>${item.tag}</span>
-        <h3>${item.title}</h3>
-        <p>${item.desc}</p>
-        <div class="catalog-count">Open Catalog · ${item.images.length} JPG Images</div>
-      </div>
-    `;
-
-    grid.appendChild(card);
-  });
-}
-
-function openCatalog(index){
-  const item = catalogs[index];
-  const modal = document.getElementById("catalogModal");
-  const gallery = document.getElementById("modalGallery");
-
-  document.getElementById("modalTitle").textContent = item.title;
-  document.getElementById("modalDesc").textContent = `${item.desc} · ${item.images.length} JPG images`;
-
-  gallery.innerHTML = "";
-
-  item.images.forEach((image)=>{
-    const img = document.createElement("img");
-    img.src = image.src;
-    img.alt = image.name;
-    img.loading = "lazy";
-    img.onclick = () => openImage(image.src);
-    gallery.appendChild(img);
-  });
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeCatalog(){
-  document.getElementById("catalogModal").classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-function openImage(src){
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightboxImg").src = src;
-}
-
-function closeImage(){
-  document.getElementById("lightbox").style.display = "none";
-}
-
-const revealItems = document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-  revealItems.forEach(function(item){
-    const top = item.getBoundingClientRect().top;
-    if(top < window.innerHeight - 90){
-      item.classList.add("active");
+// قاموس الترجمة للواجهة
+const translations = {
+  en: {
+    nav: { home: "Home", portfolio: "Portfolio", services: "Services", contact: "Contact", book: "Book Consultation" },
+    hero: { tag: "Luxury Interior Design", btn: "Discover Our Masterpieces" },
+    portfolio: { tag: "Signature Projects", title: "Our Portfolio", desc: "A curated collection of our finest work, reflecting absolute elegance and uncompromising quality.", all: "All Projects" },
+    footer: {
+      desc: "Crafting timeless luxury in every detail. Royal Designs is your premier choice for high-end interior design and architectural excellence.",
+      contactTitle: "Get in Touch",
+      newsletterTitle: "Exclusive Newsletter",
+      newsletterDesc: "Subscribe for an exclusive look at our latest luxurious designs and architectural trends.",
+      emailPlaceholder: "Your Email Address",
+      subscribeBtn: "Subscribe",
+      rights: "© 2026 Royal Designs. All rights reserved."
     }
-  });
-}
+  },
+  ar: {
+    nav: { home: "الرئيسية", portfolio: "معرض الأعمال", services: "خدماتنا", contact: "اتصل بنا", book: "احجز استشارة" },
+    hero: { tag: "تصميم داخلي فاخر", btn: "استكشف إبداعاتنا" },
+    portfolio: { tag: "مشاريعنا المميزة", title: "معرض الأعمال", desc: "مجموعة منتقاة من أرقى أعمالنا، تعكس الفخامة المطلقة والالتزام التام بالجودة.", all: "جميع المشاريع" },
+    footer: {
+      desc: "نصنع الفخامة الخالدة في كل تفصيلة. رويال ديزاين هي وجهتك الأولى للتصميم الداخلي الراقي والتميز المعماري.",
+      contactTitle: "تواصل معنا",
+      newsletterTitle: "النشرة الحصرية",
+      newsletterDesc: "اشترك للحصول على نظرة حصرية لأحدث تصاميمنا الفاخرة والاتجاهات المعمارية.",
+      emailPlaceholder: "بريدك الإلكتروني",
+      subscribeBtn: "إشترك الآن",
+      rights: "© 2026 رويال ديزاين. جميع الحقوق محفوظة."
+    }
+  }
+};
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-window.addEventListener("load", buildCatalogs);
-</script>
+const App = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeTabId, setActiveTabId] = useState('all');
+  const [lang, setLang] = useState('en'); 
+  
+  const t = translations[lang];
 
-</body>
-</html>
+  // 1. صور الهيرو 
+  const heroSlides = [
+    {
+      url: "villa_hero_bg.png",
+      title: { en: "Timeless Elegance", ar: "أناقة خالدة" },
+      subtitle: { en: "Designing and executing the finest villas with uncompromising standards of luxury.", ar: "تصميم وتنفيذ أرقى الفلل بمعايير فخامة لا تقبل المساومة." },
+      fallback: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      url: "hero-interior.jpg",
+      title: { en: "Classic Masterpieces", ar: "روائع كلاسيكية" },
+      subtitle: { en: "Transforming spaces into breathtaking works of art with refined architectural taste.", ar: "تحويل المساحات إلى لوحات فنية تحبس الأنفاس بذوق معماري رفيع." },
+      fallback: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      url: "luxury-kitchen.jpg",
+      title: { en: "Absolute Precision", ar: "دقة متناهية" },
+      subtitle: { en: "Sophisticated detailing for every corner of your prestigious living space.", ar: "عناية فائقة بأدق التفاصيل في كل زاوية من مساحتك الراقية." },
+      fallback: "https://images.unsplash.com/photo-1556912177-f51333224771?auto=format&fit=crop&q=80&w=1200"
+    }
+  ];
+
+  // 2. الفئات بأسماء تتطابق *حرفياً* مع مجلداتك المرفقة في الصورة
+  const categories = [
+    { id: 'living rooms', name: { en: 'Living Rooms', ar: 'غرف معيشة' }, icon: <Home size={15}/> },
+    { id: 'bed-rooms', name: { en: 'Bedrooms', ar: 'غرف نوم' }, icon: <Star size={15}/> },
+    { id: 'bathrooms', name: { en: 'Bathrooms', ar: 'حمامات' }, icon: <Layers size={15}/> },
+    { id: 'kitchens', name: { en: 'Kitchens', ar: 'مطابخ' }, icon: <Utensils size={15}/> },
+    { id: 'dinning-rooms', name: { en: 'Dining Rooms', ar: 'غرف طعام' }, icon: <Utensils size={15}/> },
+    { id: 'dressing-rooms', name: { en: 'Dressing Rooms', ar: 'غرف ملابس' }, icon: <LayoutGrid size={15}/> },
+    { id: 'ceilings', name: { en: 'Ceilings', ar: 'أسقف' }, icon: <LayoutGrid size={15}/> },
+    { id: 'finishes', name: { en: 'Finishes', ar: 'تشطيبات' }, icon: <PenTool size={15}/> },
+    { id: 'offices', name: { en: 'Offices', ar: 'مكاتب' }, icon: <Briefcase size={15}/> },
+    { id: 'hotels', name: { en: 'Hotels', ar: 'فنادق' }, icon: <Building size={15}/> },
+    { id: 'restaurants', name: { en: 'Restaurants', ar: 'مطاعم' }, icon: <Utensils size={15}/> },
+    { id: 'shops', name: { en: 'Shops', ar: 'محلات' }, icon: <ShoppingBag size={15}/> },
+    { id: 'Exhibitions', name: { en: 'Exhibitions', ar: 'معارض' }, icon: <Monitor size={15}/> }, // بحرف E كبير كما في الصورة
+    { id: 'booths', name: { en: 'Booths', ar: 'بوثات' }, icon: <Monitor size={15}/> },
+    { id: 'units', name: { en: 'Units', ar: 'وحدات' }, icon: <Home size={15}/> },
+  ];
+
+  // 3. الصور (تم ضبط مسارات catId ومسار الصورة img ليتطابق مع مجلداتك بنسبة 100%)
+  const portfolioItems = [
+    { id: 1, img: "living rooms/1.jpg", title: { en: "Luxury Living Space", ar: "مساحة معيشة فاخرة" }, catId: "living rooms" },
+    { id: 2, img: "bed-rooms/1.jpg", title: { en: "Royal Master Bedroom", ar: "غرفة نوم ماستر ملكية" }, catId: "bed-rooms" },
+    { id: 3, img: "bathrooms/1.jpg", title: { en: "Marble Spa Bathroom", ar: "حمام رخامي فاخر" }, catId: "bathrooms" },
+    { id: 4, img: "kitchens/1.jpg", title: { en: "Classic Wood Kitchen", ar: "مطبخ كلاسيكي راقي" }, catId: "kitchens" },
+    { id: 5, img: "dinning-rooms/1.jpg", title: { en: "Elegant Dining Area", ar: "منطقة طعام أنيقة" }, catId: "dinning-rooms" },
+    { id: 6, img: "dressing-rooms/1.jpg", title: { en: "Bespoke Walk-in Closet", ar: "غرفة ملابس مصممة خصيصاً" }, catId: "dressing-rooms" },
+    { id: 7, img: "ceilings/1.jpg", title: { en: "Artistic Ceiling Design", ar: "تصميم فني للأسقف" }, catId: "ceilings" },
+    { id: 8, img: "finishes/1.jpg", title: { en: "Premium Exterior Finish", ar: "تشطيب واجهات ممتاز" }, catId: "finishes" },
+    { id: 9, img: "offices/1.jpg", title: { en: "Executive Office Suite", ar: "جناح مكتب إداري" }, catId: "offices" },
+    { id: 10, img: "hotels/1.jpg", title: { en: "Grand Hotel Lobby", ar: "بهو فندق فخم" }, catId: "hotels" },
+    { id: 11, img: "restaurants/1.jpg", title: { en: "Fine Dining Restaurant", ar: "مطعم كلاسيكي راقي" }, catId: "restaurants" },
+    { id: 12, img: "shops/1.jpg", title: { en: "Luxury Retail Store", ar: "متجر تجاري فاخر" }, catId: "shops" },
+    { id: 13, img: "Exhibitions/1.jpg", title: { en: "Premium Exhibition Stand", ar: "جناح عرض متميز" }, catId: "Exhibitions" },
+    { id: 14, img: "booths/1.jpg", title: { en: "Creative Display Booth", ar: "كشك عرض إبداعي" }, catId: "booths" },
+    { id: 15, img: "units/1.jpg", title: { en: "Prestigious Residential Unit", ar: "وحدة سكنية راقية" }, catId: "units" },
+    { id: 16, img: "living rooms/2.jpg", title: { en: "Modern Classic Living", ar: "صالة مودرن كلاسيك" }, catId: "living rooms" },
+  ];
+
+  const filteredItems = activeTabId === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.catId === activeTabId);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+    }, 6000); // إبطاء الحركة قليلاً لتناسب الطابع الكلاسيكي الهادئ
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
+
+  const toggleLanguage = () => {
+    setLang(prev => prev === 'en' ? 'ar' : 'en');
+  };
+
+  const getCategoryName = (catId) => {
+    const cat = categories.find(c => c.id === catId);
+    return cat ? cat.name[lang] : '';
+  };
+
+  return (
+    <div className={`min-h-screen bg-[#faf9f6] text-gray-900 ${lang === 'ar' ? 'font-cairo text-right' : 'font-outfit text-left'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+      
+      {/* 1. Navbar - تصميم كلاسيكي نظيف */}
+      <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200 transition-all duration-300">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+          
+          {/* Logo Section */}
+          <div className="flex items-center gap-3">
+            <img 
+              src="logo.png" 
+              alt="Royal Designs Logo" 
+              className="h-12 md:h-14 w-auto object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none'; // إخفاء الصورة إذا لم يتم العثور عليها
+                e.target.nextSibling.style.display = 'block'; // إظهار النص البديل
+              }}
+            />
+            {/* نص بديل في حال غياب اللوجو - مصمم بأسلوب كلاسيكي */}
+            <h1 className="text-2xl font-bold text-gray-900 tracking-wide hidden">
+              ROYAL <span className="text-[#B8860B] font-normal">DESIGNS</span>
+            </h1>
+          </div>
+          
+          <div className="hidden lg:flex items-center gap-10 text-[15px] font-medium text-gray-600 tracking-wide">
+            <a href="#" className="hover:text-[#B8860B] transition-colors">{t.nav.home}</a>
+            <a href="#portfolio" className="hover:text-[#B8860B] transition-colors">{t.nav.portfolio}</a>
+            <a href="#services" className="hover:text-[#B8860B] transition-colors">{t.nav.services}</a>
+            <a href="#contact" className="hover:text-[#B8860B] transition-colors">{t.nav.contact}</a>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <button 
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-gray-500 hover:text-[#B8860B] text-sm font-semibold transition-colors uppercase tracking-widest"
+            >
+              <Globe size={18} />
+              <span>{lang === 'en' ? 'AR' : 'EN'}</span>
+            </button>
+            <button className="hidden sm:block bg-[#1a1a1a] text-white px-7 py-2.5 rounded-sm font-medium hover:bg-[#B8860B] transition-all duration-300 tracking-wide text-sm border border-transparent hover:border-[#B8860B]">
+              {t.nav.book}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* 2. Hero Section - كلاسيكي وهادئ */}
+      <section className="relative h-[95vh] mt-[68px] overflow-hidden bg-gray-900">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <div className="absolute inset-0 bg-black/50 z-10" />
+            <img
+              src={slide.url}
+              onError={(e) => e.target.src = slide.fallback}
+              className="w-full h-full object-cover transform scale-105 duration-10000 ease-out"
+              style={{ transitionDuration: '12s' }}
+              alt={slide.title[lang]}
+            />
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 mt-16">
+              <span className="text-[#D4AF37] font-medium tracking-[0.3em] mb-6 uppercase text-xs md:text-sm animate-fade-in-up">
+                {t.hero.tag}
+              </span>
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl animate-fade-in-up font-serif-style" style={{ animationDelay: '0.2s' }}>
+                {slide.title[lang]}
+              </h2>
+              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12 drop-shadow-md font-light leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                {slide.subtitle[lang]}
+              </p>
+              <button className="bg-transparent text-white border border-[#D4AF37] px-10 py-3.5 rounded-sm text-sm uppercase tracking-widest font-medium hover:bg-[#D4AF37] hover:text-gray-900 transition-all duration-500 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                {t.hero.btn}
+              </button>
+            </div>
+          </div>
+        ))}
+
+        {/* أزرار السلايدر الراقية */}
+        <button onClick={lang === 'ar' ? nextSlide : prevSlide} className={`absolute ${lang === 'ar' ? 'right-8' : 'left-8'} top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-transparent hover:bg-white/10 text-white/70 hover:text-white transition-all`}>
+          <ChevronLeft size={36} strokeWidth={1} className={lang === 'ar' ? 'rotate-180' : ''} />
+        </button>
+        <button onClick={lang === 'ar' ? prevSlide : nextSlide} className={`absolute ${lang === 'ar' ? 'left-8' : 'right-8'} top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-transparent hover:bg-white/10 text-white/70 hover:text-white transition-all`}>
+          <ChevronRight size={36} strokeWidth={1} className={lang === 'ar' ? 'rotate-180' : ''} />
+        </button>
+      </section>
+
+      {/* 3. Portfolio Section - تصميم معمارى حاد */}
+      <section id="portfolio" className="py-28 px-4 md:px-8 max-w-[1400px] mx-auto">
+        <div className="text-center mb-20">
+          <span className="text-[#B8860B] font-semibold mb-3 block uppercase tracking-widest text-xs">{t.portfolio.tag}</span>
+          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif-style">{t.portfolio.title}</h3>
+          <div className="w-16 h-0.5 bg-[#B8860B] mx-auto mb-6"></div>
+          <p className="text-gray-500 text-base max-w-2xl mx-auto font-light leading-relaxed">
+            {t.portfolio.desc}
+          </p>
+        </div>
+
+        {/* شريط الفئات (Minimalist Tabs) */}
+        <div className="flex overflow-x-auto pb-6 justify-start md:justify-center gap-2 mb-16 scrollbar-hide border-b border-gray-200">
+          <button
+            onClick={() => setActiveTabId('all')}
+            className={`whitespace-nowrap px-6 py-3 font-medium text-sm transition-all border-b-2 ${
+              activeTabId === 'all' ? 'border-[#B8860B] text-[#B8860B]' : 'border-transparent text-gray-500 hover:text-gray-900'
+            }`}
+          >
+            {t.portfolio.all}
+          </button>
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveTabId(cat.id)}
+              className={`whitespace-nowrap px-5 py-3 font-medium text-sm flex items-center gap-2 transition-all border-b-2 ${
+                activeTabId === cat.id ? 'border-[#B8860B] text-[#B8860B]' : 'border-transparent text-gray-500 hover:text-gray-900'
+              }`}
+            >
+              {cat.name[lang]}
+            </button>
+          ))}
+        </div>
+
+        {/* شبكة الصور (Sharp Edges) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {filteredItems.map((item) => (
+            <div key={item.id} className="group relative overflow-hidden rounded-sm shadow-sm hover:shadow-2xl transition-all duration-700 aspect-[4/5] bg-gray-200 cursor-pointer">
+              <img 
+                src={item.img} 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
+                alt={item.title[lang]}
+                onError={(e) => e.target.src = `https://images.unsplash.com/photo-1616489953149-8f6443c5b967?auto=format&fit=crop&q=80&w=600`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                <span className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-2 block">
+                  {getCategoryName(item.catId)}
+                </span>
+                <h4 className="text-white text-xl font-medium font-serif-style">{item.title[lang]}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Footer - كلاسيكي داكن */}
+      <footer id="contact" className="bg-[#0a0a0a] text-gray-300 py-24 px-6 border-t border-[#B8860B]/30">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+          <div>
+            <img 
+              src="logo.png" 
+              alt="Royal Designs Logo" 
+              className="h-16 w-auto object-contain mb-8 filter brightness-0 invert opacity-90"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'block';
+              }}
+            />
+             <h4 className="text-2xl font-bold text-white mb-6 tracking-wide hidden font-serif-style">
+              ROYAL <span className="text-[#B8860B] font-normal">DESIGNS</span>
+            </h4>
+            <p className="text-gray-400 leading-relaxed font-light text-sm">
+              {t.footer.desc}
+            </p>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-8 tracking-wider uppercase text-sm">{t.footer.contactTitle}</h4>
+            <ul className="space-y-6 text-gray-400 font-light text-sm">
+              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Phone size={18} className="text-[#B8860B] mt-0.5"/> 0123456789</li>
+              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Mail size={18} className="text-[#B8860B] mt-0.5"/> info@royaldesignseg.com</li>
+              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Home size={18} className="text-[#B8860B] mt-0.5"/> Cairo, 5th Settlement</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-8 tracking-wider uppercase text-sm">{t.footer.newsletterTitle}</h4>
+            <p className="text-gray-400 mb-6 text-sm font-light leading-relaxed">{t.footer.newsletterDesc}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input type="email" placeholder={t.footer.emailPlaceholder} className="bg-white/5 border border-white/10 rounded-sm px-5 py-3 w-full focus:border-[#B8860B] focus:ring-0 outline-none text-white transition-all text-sm font-light" />
+              <button className="bg-[#B8860B] text-white font-medium px-8 py-3 rounded-sm hover:bg-[#996515] transition-all text-sm tracking-wide">{t.footer.subscribeBtn}</button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-gray-500 tracking-wide">
+          <p>{t.footer.rights}</p>
+        </div>
+      </footer>
+
+      {/* CSS For Fonts and Animations */}
+      <style>{`
+        /* خطوط راقية: Cairo للغة العربية، Outfit للمسافات العادية بالإنجليزية، و Playfair Display للعناوين الفخمة */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        
+        .font-cairo { font-family: 'Cairo', sans-serif; }
+        .font-outfit { font-family: 'Outfit', sans-serif; }
+        
+        /* كلاس مخصص للعناوين لإعطاء طابع كلاسيكي عند استخدام اللغة الإنجليزية */
+        html[dir="ltr"] .font-serif-style {
+          font-family: 'Playfair Display', serif;
+        }
+
+        /* إخفاء شريط التمرير */
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          opacity: 0;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default App;
