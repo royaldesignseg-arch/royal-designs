@@ -1,34 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft, LayoutGrid, Home, Phone, Info, PenTool, Briefcase, ShoppingBag, Utensils, Building, Monitor, Star, Layers, Globe, Mail } from 'lucide-react';
+import { 
+  ChevronRight, ChevronLeft, LayoutGrid, Home, Phone, Info, 
+  PenTool, Briefcase, ShoppingBag, Utensils, Building, 
+  Monitor, Star, Layers, Globe, Mail, Instagram, Facebook
+} from 'lucide-react';
 
-// قاموس الترجمة للواجهة
+// القاموس المترجم - الواجهة إنجليزية افتراضياً
 const translations = {
   en: {
-    nav: { home: "Home", portfolio: "Portfolio", services: "Services", contact: "Contact", book: "Book Consultation" },
-    hero: { tag: "Luxury Interior Design", btn: "Discover Our Masterpieces" },
-    portfolio: { tag: "Signature Projects", title: "Our Portfolio", desc: "A curated collection of our finest work, reflecting absolute elegance and uncompromising quality.", all: "All Projects" },
+    nav: { home: "Home", portfolio: "Projects", services: "Services", contact: "Contact", book: "Enquiry" },
+    hero: { tag: "Exquisite Architectural Solutions", btn: "View Gallery" },
+    portfolio: { 
+      tag: "OUR SIGNATURE", 
+      title: "Masterpieces", 
+      desc: "A bespoke collection of interior and architectural excellence, tailored for those who seek timeless luxury.", 
+      all: "All Works" 
+    },
     footer: {
-      desc: "Crafting timeless luxury in every detail. Royal Designs is your premier choice for high-end interior design and architectural excellence.",
-      contactTitle: "Get in Touch",
-      newsletterTitle: "Exclusive Newsletter",
-      newsletterDesc: "Subscribe for an exclusive look at our latest luxurious designs and architectural trends.",
-      emailPlaceholder: "Your Email Address",
+      desc: "Royal Designs is a leading name in luxury interior and architectural design, delivering excellence through precision and artistic vision.",
+      contactTitle: "Contact Us",
+      newsletterTitle: "Newsletter",
+      newsletterDesc: "Subscribe to our exclusive design updates.",
+      emailPlaceholder: "Email Address",
       subscribeBtn: "Subscribe",
-      rights: "© 2026 Royal Designs. All rights reserved."
+      rights: "© 2026 Royal Designs. Crafted with Excellence."
     }
   },
   ar: {
-    nav: { home: "الرئيسية", portfolio: "معرض الأعمال", services: "خدماتنا", contact: "اتصل بنا", book: "احجز استشارة" },
-    hero: { tag: "تصميم داخلي فاخر", btn: "استكشف إبداعاتنا" },
-    portfolio: { tag: "مشاريعنا المميزة", title: "معرض الأعمال", desc: "مجموعة منتقاة من أرقى أعمالنا، تعكس الفخامة المطلقة والالتزام التام بالجودة.", all: "جميع المشاريع" },
+    nav: { home: "الرئيسية", portfolio: "مشاريعنا", services: "خدماتنا", contact: "اتصل بنا", book: "استفسار" },
+    hero: { tag: "حلول معمارية راقية", btn: "مشاهدة المعرض" },
+    portfolio: { 
+      tag: "بصمتنا الخاصة", 
+      title: "روائع رويال", 
+      desc: "مجموعة مختارة من التميز المعماري والتصميم الداخلي، مصممة خصيصاً لمن يبحثون عن الفخامة الخالدة.", 
+      all: "الكل" 
+    },
     footer: {
-      desc: "نصنع الفخامة الخالدة في كل تفصيلة. رويال ديزاين هي وجهتك الأولى للتصميم الداخلي الراقي والتميز المعماري.",
+      desc: "رويال ديزاين هي اسم رائد في التصميم الداخلي والمعماري الفاخر، نقدم التميز من خلال الدقة والرؤية الفنية.",
       contactTitle: "تواصل معنا",
-      newsletterTitle: "النشرة الحصرية",
-      newsletterDesc: "اشترك للحصول على نظرة حصرية لأحدث تصاميمنا الفاخرة والاتجاهات المعمارية.",
-      emailPlaceholder: "بريدك الإلكتروني",
-      subscribeBtn: "إشترك الآن",
-      rights: "© 2026 رويال ديزاين. جميع الحقوق محفوظة."
+      newsletterTitle: "النشرة الإخبارية",
+      newsletterDesc: "اشترك للحصول على تحديثات التصميم الحصرية.",
+      emailPlaceholder: "البريد الإلكتروني",
+      subscribeBtn: "إشترك",
+      rights: "© 2026 رويال ديزاين. صُنع بتميز."
     }
   }
 };
@@ -40,65 +54,53 @@ const App = () => {
   
   const t = translations[lang];
 
-  // 1. صور الهيرو 
+  // 1. صور الهيرو (فيلا هيرو في المقدمة)
   const heroSlides = [
     {
       url: "villa_hero_bg.png",
-      title: { en: "Timeless Elegance", ar: "أناقة خالدة" },
-      subtitle: { en: "Designing and executing the finest villas with uncompromising standards of luxury.", ar: "تصميم وتنفيذ أرقى الفلل بمعايير فخامة لا تقبل المساومة." },
-      fallback: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"
+      title: { en: "A Legacy of Luxury", ar: "إرث من الفخامة" },
+      subtitle: { en: "Bespoke villas designed for the elite, where elegance meets innovation.", ar: "فلل مصممة خصيصاً للنخبة، حيث تلتقي الأناقة بالابتكار." },
+      fallback: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200"
     },
     {
       url: "hero-interior.jpg",
-      title: { en: "Classic Masterpieces", ar: "روائع كلاسيكية" },
-      subtitle: { en: "Transforming spaces into breathtaking works of art with refined architectural taste.", ar: "تحويل المساحات إلى لوحات فنية تحبس الأنفاس بذوق معماري رفيع." },
+      title: { en: "The Royal Touch", ar: "اللمسة الملكية" },
+      subtitle: { en: "Transforming empty spaces into architectural symphonies.", ar: "تحويل المساحات الفارغة إلى سيمفونيات معمارية." },
       fallback: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      url: "luxury-kitchen.jpg",
-      title: { en: "Absolute Precision", ar: "دقة متناهية" },
-      subtitle: { en: "Sophisticated detailing for every corner of your prestigious living space.", ar: "عناية فائقة بأدق التفاصيل في كل زاوية من مساحتك الراقية." },
-      fallback: "https://images.unsplash.com/photo-1556912177-f51333224771?auto=format&fit=crop&q=80&w=1200"
     }
   ];
 
-  // 2. الفئات بأسماء تتطابق *حرفياً* مع مجلداتك المرفقة في الصورة
+  // 2. الفئات (مطابقة تماماً لصورة المجلدات التي أرفقتها)
   const categories = [
-    { id: 'living rooms', name: { en: 'Living Rooms', ar: 'غرف معيشة' }, icon: <Home size={15}/> },
-    { id: 'bed-rooms', name: { en: 'Bedrooms', ar: 'غرف نوم' }, icon: <Star size={15}/> },
-    { id: 'bathrooms', name: { en: 'Bathrooms', ar: 'حمامات' }, icon: <Layers size={15}/> },
-    { id: 'kitchens', name: { en: 'Kitchens', ar: 'مطابخ' }, icon: <Utensils size={15}/> },
-    { id: 'dinning-rooms', name: { en: 'Dining Rooms', ar: 'غرف طعام' }, icon: <Utensils size={15}/> },
-    { id: 'dressing-rooms', name: { en: 'Dressing Rooms', ar: 'غرف ملابس' }, icon: <LayoutGrid size={15}/> },
-    { id: 'ceilings', name: { en: 'Ceilings', ar: 'أسقف' }, icon: <LayoutGrid size={15}/> },
-    { id: 'finishes', name: { en: 'Finishes', ar: 'تشطيبات' }, icon: <PenTool size={15}/> },
-    { id: 'offices', name: { en: 'Offices', ar: 'مكاتب' }, icon: <Briefcase size={15}/> },
-    { id: 'hotels', name: { en: 'Hotels', ar: 'فنادق' }, icon: <Building size={15}/> },
-    { id: 'restaurants', name: { en: 'Restaurants', ar: 'مطاعم' }, icon: <Utensils size={15}/> },
-    { id: 'shops', name: { en: 'Shops', ar: 'محلات' }, icon: <ShoppingBag size={15}/> },
-    { id: 'Exhibitions', name: { en: 'Exhibitions', ar: 'معارض' }, icon: <Monitor size={15}/> }, // بحرف E كبير كما في الصورة
-    { id: 'booths', name: { en: 'Booths', ar: 'بوثات' }, icon: <Monitor size={15}/> },
-    { id: 'units', name: { en: 'Units', ar: 'وحدات' }, icon: <Home size={15}/> },
+    { id: 'living rooms', name: { en: 'Living Rooms', ar: 'غرف معيشة' }, icon: <Home size={14}/> },
+    { id: 'bed-rooms', name: { en: 'Bedrooms', ar: 'غرف نوم' }, icon: <Star size={14}/> },
+    { id: 'bathrooms', name: { en: 'Bathrooms', ar: 'حمامات' }, icon: <Layers size={14}/> },
+    { id: 'kitchens', name: { en: 'Kitchens', ar: 'مطابخ' }, icon: <Utensils size={14}/> },
+    { id: 'dinning-rooms', name: { en: 'Dining Rooms', ar: 'غرف طعام' }, icon: <Utensils size={14}/> },
+    { id: 'dressing-rooms', name: { en: 'Dressing Rooms', ar: 'غرف ملابس' }, icon: <LayoutGrid size={14}/> },
+    { id: 'ceilings', name: { en: 'Ceilings', ar: 'أسقف' }, icon: <LayoutGrid size={14}/> },
+    { id: 'finishes', name: { en: 'Finishes', ar: 'تشطيبات' }, icon: <PenTool size={14}/> },
+    { id: 'offices', name: { en: 'Offices', ar: 'مكاتب' }, icon: <Briefcase size={14}/> },
+    { id: 'hotels', name: { en: 'Hotels', ar: 'فنادق' }, icon: <Building size={14}/> },
+    { id: 'restaurants', name: { en: 'Restaurants', ar: 'مطاعم' }, icon: <Utensils size={14}/> },
+    { id: 'shops', name: { en: 'Shops', ar: 'محلات' }, icon: <ShoppingBag size={14}/> },
+    { id: 'Exhibitions', name: { en: 'Exhibitions', ar: 'معارض' }, icon: <Monitor size={14}/> },
+    { id: 'booths', name: { en: 'Booths', ar: 'بوثات' }, icon: <Monitor size={14}/> },
+    { id: 'units', name: { en: 'Units', ar: 'وحدات' }, icon: <Home size={14}/> },
   ];
 
-  // 3. الصور (تم ضبط مسارات catId ومسار الصورة img ليتطابق مع مجلداتك بنسبة 100%)
+  // 3. عينات الصور (تستخدم مسارات مجلداتك)
   const portfolioItems = [
-    { id: 1, img: "living rooms/1.jpg", title: { en: "Luxury Living Space", ar: "مساحة معيشة فاخرة" }, catId: "living rooms" },
-    { id: 2, img: "bed-rooms/1.jpg", title: { en: "Royal Master Bedroom", ar: "غرفة نوم ماستر ملكية" }, catId: "bed-rooms" },
-    { id: 3, img: "bathrooms/1.jpg", title: { en: "Marble Spa Bathroom", ar: "حمام رخامي فاخر" }, catId: "bathrooms" },
-    { id: 4, img: "kitchens/1.jpg", title: { en: "Classic Wood Kitchen", ar: "مطبخ كلاسيكي راقي" }, catId: "kitchens" },
-    { id: 5, img: "dinning-rooms/1.jpg", title: { en: "Elegant Dining Area", ar: "منطقة طعام أنيقة" }, catId: "dinning-rooms" },
-    { id: 6, img: "dressing-rooms/1.jpg", title: { en: "Bespoke Walk-in Closet", ar: "غرفة ملابس مصممة خصيصاً" }, catId: "dressing-rooms" },
-    { id: 7, img: "ceilings/1.jpg", title: { en: "Artistic Ceiling Design", ar: "تصميم فني للأسقف" }, catId: "ceilings" },
-    { id: 8, img: "finishes/1.jpg", title: { en: "Premium Exterior Finish", ar: "تشطيب واجهات ممتاز" }, catId: "finishes" },
-    { id: 9, img: "offices/1.jpg", title: { en: "Executive Office Suite", ar: "جناح مكتب إداري" }, catId: "offices" },
-    { id: 10, img: "hotels/1.jpg", title: { en: "Grand Hotel Lobby", ar: "بهو فندق فخم" }, catId: "hotels" },
-    { id: 11, img: "restaurants/1.jpg", title: { en: "Fine Dining Restaurant", ar: "مطعم كلاسيكي راقي" }, catId: "restaurants" },
-    { id: 12, img: "shops/1.jpg", title: { en: "Luxury Retail Store", ar: "متجر تجاري فاخر" }, catId: "shops" },
-    { id: 13, img: "Exhibitions/1.jpg", title: { en: "Premium Exhibition Stand", ar: "جناح عرض متميز" }, catId: "Exhibitions" },
-    { id: 14, img: "booths/1.jpg", title: { en: "Creative Display Booth", ar: "كشك عرض إبداعي" }, catId: "booths" },
-    { id: 15, img: "units/1.jpg", title: { en: "Prestigious Residential Unit", ar: "وحدة سكنية راقية" }, catId: "units" },
-    { id: 16, img: "living rooms/2.jpg", title: { en: "Modern Classic Living", ar: "صالة مودرن كلاسيك" }, catId: "living rooms" },
+    { id: 1, img: "living rooms/1.jpg", title: { en: "Noble Lounge", ar: "صالة النبلاء" }, catId: "living rooms" },
+    { id: 2, img: "offices/1.jpg", title: { en: "Executive Chamber", ar: "مكتب تنفيذي" }, catId: "offices" },
+    { id: 3, img: "kitchens/1.jpg", title: { en: "Culinary Studio", ar: "ستوديو المطبخ" }, catId: "kitchens" },
+    { id: 4, img: "bed-rooms/1.jpg", title: { en: "Serenity Suite", ar: "جناح الهدوء" }, catId: "bed-rooms" },
+    { id: 5, img: "bathrooms/1.jpg", title: { en: "Spa Oasis", ar: "واحة الاستجمام" }, catId: "bathrooms" },
+    { id: 6, img: "Exhibitions/1.jpg", title: { en: "Grand Hall", ar: "القاعة الكبرى" }, catId: "Exhibitions" },
+    { id: 7, img: "restaurants/1.jpg", title: { en: "Vogue Bistro", ar: "مطعم فوج" }, catId: "restaurants" },
+    { id: 8, img: "booths/1.jpg", title: { en: "Elite Stand", ar: "جناح النخبة" }, catId: "booths" },
+    { id: 9, img: "dinning-rooms/1.jpg", title: { en: "Banquet Hall", ar: "قاعة الولائم" }, catId: "dinning-rooms" },
+    { id: 10, img: "finishes/1.jpg", title: { en: "Marble Flooring", ar: "أرضيات رخامية" }, catId: "finishes" },
   ];
 
   const filteredItems = activeTabId === 'all' 
@@ -108,236 +110,251 @@ const App = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-    }, 6000); // إبطاء الحركة قليلاً لتناسب الطابع الكلاسيكي الهادئ
+    }, 7000);
     return () => clearInterval(timer);
   }, [heroSlides.length]);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
-  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
 
   const toggleLanguage = () => {
     setLang(prev => prev === 'en' ? 'ar' : 'en');
   };
 
-  const getCategoryName = (catId) => {
-    const cat = categories.find(c => c.id === catId);
-    return cat ? cat.name[lang] : '';
-  };
-
   return (
-    <div className={`min-h-screen bg-[#faf9f6] text-gray-900 ${lang === 'ar' ? 'font-cairo text-right' : 'font-outfit text-left'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen bg-[#FDFCFB] text-[#1A1A1A] ${lang === 'ar' ? 'font-cairo' : 'font-outfit'}`} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       
-      {/* 1. Navbar - تصميم كلاسيكي نظيف */}
-      <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200 transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+      {/* 1. Header (Elegant & Fixed) */}
+      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 transition-all">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           
-          {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            <img 
-              src="logo.png" 
-              alt="Royal Designs Logo" 
-              className="h-12 md:h-14 w-auto object-contain"
-              onError={(e) => {
-                e.target.style.display = 'none'; // إخفاء الصورة إذا لم يتم العثور عليها
-                e.target.nextSibling.style.display = 'block'; // إظهار النص البديل
-              }}
-            />
-            {/* نص بديل في حال غياب اللوجو - مصمم بأسلوب كلاسيكي */}
-            <h1 className="text-2xl font-bold text-gray-900 tracking-wide hidden">
-              ROYAL <span className="text-[#B8860B] font-normal">DESIGNS</span>
+          <div className="flex items-center gap-4">
+            <img src="logo.png" alt="Royal Designs" className="h-10 md:h-12 w-auto" onError={(e) => e.target.style.display = 'none'} />
+            <h1 className="text-xl md:text-2xl font-bold tracking-[0.1em] uppercase">
+              ROYAL <span className="text-[#C5A059] font-light">DESIGNS</span>
             </h1>
           </div>
           
-          <div className="hidden lg:flex items-center gap-10 text-[15px] font-medium text-gray-600 tracking-wide">
-            <a href="#" className="hover:text-[#B8860B] transition-colors">{t.nav.home}</a>
-            <a href="#portfolio" className="hover:text-[#B8860B] transition-colors">{t.nav.portfolio}</a>
-            <a href="#services" className="hover:text-[#B8860B] transition-colors">{t.nav.services}</a>
-            <a href="#contact" className="hover:text-[#B8860B] transition-colors">{t.nav.contact}</a>
-          </div>
+          <nav className="hidden lg:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-gray-500">
+            <a href="#" className="hover:text-[#C5A059] transition-colors">{t.nav.home}</a>
+            <a href="#portfolio" className="hover:text-[#C5A059] transition-colors">{t.nav.portfolio}</a>
+            <a href="#services" className="hover:text-[#C5A059] transition-colors">{t.nav.services}</a>
+            <a href="#contact" className="hover:text-[#C5A059] transition-colors">{t.nav.contact}</a>
+          </nav>
 
           <div className="flex items-center gap-6">
-            <button 
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-gray-500 hover:text-[#B8860B] text-sm font-semibold transition-colors uppercase tracking-widest"
-            >
-              <Globe size={18} />
-              <span>{lang === 'en' ? 'AR' : 'EN'}</span>
+            <button onClick={toggleLanguage} className="text-xs font-bold tracking-tighter hover:text-[#C5A059]">
+              {lang === 'en' ? 'AR' : 'EN'}
             </button>
-            <button className="hidden sm:block bg-[#1a1a1a] text-white px-7 py-2.5 rounded-sm font-medium hover:bg-[#B8860B] transition-all duration-300 tracking-wide text-sm border border-transparent hover:border-[#B8860B]">
+            <button className="bg-[#1A1A1A] text-white px-6 py-2.5 text-[12px] font-bold uppercase tracking-widest hover:bg-[#C5A059] transition-all">
               {t.nav.book}
             </button>
           </div>
         </div>
-      </nav>
+      </header>
 
-      {/* 2. Hero Section - كلاسيكي وهادئ */}
-      <section className="relative h-[95vh] mt-[68px] overflow-hidden bg-gray-900">
+      {/* 2. Hero Section (The Villa Hero) */}
+      <section className="relative h-screen overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-all duration-[1.5s] ease-in-out ${
+              index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
             }`}
           >
-            <div className="absolute inset-0 bg-black/50 z-10" />
+            <div className="absolute inset-0 bg-black/40 z-10" />
             <img
               src={slide.url}
               onError={(e) => e.target.src = slide.fallback}
-              className="w-full h-full object-cover transform scale-105 duration-10000 ease-out"
-              style={{ transitionDuration: '12s' }}
+              className="w-full h-full object-cover"
               alt={slide.title[lang]}
             />
-            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-4 mt-16">
-              <span className="text-[#D4AF37] font-medium tracking-[0.3em] mb-6 uppercase text-xs md:text-sm animate-fade-in-up">
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
+              <span className="text-[#C5A059] font-medium tracking-[0.4em] mb-6 uppercase text-[10px] md:text-xs animate-slide-up">
                 {t.hero.tag}
               </span>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl animate-fade-in-up font-serif-style" style={{ animationDelay: '0.2s' }}>
+              <h2 className="text-5xl md:text-8xl font-serif-style text-white mb-8 drop-shadow-2xl animate-slide-up animation-delay-200">
                 {slide.title[lang]}
               </h2>
-              <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-12 drop-shadow-md font-light leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <p className="text-sm md:text-lg text-white/80 max-w-xl mb-12 font-light leading-relaxed tracking-wide animate-slide-up animation-delay-400">
                 {slide.subtitle[lang]}
               </p>
-              <button className="bg-transparent text-white border border-[#D4AF37] px-10 py-3.5 rounded-sm text-sm uppercase tracking-widest font-medium hover:bg-[#D4AF37] hover:text-gray-900 transition-all duration-500 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                {t.hero.btn}
-              </button>
+              <div className="animate-slide-up animation-delay-600">
+                <button className="group relative overflow-hidden bg-white text-black px-12 py-4 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors duration-500">
+                  <span className="relative z-10">{t.hero.btn}</span>
+                  <div className="absolute inset-0 bg-[#C5A059] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                </button>
+              </div>
             </div>
           </div>
         ))}
-
-        {/* أزرار السلايدر الراقية */}
-        <button onClick={lang === 'ar' ? nextSlide : prevSlide} className={`absolute ${lang === 'ar' ? 'right-8' : 'left-8'} top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-transparent hover:bg-white/10 text-white/70 hover:text-white transition-all`}>
-          <ChevronLeft size={36} strokeWidth={1} className={lang === 'ar' ? 'rotate-180' : ''} />
-        </button>
-        <button onClick={lang === 'ar' ? prevSlide : nextSlide} className={`absolute ${lang === 'ar' ? 'left-8' : 'right-8'} top-1/2 -translate-y-1/2 z-30 p-4 rounded-full bg-transparent hover:bg-white/10 text-white/70 hover:text-white transition-all`}>
-          <ChevronRight size={36} strokeWidth={1} className={lang === 'ar' ? 'rotate-180' : ''} />
-        </button>
+        
+        {/* Slider Dots */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-30 flex gap-4">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-[2px] transition-all duration-500 ${
+                i === currentSlide ? 'bg-[#C5A059] w-12' : 'bg-white/30 w-6'
+              }`}
+            />
+          ))}
+        </div>
       </section>
 
-      {/* 3. Portfolio Section - تصميم معمارى حاد */}
-      <section id="portfolio" className="py-28 px-4 md:px-8 max-w-[1400px] mx-auto">
-        <div className="text-center mb-20">
-          <span className="text-[#B8860B] font-semibold mb-3 block uppercase tracking-widest text-xs">{t.portfolio.tag}</span>
-          <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif-style">{t.portfolio.title}</h3>
-          <div className="w-16 h-0.5 bg-[#B8860B] mx-auto mb-6"></div>
-          <p className="text-gray-500 text-base max-w-2xl mx-auto font-light leading-relaxed">
-            {t.portfolio.desc}
-          </p>
+      {/* 3. Portfolio Section (Dynamic & Modern) */}
+      <section id="portfolio" className="py-32 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-2xl">
+            <span className="text-[#C5A059] font-bold text-[11px] tracking-[0.3em] uppercase block mb-4">
+              {t.portfolio.tag}
+            </span>
+            <h3 className="text-4xl md:text-6xl font-serif-style leading-tight mb-6">
+              {t.portfolio.title}
+            </h3>
+            <p className="text-gray-400 font-light text-sm leading-relaxed">
+              {t.portfolio.desc}
+            </p>
+          </div>
+          <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest">
+            <span className="text-[#C5A059]">01</span>
+            <div className="w-20 h-[1px] bg-gray-200"></div>
+            <span className="text-gray-300">15</span>
+          </div>
         </div>
 
-        {/* شريط الفئات (Minimalist Tabs) */}
-        <div className="flex overflow-x-auto pb-6 justify-start md:justify-center gap-2 mb-16 scrollbar-hide border-b border-gray-200">
+        {/* Categories Bar */}
+        <div className="flex overflow-x-auto pb-8 gap-10 no-scrollbar border-b border-gray-100 mb-16">
           <button
             onClick={() => setActiveTabId('all')}
-            className={`whitespace-nowrap px-6 py-3 font-medium text-sm transition-all border-b-2 ${
-              activeTabId === 'all' ? 'border-[#B8860B] text-[#B8860B]' : 'border-transparent text-gray-500 hover:text-gray-900'
+            className={`text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap transition-all relative py-2 ${
+              activeTabId === 'all' ? 'text-black' : 'text-gray-400 hover:text-black'
             }`}
           >
             {t.portfolio.all}
+            {activeTabId === 'all' && <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]"></div>}
           </button>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveTabId(cat.id)}
-              className={`whitespace-nowrap px-5 py-3 font-medium text-sm flex items-center gap-2 transition-all border-b-2 ${
-                activeTabId === cat.id ? 'border-[#B8860B] text-[#B8860B]' : 'border-transparent text-gray-500 hover:text-gray-900'
+              className={`text-[11px] font-bold uppercase tracking-[0.2em] whitespace-nowrap transition-all relative py-2 ${
+                activeTabId === cat.id ? 'text-black' : 'text-gray-400 hover:text-black'
               }`}
             >
               {cat.name[lang]}
+              {activeTabId === cat.id && <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[#C5A059]"></div>}
             </button>
           ))}
         </div>
 
-        {/* شبكة الصور (Sharp Edges) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredItems.map((item) => (
-            <div key={item.id} className="group relative overflow-hidden rounded-sm shadow-sm hover:shadow-2xl transition-all duration-700 aspect-[4/5] bg-gray-200 cursor-pointer">
-              <img 
-                src={item.img} 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                alt={item.title[lang]}
-                onError={(e) => e.target.src = `https://images.unsplash.com/photo-1616489953149-8f6443c5b967?auto=format&fit=crop&q=80&w=600`}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                <span className="text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-2 block">
-                  {getCategoryName(item.catId)}
-                </span>
-                <h4 className="text-white text-xl font-medium font-serif-style">{item.title[lang]}</h4>
+            <div key={item.id} className="group cursor-pointer">
+              <div className="relative overflow-hidden aspect-[3/4] mb-6">
+                <img 
+                  src={item.img} 
+                  className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" 
+                  alt={item.title[lang]}
+                  onError={(e) => e.target.src = `https://images.unsplash.com/photo-1616489953149-8f6443c5b967?auto=format&fit=crop&q=80&w=600`}
+                />
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-[10px] font-bold text-[#C5A059] uppercase tracking-[0.2em] mb-2 block">
+                    {categories.find(c => c.id === item.catId)?.name[lang]}
+                  </span>
+                  <h4 className="text-lg font-serif-style">{item.title[lang]}</h4>
+                </div>
+                <div className="h-[1px] w-8 bg-gray-200 mt-3 group-hover:w-12 group-hover:bg-[#C5A059] transition-all"></div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 4. Footer - كلاسيكي داكن */}
-      <footer id="contact" className="bg-[#0a0a0a] text-gray-300 py-24 px-6 border-t border-[#B8860B]/30">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
-          <div>
-            <img 
-              src="logo.png" 
-              alt="Royal Designs Logo" 
-              className="h-16 w-auto object-contain mb-8 filter brightness-0 invert opacity-90"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'block';
-              }}
-            />
-             <h4 className="text-2xl font-bold text-white mb-6 tracking-wide hidden font-serif-style">
-              ROYAL <span className="text-[#B8860B] font-normal">DESIGNS</span>
-            </h4>
-            <p className="text-gray-400 leading-relaxed font-light text-sm">
+      {/* 4. Footer (Classy & Dark) */}
+      <footer id="contact" className="bg-[#0D0D0D] text-white py-32 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-24">
+          
+          <div className="md:col-span-5">
+            <h4 className="text-3xl font-bold tracking-widest mb-10">ROYAL <span className="text-[#C5A059] font-light">DESIGNS</span></h4>
+            <p className="text-gray-500 font-light leading-relaxed mb-12 max-w-sm">
               {t.footer.desc}
             </p>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-8 tracking-wider uppercase text-sm">{t.footer.contactTitle}</h4>
-            <ul className="space-y-6 text-gray-400 font-light text-sm">
-              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Phone size={18} className="text-[#B8860B] mt-0.5"/> 0123456789</li>
-              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Mail size={18} className="text-[#B8860B] mt-0.5"/> info@royaldesignseg.com</li>
-              <li className="flex items-start gap-4 hover:text-[#D4AF37] transition-colors cursor-pointer"><Home size={18} className="text-[#B8860B] mt-0.5"/> Cairo, 5th Settlement</li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-8 tracking-wider uppercase text-sm">{t.footer.newsletterTitle}</h4>
-            <p className="text-gray-400 mb-6 text-sm font-light leading-relaxed">{t.footer.newsletterDesc}</p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input type="email" placeholder={t.footer.emailPlaceholder} className="bg-white/5 border border-white/10 rounded-sm px-5 py-3 w-full focus:border-[#B8860B] focus:ring-0 outline-none text-white transition-all text-sm font-light" />
-              <button className="bg-[#B8860B] text-white font-medium px-8 py-3 rounded-sm hover:bg-[#996515] transition-all text-sm tracking-wide">{t.footer.subscribeBtn}</button>
+            <div className="flex gap-6">
+              <Instagram size={18} className="text-gray-500 hover:text-[#C5A059] cursor-pointer transition-colors" />
+              <Facebook size={18} className="text-gray-500 hover:text-[#C5A059] cursor-pointer transition-colors" />
+              <Mail size={18} className="text-gray-500 hover:text-[#C5A059] cursor-pointer transition-colors" />
             </div>
           </div>
+          
+          <div className="md:col-span-3">
+            <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-10 text-gray-400">{t.footer.contactTitle}</h5>
+            <div className="space-y-6 text-sm font-light text-gray-500">
+              <p className="flex items-center gap-4 hover:text-white transition-colors cursor-pointer"><Phone size={14}/> +20 123 456 789</p>
+              <p className="flex items-center gap-4 hover:text-white transition-colors cursor-pointer"><Mail size={14}/> info@royaldesigns.com</p>
+              <p className="flex items-center gap-4 hover:text-white transition-colors cursor-pointer"><Home size={14}/> New Cairo, Egypt</p>
+            </div>
+          </div>
+          
+          <div className="md:col-span-4">
+            <h5 className="text-[11px] font-bold uppercase tracking-[0.3em] mb-10 text-gray-400">{t.footer.newsletterTitle}</h5>
+            <p className="text-gray-500 text-sm mb-8 font-light">{t.footer.newsletterDesc}</p>
+            <div className="relative border-b border-gray-800 pb-2">
+              <input 
+                type="email" 
+                placeholder={t.footer.emailPlaceholder} 
+                className="bg-transparent w-full text-sm font-light focus:outline-none placeholder:text-gray-700" 
+              />
+              <button className="absolute right-0 top-0 text-[#C5A059] text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors">
+                {t.footer.subscribeBtn}
+              </button>
+            </div>
+          </div>
+
         </div>
         
-        <div className="max-w-7xl mx-auto border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light text-gray-500 tracking-wide">
+        <div className="max-w-7xl mx-auto border-t border-gray-900 mt-32 pt-12 flex flex-col md:flex-row justify-between text-[10px] uppercase tracking-[0.2em] text-gray-600">
           <p>{t.footer.rights}</p>
+          <div className="flex gap-8 mt-4 md:mt-0">
+            <span className="cursor-pointer hover:text-white transition-colors">Privacy Policy</span>
+            <span className="cursor-pointer hover:text-white transition-colors">Terms of Service</span>
+          </div>
         </div>
       </footer>
 
-      {/* CSS For Fonts and Animations */}
       <style>{`
-        /* خطوط راقية: Cairo للغة العربية، Outfit للمسافات العادية بالإنجليزية، و Playfair Display للعناوين الفخمة */
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
         
         .font-cairo { font-family: 'Cairo', sans-serif; }
         .font-outfit { font-family: 'Outfit', sans-serif; }
         
-        /* كلاس مخصص للعناوين لإعطاء طابع كلاسيكي عند استخدام اللغة الإنجليزية */
         html[dir="ltr"] .font-serif-style {
           font-family: 'Playfair Display', serif;
         }
+        
+        html[dir="rtl"] .font-serif-style {
+          font-family: 'Cairo', sans-serif;
+          font-weight: 700;
+        }
 
-        /* إخفاء شريط التمرير */
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        @keyframes fade-in-up {
-          from { opacity: 0; transform: translateY(20px); }
+        @keyframes slide-up {
+          from { opacity: 0; transform: translateY(40px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in-up {
-          animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        
+        .animate-slide-up {
+          animation: slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           opacity: 0;
         }
+        
+        .animation-delay-200 { animation-delay: 0.2s; }
+        .animation-delay-400 { animation-delay: 0.4s; }
+        .animation-delay-600 { animation-delay: 0.6s; }
       `}</style>
     </div>
   );
