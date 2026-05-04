@@ -70,29 +70,6 @@
       ]
     },
     {
-      "folder": "doors",
-      "images": [
-        "doors/1.jpg",
-        "doors/2.jpg",
-        "doors/3.jpg",
-        "doors/4.jpg",
-        "doors/5.jpg",
-        "doors/6.jpg",
-        "doors/7.jpg",
-        "doors/8.jpg",
-        "doors/9.jpg",
-        "doors/10.jpg",
-        "doors/11.jpg",
-        "doors/12.jpg",
-        "doors/13.jpg",
-        "doors/14.jpg",
-        "doors/15.jpg",
-        "doors/16.jpg",
-        "doors/17.jpg",
-        "doors/18.jpg"
-      ]
-    },
-    {
       "folder": "kitchens",
       "images": [
         "kitchens/1.jpg",
@@ -136,52 +113,6 @@
         "dressing-rooms/16.jpg",
         "dressing-rooms/17.jpg",
         "dressing-rooms/18.jpg"
-      ]
-    },
-    {
-      "folder": "villa-furnishing",
-      "images": [
-        "villa-furnishing/1.jpg",
-        "villa-furnishing/2.jpg",
-        "villa-furnishing/3.jpg",
-        "villa-furnishing/4.jpg",
-        "villa-furnishing/5.jpg",
-        "villa-furnishing/6.jpg",
-        "villa-furnishing/7.jpg",
-        "villa-furnishing/8.jpg",
-        "villa-furnishing/9.jpg",
-        "villa-furnishing/10.jpg",
-        "villa-furnishing/11.jpg",
-        "villa-furnishing/12.jpg",
-        "villa-furnishing/13.jpg",
-        "villa-furnishing/14.jpg",
-        "villa-furnishing/15.jpg",
-        "villa-furnishing/16.jpg",
-        "villa-furnishing/17.jpg",
-        "villa-furnishing/18.jpg"
-      ]
-    },
-    {
-      "folder": "apartment-furnishing",
-      "images": [
-        "apartment-furnishing/1.jpg",
-        "apartment-furnishing/2.jpg",
-        "apartment-furnishing/3.jpg",
-        "apartment-furnishing/4.jpg",
-        "apartment-furnishing/5.jpg",
-        "apartment-furnishing/6.jpg",
-        "apartment-furnishing/7.jpg",
-        "apartment-furnishing/8.jpg",
-        "apartment-furnishing/9.jpg",
-        "apartment-furnishing/10.jpg",
-        "apartment-furnishing/11.jpg",
-        "apartment-furnishing/12.jpg",
-        "apartment-furnishing/13.jpg",
-        "apartment-furnishing/14.jpg",
-        "apartment-furnishing/15.jpg",
-        "apartment-furnishing/16.jpg",
-        "apartment-furnishing/17.jpg",
-        "apartment-furnishing/18.jpg"
       ]
     },
     {
