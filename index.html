@@ -1,130 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Royal Designs by Asmaa Allam</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Designs by Asmaa Allam</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --navy:#1a2744;
-  --gold:#c9a55a;
-  --cream:#faf7f2;
-  --warm:#f5ede0;
-  --text:#2a2a2a;
-  --muted:#777;
+    <style>
+:root {
+    --navy: #1a2744;
+    --gold: #c9a55a;
+    --gold-light: #e0c285;
+    --cream: #faf7f2;
+    --warm: #f5ede0;
+    --text: #2a2a2a;
+    --muted: #777;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:"Inter",sans-serif;background:var(--cream);color:var(--text)}
-body.rtl{font-family:"Cairo",sans-serif;direction:rtl}
 
-nav{position:fixed;top:0;width:100%;z-index:1000;padding:1rem 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(26,39,68,.94);backdrop-filter:blur(14px)}
-.nav-logo{display:flex;align-items:center;gap:.8rem}
-.logo-img{height:48px;width:auto;object-fit:contain}
-.logo-text{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.35rem;line-height:1.1;letter-spacing:1.5px}
-.logo-text small{display:block;font-family:"Inter",sans-serif;font-size:.63rem;color:rgba(255,255,255,.6);letter-spacing:2.5px;margin-top:3px}
-.nav-links{display:flex;gap:1rem;align-items:center}
-.nav-links a,.lang-btn{color:rgba(255,255,255,.78);text-decoration:none;font-size:.83rem;letter-spacing:1px;transition:.3s;background:transparent;border:0;cursor:pointer}
-.nav-links a:hover,.lang-btn:hover{color:var(--gold)}
-.nav-cta{padding:.7rem 1.4rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:40px;font-size:.82rem;transition:.3s}
-.nav-cta:hover{background:var(--gold);color:var(--navy)}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); }
+body.rtl { font-family: "Cairo", sans-serif; direction: rtl; }
 
-.hero{min-height:100vh;background:url("villa_hero_bg.png") center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;animation:heroZoom 14s ease-in-out infinite alternate}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72))}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:2rem;animation:fadeUp 1.5s ease forwards}
-.hero-label{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;font-weight:600}
-.hero h1{font-family:"Playfair Display",serif;color:white;font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;margin-bottom:1.2rem;text-shadow:0 20px 50px rgba(0,0,0,.55)}
-.hero p{color:rgba(255,255,255,.9);font-size:1.07rem;line-height:1.9;max-width:720px;margin:0 auto 2rem}
-.hero-buttons{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+nav { 
+    position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 6%; 
+    display: flex; justify-content: space-between; align-items: center; 
+    background: rgba(26, 39, 68, .94); backdrop-filter: blur(14px); 
+}
 
-.btn{padding:.95rem 1.85rem;border-radius:40px;text-decoration:none;transition:.3s;font-size:.9rem;display:inline-block;cursor:pointer}
-.btn-gold{background:var(--gold);color:var(--navy);font-weight:700}
-.btn-outline{border:1px solid rgba(255,255,255,.75);color:white}
-.btn:hover{transform:translateY(-4px)}
+.nav-logo { display: flex; align-items: center; gap: .8rem; }
+.logo-img { height: 48px; width: auto; object-fit: contain; }
+.logo-text { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.35rem; line-height: 1.1; letter-spacing: 1.5px; }
+.logo-text small { display: block; font-family: "Inter", sans-serif; font-size: .63rem; color: rgba(255, 255, 255, .6); letter-spacing: 2.5px; margin-top: 3px; }
 
-.section{padding:6rem 6%}
-.section-title{text-align:center;margin-bottom:3rem}
-.label{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.75rem;margin-bottom:.8rem;font-weight:700}
-.section-title h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:clamp(2rem,4vw,3.4rem)}
-.section-subtitle{max-width:760px;margin:1rem auto 0;color:var(--muted);line-height:1.8;font-size:1rem}
-.gold-line{width:70px;height:2px;background:var(--gold);margin:1rem auto 0}
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-size: .83rem; letter-spacing: 1px; transition: .3s; }
+.nav-links a:hover { color: var(--gold); }
 
-.portfolio{background:var(--cream)}
-.catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.catalog-card{min-height:390px;border-radius:28px;overflow:hidden;position:relative;background-size:cover;background-position:center;cursor:pointer;box-shadow:0 25px 55px rgba(0,0,0,.15);transition:.45s;background-color:#1a2744}
-.catalog-card:hover{transform:translateY(-9px) scale(1.02)}
-.catalog-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18),rgba(0,0,0,.02))}
-.catalog-info{position:absolute;bottom:0;z-index:2;color:white;padding:1.8rem}
-.catalog-info span{color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:.72rem;font-weight:700}
-.catalog-info h3{font-family:"Playfair Display",serif;font-size:2rem;margin:.45rem 0}
-.catalog-info p{color:rgba(255,255,255,.84);line-height:1.6;font-size:.9rem}
-.catalog-count{display:inline-block;margin-top:.9rem;padding:.45rem .8rem;border:1px solid rgba(201,165,90,.65);border-radius:40px;font-size:.78rem;color:var(--gold);background:rgba(0,0,0,.25)}
-.loading-note{text-align:center;color:var(--muted);padding:2rem}
+/* Language Switcher Styling - Enhanced for visibility */
+.lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid rgba(201, 165, 90, 0.3);
+}
 
-.about{background:white}
-.architect-wrap{max-width:1120px;margin:auto;display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center}
-.architect-card{text-align:center}
-.architect-img{width:100%;max-width:360px;border-radius:28px;display:block;margin:auto;box-shadow:0 28px 75px rgba(0,0,0,.22)}
-.architect-info{margin:-35px auto 0;width:86%;position:relative;background:rgba(26,39,68,.96);border:1px solid rgba(201,165,90,.55);border-radius:22px;padding:1.35rem 1rem;color:white;box-shadow:0 20px 45px rgba(0,0,0,.2)}
-.architect-info span{display:block;color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.72rem;font-weight:700;margin-bottom:.5rem}
-.architect-info h2{font-family:"Playfair Display",serif;font-size:2rem;margin-bottom:.35rem}
-.architect-info p{color:rgba(255,255,255,.82);font-size:.95rem}
-.about-text h2{font-family:"Playfair Display",serif;color:var(--navy);font-size:2.8rem;line-height:1.15;margin-bottom:1.2rem}
-.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1rem;font-size:1rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.stat{background:var(--cream);padding:1.1rem;border-radius:18px;text-align:center}
-.stat strong{color:var(--gold);font-size:1.45rem}
-.stat span{display:block;font-size:.78rem;color:var(--muted);margin-top:.3rem}
+.lang-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s;
+    font-weight: 600;
+}
 
-.partners{background:var(--warm)}
-.partners-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.4rem;align-items:center}
-.partner-logo{background:white;border-radius:24px;min-height:150px;display:flex;align-items:center;justify-content:center;padding:1.5rem;box-shadow:0 20px 45px rgba(0,0,0,.07);transition:.35s ease}
-.partner-logo:hover{transform:translateY(-7px);box-shadow:0 28px 60px rgba(0,0,0,.12)}
-.partner-logo img{max-width:100%;max-height:90px;object-fit:contain;filter:grayscale(10%)}
+.lang-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+}
 
-.contact{background:var(--navy);color:white;text-align:center}
-.contact h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:3rem;margin-bottom:1rem}
-.contact p{color:rgba(255,255,255,.78);line-height:1.8;max-width:720px;margin:0 auto 2rem}
-.contact-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.lang-btn:hover:not(.active) {
+    background: rgba(201, 165, 90, 0.2);
+}
 
-.catalog-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:9999;overflow-y:auto;padding:2rem}
-.catalog-modal.active{display:block}
-.modal-head{max-width:1200px;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;color:white}
-.modal-head h2{font-family:"Playfair Display",serif;color:var(--gold);font-size:2.3rem}
-.modal-head p{color:rgba(255,255,255,.7);margin-top:.3rem}
-.close-modal{background:transparent;border:1px solid rgba(255,255,255,.35);color:white;border-radius:50%;width:46px;height:46px;font-size:1.7rem;cursor:pointer}
-.modal-gallery{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
-.modal-gallery img{width:100%;height:250px;object-fit:cover;border-radius:18px;cursor:pointer;box-shadow:0 18px 40px rgba(0,0,0,.45);transition:.3s;background:#222}
-.modal-gallery img:hover{transform:scale(1.03)}
-.modal-actions{max-width:1200px;margin:1.2rem auto 0;text-align:center}
+.nav-cta { 
+    padding: .7rem 1.4rem; border: 1px solid var(--gold); color: var(--gold); 
+    text-decoration: none; border-radius: 40px; font-size: .82rem; transition: .3s; 
+}
+.nav-cta:hover { background: var(--gold); color: var(--navy); }
 
-.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:10000;justify-content:center;align-items:center;padding:2rem}
-.lightbox img{max-width:94%;max-height:88vh;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.7)}
-.close-lightbox{position:fixed;top:22px;right:32px;color:white;font-size:44px;cursor:pointer}
+.hero { 
+    min-height: 100vh; background: url("villa_hero_bg.png") center/cover no-repeat; 
+    position: relative; display: flex; align-items: center; justify-content: center; 
+    text-align: center; overflow: hidden; animation: heroZoom 14s ease-in-out infinite alternate; 
+}
+.hero::before { 
+    content: ""; position: absolute; inset: 0; 
+    background: radial-gradient(circle at center, rgba(201, 165, 90, .22), transparent 38%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .28), rgba(0, 0, 0, .72)); 
+}
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 2rem; animation: fadeUp 1.5s ease forwards; }
+.hero-label { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-size: .78rem; margin-bottom: 1rem; font-weight: 600; }
+.hero h1 { font-family: "Playfair Display", serif; color: white; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.05; margin-bottom: 1.2rem; text-shadow: 0 20px 50px rgba(0, 0, 0, .55); }
+.hero p { color: rgba(255, 255, 255, .9); font-size: 1.07rem; line-height: 1.9; max-width: 720px; margin: 0 auto 2rem; }
 
-.whatsapp{position:fixed;right:22px;bottom:22px;z-index:1500;background:#25D366;color:white;padding:.9rem 1.3rem;border-radius:999px;text-decoration:none;font-weight:700;box-shadow:0 16px 40px rgba(37,211,102,.36)}
+.btn { padding: .95rem 1.85rem; border-radius: 40px; text-decoration: none; transition: .3s; font-size: .9rem; display: inline-block; cursor: pointer; border: none; }
+.btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; }
+.btn-outline { border: 1px solid rgba(255, 255, 255, .75); color: white; background: transparent; }
+.btn:hover { transform: translateY(-4px); }
 
-footer{background:#111827;color:white;text-align:center;padding:2.5rem 6%}
-.footer-logo{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.8rem;margin-bottom:.4rem}
-footer p{color:rgba(255,255,255,.55);font-size:.85rem}
+.section { padding: 6rem 6%; }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.label { color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .75rem; margin-bottom: .8rem; font-weight: 700; }
+.section-title h2 { font-family: "Playfair Display", serif; color: var(--navy); font-size: clamp(2rem, 4vw, 3.4rem); }
+.section-subtitle { max-width: 760px; margin: 1rem auto 0; color: var(--muted); line-height: 1.8; font-size: 1rem; }
+.gold-line { width: 70px; height: 2px; background: var(--gold); margin: 1rem auto 0; }
 
-.reveal{opacity:0;transform:translateY(45px);transition:.8s ease}
-.reveal.active{opacity:1;transform:translateY(0)}
-@keyframes heroZoom{from{background-size:100%}to{background-size:112%}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
+.portfolio { background: var(--cream); }
+.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+.catalog-card { 
+    min-height: 390px; border-radius: 28px; overflow: hidden; position: relative; 
+    background-size: cover; background-position: center; cursor: pointer; 
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .15); transition: .45s; background-color: #1a2744; 
+}
+.catalog-card:hover { transform: translateY(-9px) scale(1.02); }
+.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .84), rgba(0, 0, 0, .18), rgba(0, 0, 0, .02)); }
+.catalog-info { position: absolute; bottom: 0; z-index: 2; color: white; padding: 1.8rem; }
+.catalog-info span { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: .72rem; font-weight: 700; }
+.catalog-info h3 { font-family: "Playfair Display", serif; font-size: 2rem; margin: .45rem 0; }
+.catalog-info p { color: rgba(255, 255, 255, .84); line-height: 1.6; font-size: .9rem; }
+.catalog-count { display: inline-block; margin-top: .9rem; padding: .45rem .8rem; border: 1px solid rgba(201, 165, 90, .65); border-radius: 40px; font-size: .78rem; color: var(--gold); background: rgba(0, 0, 0, .25); }
 
-@media(max-width:850px){
-  nav{padding:.9rem 5%}
-  .nav-links,.nav-cta{display:none}
-  .architect-wrap{grid-template-columns:1fr;text-align:center;gap:2.5rem}
-  .about-text h2{font-size:2.2rem}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .catalog-card{min-height:310px}
-  .hero p{font-size:.95rem}
-  .modal-gallery img{height:220px}
+.about { background: white; }
+.architect-wrap { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: center; }
+.architect-img { width: 100%; max-width: 360px; border-radius: 28px; display: block; margin: auto; box-shadow: 0 28px 75px rgba(0, 0, 0, .22); }
+.architect-info { 
+    margin: -35px auto 0; width: 86%; position: relative; background: rgba(26, 39, 68, .96); 
+    border: 1px solid rgba(201, 165, 90, .55); border-radius: 22px; padding: 1.35rem 1rem; color: white; 
+}
+.architect-info span { display: block; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .72rem; font-weight: 700; margin-bottom: .5rem; }
+.architect-info h2 { font-family: "Playfair Display", serif; font-size: 2rem; margin-bottom: .35rem; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
+.stat { background: var(--cream); padding: 1.1rem; border-radius: 18px; text-align: center; }
+.stat strong { color: var(--gold); font-size: 1.45rem; }
+.stat span { display: block; font-size: .78rem; color: var(--muted); margin-top: .3rem; }
+
+.partners { background: var(--warm); }
+.partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.4rem; align-items: center; }
+.partner-logo { background: white; border-radius: 24px; min-height: 150px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; box-shadow: 0 20px 45px rgba(0,0,0,.07); transition: .35s; }
+
+.contact { background: var(--navy); color: white; text-align: center; }
+.contact h2 { font-family: "Playfair Display", serif; color: var(--gold); font-size: 3rem; margin-bottom: 1rem; }
+.contact p { color: rgba(255, 255, 255, .78); max-width: 720px; margin: 0 auto 2rem; }
+.contact-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 9999; overflow-y: auto; padding: 2rem; }
+.catalog-modal.active { display: block; }
+.modal-head { max-width: 1200px; margin: 0 auto 1.5rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+.modal-gallery { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+.modal-gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 18px; cursor: pointer; transition: .3s; }
+
+.whatsapp { 
+    position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; 
+    color: white; padding: .9rem 1.3rem; border-radius: 999px; text-decoration: none; 
+    font-weight: 700; box-shadow: 0 16px 40px rgba(37, 211, 102, .36); 
+}
+
+footer { background: #111827; color: white; text-align: center; padding: 2.5rem 6%; }
+.reveal { opacity: 0; transform: translateY(45px); transition: .8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@keyframes heroZoom { from { background-size: 100%; } to { background-size: 112%; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(45px); } to { opacity: 1; transform: translateY(0); } }
+
+@media(max-width: 850px) {
+    nav { padding: .9rem 5%; }
+    .nav-links, .nav-cta { display: none; }
+    .architect-wrap { grid-template-columns: 1fr; text-align: center; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 </head>
@@ -132,120 +173,125 @@ footer p{color:rgba(255,255,255,.55);font-size:.85rem}
 <body>
 
 <nav>
-  <div class="nav-logo">
-    <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
-    <div class="logo-text">Royal Designs<small>BY ASMAA ALLAM</small></div>
-  </div>
+    <div class="nav-logo">
+        <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
+        <div class="logo-text">Royal Designs<small>BY ASMAA ALLAM</small></div>
+    </div>
 
-  <div class="nav-links">
-    <a href="#home" data-i18n="navHome">Home</a>
-    <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
-    <a href="#about" data-i18n="navAbout">About</a>
-    <a href="#services" data-i18n="navSectors">References</a>
-    <a href="#contact" data-i18n="navContact">Contact</a>
-    <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
-    <button class="lang-btn" onclick="setLang('ar')">🇪🇬 AR</button>
-  </div>
+    <div class="nav-links">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#services" data-i18n="navSectors">References</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+        
+        <!-- Enhanced Language Switcher -->
+        <div class="lang-switcher">
+            <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button id="lang-ar" class="lang-btn" onclick="setLang('ar')">AR</button>
+        </div>
+    </div>
 
-  <a class="nav-cta" href="#" onclick="trackWhatsApp('Navbar Consultation')" data-i18n="bookConsultation">Book Consultation</a>
+    <a class="nav-cta" href="#" onclick="trackWhatsApp('Navbar Consultation')" data-i18n="bookConsultation">Book Consultation</a>
 </nav>
 
 <header class="hero" id="home">
-  <div class="hero-content">
-    <div class="hero-label" data-i18n="heroLabel">Luxury Interior Design</div>
-    <h1 data-i18n="heroTitle">Royal Designs by Asmaa Allam</h1>
-    <p data-i18n="heroText">Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.</p>
-    <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">Explore Portfolio</a>
-      <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Consultation</a>
+    <div class="hero-content">
+        <div class="hero-label" data-i18n="heroLabel">Luxury Interior Design</div>
+        <h1 data-i18n="heroTitle">Royal Designs by Asmaa Allam</h1>
+        <p data-i18n="heroText">Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.</p>
+        <div class="hero-buttons">
+            <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">Explore Portfolio</a>
+            <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Consultation</a>
+        </div>
     </div>
-  </div>
 </header>
 
 <section class="section portfolio reveal" id="portfolio">
-  <div class="section-title">
-    <div class="label" data-i18n="portfolioLabel">Image-Based Portfolio</div>
-    <h2 data-i18n="portfolioTitle">Explore Our Design Catalogs</h2>
-    <div class="gold-line"></div>
-  </div>
-
-  <div id="loadingNote" class="loading-note" data-i18n="loadingCatalogs">Loading portfolio catalogs...</div>
-  <div class="catalog-grid" id="catalogGrid"></div>
+    <div class="section-title">
+        <div class="label" data-i18n="portfolioLabel">Image-Based Portfolio</div>
+        <h2 data-i18n="portfolioTitle">Explore Our Design Catalogs</h2>
+        <div class="gold-line"></div>
+    </div>
+    <div id="loadingNote" class="loading-note" data-i18n="loadingCatalogs">Loading portfolio catalogs...</div>
+    <div class="catalog-grid" id="catalogGrid"></div>
 </section>
 
 <section class="section about reveal" id="about">
-  <div class="architect-wrap">
-    <div class="architect-card">
-      <img src="engineer.jpg" alt="Asmaa Allam" class="architect-img">
-      <div class="architect-info">
-        <span data-i18n="leadArchitect">Lead Architect</span>
-        <h2>Asmaa Allam</h2>
-        <p data-i18n="interiorEngineer">Interior Design Engineer</p>
-      </div>
+    <div class="architect-wrap">
+        <div class="architect-card">
+            <img src="engineer.jpg" alt="Asmaa Allam" class="architect-img">
+            <div class="architect-info">
+                <span data-i18n="leadArchitect">Lead Architect</span>
+                <h2>Asmaa Allam</h2>
+                <p data-i18n="interiorEngineer">Interior Design Engineer</p>
+            </div>
+        </div>
+        <div class="about-text">
+            <div class="label" data-i18n="aboutLabel">About</div>
+            <h2 data-i18n="aboutTitle">Design with Vision, Elegance & Precision</h2>
+            <p data-i18n="aboutP1">With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.</p>
+            <p data-i18n="aboutP2">The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.</p>
+            <div class="stats">
+                <div class="stat"><strong>+600</strong><span data-i18n="projects">Projects</span></div>
+                <div class="stat"><strong>20</strong><span data-i18n="designSectors">Design Sectors</span></div>
+                <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years of Experience</span></div>
+                <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Updated Portfolio</span></div>
+            </div>
+        </div>
     </div>
-
-    <div class="about-text">
-      <div class="label" data-i18n="aboutLabel">About</div>
-      <h2 data-i18n="aboutTitle">Design with Vision, Elegance & Precision</h2>
-      <p data-i18n="aboutP1">With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.</p>
-      <p data-i18n="aboutP2">The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.</p>
-      <div class="stats">
-        <div class="stat"><strong>+600</strong><span data-i18n="projects">Projects</span></div>
-        <div class="stat"><strong>20</strong><span data-i18n="designSectors">Design Sectors</span></div>
-        <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years of Experience</span></div>
-        <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Updated Portfolio</span></div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <section class="section partners reveal" id="services">
-  <div class="section-title">
-    <div class="label" data-i18n="partnersLabel">References & Collaborations</div>
-    <h2 data-i18n="partnersTitle">Trusted by Real Projects & Practical Partnerships</h2>
-    <p class="section-subtitle" data-i18n="partnersSubtitle">A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.</p>
-    <div class="gold-line"></div>
-  </div>
-  <div class="partners-grid" id="partnersGrid"></div>
+    <div class="section-title">
+        <div class="label" data-i18n="partnersLabel">References & Collaborations</div>
+        <h2 data-i18n="partnersTitle">Trusted by Real Projects & Practical Partnerships</h2>
+        <p class="section-subtitle" data-i18n="partnersSubtitle">A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.</p>
+        <div class="gold-line"></div>
+    </div>
+    <div class="partners-grid" id="partnersGrid"></div>
 </section>
 
 <section class="section contact reveal" id="contact">
-  <h2 data-i18n="contactTitle">Start Your Project</h2>
-  <p data-i18n="contactText">Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.</p>
-  <div class="contact-actions">
-    <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Chat on WhatsApp</a>
-    <a href="tel:01116211118" class="btn btn-outline" data-i18n="callButton">Call 0111 621 1118</a>
-  </div>
+    <h2 data-i18n="contactTitle">Start Your Project</h2>
+    <p data-i18n="contactText">Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.</p>
+    <div class="contact-actions">
+        <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Chat on WhatsApp</a>
+        <!-- Updated Phone Number Link -->
+        <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call 0121 111 5200</a>
+    </div>
 </section>
 
 <footer>
-  <div class="footer-logo">Royal Designs</div>
-  <p data-i18n="footerLine">by Asmaa Allam · Interior Design Engineer</p>
-  <p>© 2026 Royal Designs. All Rights Reserved.</p>
+    <div class="footer-logo">Royal Designs</div>
+    <p data-i18n="footerLine">by Asmaa Allam · Interior Design Engineer</p>
+    <p>© 2026 Royal Designs. All Rights Reserved.</p>
 </footer>
 
 <div class="catalog-modal" id="catalogModal">
-  <div class="modal-head">
-    <div>
-      <h2 id="modalTitle">Catalog</h2>
-      <p id="modalDesc">Selected images from this category.</p>
+    <div class="modal-head">
+        <div>
+            <h2 id="modalTitle">Catalog</h2>
+            <p id="modalDesc">Selected images from this category.</p>
+        </div>
+        <button class="close-modal" style="background:transparent; border:1px solid white; color:white; border-radius:50%; width:40px; height:40px; cursor:pointer;" onclick="closeCatalog()">×</button>
     </div>
-    <button class="close-modal" onclick="closeCatalog()">×</button>
-  </div>
-  <div class="modal-gallery" id="modalGallery"></div>
-  <div class="modal-actions"><a href="#" id="modalWhatsapp" class="btn btn-gold">WhatsApp</a></div>
+    <div class="modal-gallery" id="modalGallery"></div>
+    <div class="modal-actions" style="text-align:center; margin-top:20px;">
+        <a href="#" id="modalWhatsapp" class="btn btn-gold">WhatsApp</a>
+    </div>
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeImage()">
-  <span class="close-lightbox">&times;</span>
-  <img id="lightboxImg" src="">
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
+    <img id="lightboxImg" style="max-width:90%; max-height:90%;" src="">
 </div>
 
 <a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp">WhatsApp</a>
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd278J21GBUK08WW6gSqK0vTn54MIvVKhDngsUBeqt0J5g1MRFLPsa4BSOw-kL7fLJJw/exec";
-const WHATSAPP_NUMBER = "201116211118";
+// Updated WhatsApp Number
+const WHATSAPP_NUMBER = "201211115200";
 
 let catalogs = [];
 let partnersImages = [];
@@ -253,241 +299,199 @@ let currentLang = localStorage.getItem("siteLang") || "en";
 let activeCatalogName = "";
 
 const translations = {
-  en:{
-    navHome:"Home",navPortfolio:"Portfolio",navAbout:"About",navSectors:"References",navContact:"Contact",
-    bookConsultation:"Book Consultation",heroLabel:"Luxury Interior Design",heroTitle:"Royal Designs by Asmaa Allam",
-    heroText:"Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.",
-    explorePortfolio:"Explore Portfolio",whatsappConsultation:"WhatsApp Consultation",
-    portfolioLabel:"Image-Based Portfolio",portfolioTitle:"Explore Our Design Catalogs",loadingCatalogs:"Loading portfolio catalogs...",
-    partnersLabel:"References & Collaborations",partnersTitle:"Trusted by Real Projects & Practical Partnerships",
-    partnersSubtitle:"A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.",
-    leadArchitect:"Lead Architect",interiorEngineer:"Interior Design Engineer",aboutLabel:"About",
-    aboutTitle:"Design with Vision, Elegance & Precision",
-    aboutP1:"With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.",
-    aboutP2:"The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.",
-    projects:"Projects",designSectors:"Design Sectors",yearsExperience:"Years of Experience",updatedPortfolio:"Updated Portfolio",
-    contactTitle:"Start Your Project",contactText:"Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
-    chatWhatsapp:"Chat on WhatsApp",callButton:"Call 0111 621 1118",footerLine:"by Asmaa Allam · Interior Design Engineer",
-    openCatalog:"Open Catalog",images:"Images"
+  en: {
+    navHome: "Home", navPortfolio: "Portfolio", navAbout: "About", navSectors: "References", navContact: "Contact",
+    bookConsultation: "Book Consultation", heroLabel: "Luxury Interior Design", heroTitle: "Royal Designs by Asmaa Allam",
+    heroText: "Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.",
+    explorePortfolio: "Explore Portfolio", whatsappConsultation: "WhatsApp Consultation",
+    portfolioLabel: "Image-Based Portfolio", portfolioTitle: "Explore Our Design Catalogs", loadingCatalogs: "Loading portfolio catalogs...",
+    partnersLabel: "References & Collaborations", partnersTitle: "Trusted by Real Projects & Practical Partnerships",
+    partnersSubtitle: "A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.",
+    leadArchitect: "Lead Architect", interiorEngineer: "Interior Design Engineer", aboutLabel: "About",
+    aboutTitle: "Design with Vision, Elegance & Precision",
+    aboutP1: "With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.",
+    aboutP2: "The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.",
+    projects: "Projects", designSectors: "Design Sectors", yearsExperience: "Years of Experience", updatedPortfolio: "Updated Portfolio",
+    contactTitle: "Start Your Project", contactText: "Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
+    chatWhatsapp: "Chat on WhatsApp", 
+    callButton: "Call 0121 111 5200", // Updated Text
+    footerLine: "by Asmaa Allam · Interior Design Engineer",
+    openCatalog: "Open Catalog", images: "Images"
   },
-  ar:{
-    navHome:"الرئيسية",navPortfolio:"الأعمال",navAbout:"عن الشركة",navSectors:"مراجعنا",navContact:"تواصل معنا",
-    bookConsultation:"احجز استشارة",heroLabel:"تصميم داخلي فاخر",heroTitle:"Royal Designs by Asmaa Allam",
-    heroText:"تصميمات داخلية راقية للمساحات الفندقية والتجارية والسكنية، تجمع بين الدقة الهندسية والذوق الرفيع ورؤية واضحة للتنفيذ.",
-    explorePortfolio:"استعرض الأعمال",whatsappConsultation:"استشارة عبر واتساب",
-    portfolioLabel:"كتالوج الأعمال المصور",portfolioTitle:"استكشف كتالوجات التصميم",loadingCatalogs:"جاري تحميل كتالوجات الأعمال...",
-    partnersLabel:"مراجع وشراكات عملية",partnersTitle:"خبرة موثوقة من مشروعات وشراكات فعلية",
-    partnersSubtitle:"مجموعة مختارة من العلامات والمشروعات والشراكات العملية التي تعكس خبرة Royal Designs في التصميمات التجارية والفندقية والسكنية.",
-    leadArchitect:"المهندسة المسؤولة",interiorEngineer:"مهندسة تصميم داخلي",aboutLabel:"عن الشركة",
-    aboutTitle:"تصميم برؤية وأناقة ودقة تنفيذ",
-    aboutP1:"بخبرة تمتد لأكثر من 30 عامًا، نفذت Royal Designs by Asmaa Allam أكثر من 600 مشروع في 20 قطاعًا تصميميًا.",
-    aboutP2:"تشمل الأعمال الفنادق، المطاعم، المحلات، المطابخ، الدريسنج، غرف الأطفال، المساحات السكنية، المساحات التجارية، والمزيد.",
-    projects:"مشروع",designSectors:"قطاع تصميم",yearsExperience:"سنة خبرة",updatedPortfolio:"كتالوج محدث",
-    contactTitle:"ابدأ مشروعك",contactText:"شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
-    chatWhatsapp:"تواصل عبر واتساب",callButton:"اتصل 0111 621 1118",footerLine:"بواسطة أسماء علام · مهندسة تصميم داخلي",
-    openCatalog:"افتح الكتالوج",images:"صورة"
+  ar: {
+    navHome: "الرئيسية", navPortfolio: "الأعمال", navAbout: "عن الشركة", navSectors: "مراجعنا", navContact: "تواصل معنا",
+    bookConsultation: "احجز استشارة", heroLabel: "تصميم داخلي فاخر", heroTitle: "رويال ديزاينز - أسماء علام",
+    heroText: "تصميمات داخلية راقية للمساحات الفندقية والتجارية والسكنية، تجمع بين الدقة الهندسية والذوق الرفيع ورؤية واضحة للتنفيذ.",
+    explorePortfolio: "استعرض الأعمال", whatsappConsultation: "استشارة عبر واتساب",
+    portfolioLabel: "كتالوج الأعمال المصور", portfolioTitle: "استكشف كتالوجات التصميم", loadingCatalogs: "جاري تحميل كتالوجات الأعمال...",
+    partnersLabel: "مراجع وشراكات عملية", partnersTitle: "خبرة موثوقة من مشروعات وشراكات فعلية",
+    partnersSubtitle: "مجموعة مختارة من العلامات والمشروعات والشراكات العملية التي تعكس خبرة Royal Designs في التصميمات التجارية والفندقية والسكنية.",
+    leadArchitect: "المهندسة المسؤولة", interiorEngineer: "مهندسة تصميم داخلي", aboutLabel: "عن الشركة",
+    aboutTitle: "تصميم برؤية وأناقة ودقة تنفيذ",
+    aboutP1: "بخبرة تمتد لأكثر من 30 عامًا، نفذت رويال ديزاينز بواسطة أسماء علام أكثر من 600 مشروع في 20 قطاعًا تصميميًا.",
+    aboutP2: "تشمل الأعمال الفنادق، المطاعم، المحلات، المطابخ، الدريسنج، غرف الأطفال، المساحات السكنية، المساحات التجارية، والمزيد.",
+    projects: "مشروع", designSectors: "قطاع تصميم", yearsExperience: "سنة خبرة", updatedPortfolio: "كتالوج محدث",
+    contactTitle: "ابدأ مشروعك", contactText: "شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
+    chatWhatsapp: "تواصل عبر واتساب", 
+    callButton: "اتصل 0121 111 5200", // Updated Text
+    footerLine: "بواسطة أسماء علام · مهندسة تصميم داخلي",
+    openCatalog: "افتح الكتالوج", images: "صورة"
   }
 };
 
-const folderMeta = {
-  "hotels":{en:"Hotels",ar:"الفنادق",tagEn:"Hospitality",tagAr:"فندقي",descEn:"Premium hospitality interiors with refined guest experience.",descAr:"تصميمات فندقية راقية وتجربة ضيافة مميزة."},
-  "restaurants":{en:"Restaurants",ar:"المطاعم",tagEn:"Commercial",tagAr:"تجاري",descEn:"Dining spaces with strong atmosphere and customer flow.",descAr:"مساحات مطاعم بأجواء قوية وحركة عملاء مدروسة."},
-  "shops":{en:"Retail Shops",ar:"المحلات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Retail interiors designed for attractive product display.",descAr:"تصميمات محلات تدعم عرض المنتجات وجذب العملاء."},
-  "kitchens":{en:"Kitchens",ar:"المطابخ",tagEn:"Residential",tagAr:"سكني",descEn:"Modern kitchens with practical storage and premium finishes.",descAr:"مطابخ عصرية بتخزين عملي وتشطيبات فاخرة."},
-  "dressing-rooms":{en:"Dressing Rooms",ar:"الدريسنج",tagEn:"Residential",tagAr:"سكني",descEn:"Organized dressing rooms with luxury storage details.",descAr:"غرف دريسنج منظمة بتفاصيل تخزين فاخرة."},
-  "kids-rooms":{en:"Kids Rooms",ar:"غرف الأطفال",tagEn:"Residential",tagAr:"سكني",descEn:"Creative kids room interiors with playful details and practical storage.",descAr:"تصميمات غرف أطفال تجمع بين التفاصيل المبهجة والتخزين العملي."},
-  "living rooms":{en:"Living Rooms",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Living spaces for villas and apartments with comfortable luxury.",descAr:"مساحات معيشة للفيلات والشقق بطابع راقٍ ومريح."},
-  "bed-rooms":{en:"Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Calm bedroom interiors with balanced materials and lighting.",descAr:"غرف نوم هادئة بخامات وإضاءة متوازنة."},
-  "dinning-rooms":{en:"Dining Rooms",ar:"غرف الطعام",tagEn:"Residential",tagAr:"سكني",descEn:"Elegant dining spaces designed for refined hosting.",descAr:"غرف طعام أنيقة لاستقبال راقٍ ومريح."},
-  "bathrooms":{en:"Bathrooms",ar:"الحمامات",tagEn:"Residential",tagAr:"سكني",descEn:"Bathroom interiors with smart layout and premium selections.",descAr:"حمامات بتوزيع ذكي واختيارات تشطيب راقية."},
-  "ceilings":{en:"Ceilings",ar:"الأسقف",tagEn:"Details",tagAr:"تفاصيل",descEn:"Ceiling treatments, lighting lines, and decorative finishing.",descAr:"معالجات أسقف وخطوط إضاءة وتشطيبات ديكورية."},
-  "finishes":{en:"Finishes",ar:"التشطيبات",tagEn:"Details",tagAr:"تفاصيل",descEn:"Material, marble, wall, floor, and finishing details.",descAr:"خامات ورخام وحوائط وأرضيات وتفاصيل تشطيب."},
-  "offices":{en:"Offices",ar:"المكاتب",tagEn:"Commercial",tagAr:"تجاري",descEn:"Professional office interiors with refined executive style.",descAr:"تصميمات مكاتب عملية بطابع إداري راقٍ."},
-  "booths":{en:"Booths",ar:"البوثات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Display booths and presentation units designed for visual attraction.",descAr:"بوثات ووحدات عرض مصممة لجذب الانتباه."},
-  "Exhibitions":{en:"Exhibitions",ar:"المعارض",tagEn:"Commercial",tagAr:"تجاري",descEn:"Exhibition interiors and display zones with strong visual impact.",descAr:"تصميمات معارض ومناطق عرض بتأثير بصري قوي."},
-  "units":{en:"TV Units",ar:"وحدات التلفزيون",tagEn:"Residential",tagAr:"سكني",descEn:"Custom TV units and wall compositions with clean styling.",descAr:"وحدات تلفزيون وحوائط بتصميم عملي ونظيف."}
-};
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem("siteLang", lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.body.classList.toggle("rtl", lang === "ar");
 
-function setLang(lang){
-  currentLang = lang;
-  localStorage.setItem("siteLang", lang);
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  document.body.classList.toggle("rtl", lang === "ar");
+    // Update active state in switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`lang-${lang}`).classList.add('active');
 
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.getAttribute("data-i18n");
-    if(translations[lang][key]) el.textContent = translations[lang][key];
-  });
-
-  renderCatalogCards();
-}
-
-function trackWhatsApp(source, catalogName = ""){
-  const data = {
-    page: window.location.href,
-    language: currentLang,
-    source: source,
-    catalog: catalogName,
-    device: navigator.userAgent,
-    whatsapp: WHATSAPP_NUMBER,
-    timestamp: new Date().toISOString()
-  };
-
-  fetch(SCRIPT_URL,{
-    method:"POST",
-    mode:"no-cors",
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(data)
-  });
-
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}`,"_blank");
-}
-
-function titleFromFolder(folderName){
-  const meta = folderMeta[folderName];
-  if(meta) return currentLang === "ar" ? meta.ar : meta.en;
-  return folderName.replace(/-/g," ").replace(/\b\w/g,char=>char.toUpperCase());
-}
-function tagFromFolder(folderName){
-  const meta = folderMeta[folderName];
-  if(meta) return currentLang === "ar" ? meta.tagAr : meta.tagEn;
-  return currentLang === "ar" ? "أعمال" : "Portfolio";
-}
-function descFromFolder(folderName){
-  const meta = folderMeta[folderName];
-  if(meta) return currentLang === "ar" ? meta.descAr : meta.descEn;
-  return currentLang === "ar" ? "صور مختارة من هذا التصنيف." : "Selected images from this design category.";
-}
-
-async function loadCatalogData(){
-  const loadingNote = document.getElementById("loadingNote");
-
-  try{
-    const response = await fetch("catalog-data.json?v=20260504", {cache:"no-store"});
-    const data = await response.json();
-
-    catalogs = (data.catalogs || []).map(item=>({
-      folder:item.folder,
-      images:item.images || [],
-      cover:(item.images || [])[0]
-    })).filter(item=>item.images.length > 0);
-
-    partnersImages = data.partners || [];
-
-    if(loadingNote) loadingNote.style.display = "none";
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+    });
 
     renderCatalogCards();
-    renderPartners();
-  }catch(error){
-    if(loadingNote){
-      loadingNote.style.display = "block";
-      loadingNote.textContent = currentLang === "ar"
-        ? "لم يتم تحميل ملف catalog-data.json. تأكدي أنه موجود في الروت."
-        : "Could not load catalog-data.json. Please make sure it exists in the root.";
+}
+
+function trackWhatsApp(source, catalogName = "") {
+    const data = {
+        page: window.location.href,
+        language: currentLang,
+        source: source,
+        catalog: catalogName,
+        device: navigator.userAgent,
+        whatsapp: WHATSAPP_NUMBER,
+        timestamp: new Date().toISOString()
+    };
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    });
+
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+}
+
+const folderMeta = {
+    "hotels":{en:"Hotels",ar:"الفنادق",tagEn:"Hospitality",tagAr:"فندقي",descEn:"Premium hospitality interiors.",descAr:"تصميمات فندقية راقية."},
+    "restaurants":{en:"Restaurants",ar:"المطاعم",tagEn:"Commercial",tagAr:"تجاري",descEn:"Dining spaces with atmosphere.",descAr:"مساحات مطاعم بأجواء قوية."},
+    "shops":{en:"Retail Shops",ar:"المحلات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Retail interiors for display.",descAr:"تصميمات محلات جاذبة."},
+    "kitchens":{en:"Kitchens",ar:"المطابخ",tagEn:"Residential",tagAr:"سكني",descEn:"Modern kitchens.",descAr:"مطابخ عصرية."},
+    "dressing-rooms":{en:"Dressing Rooms",ar:"الدريسنج",tagEn:"Residential",tagAr:"سكني",descEn:"Organized luxury.",descAr:"غرف دريسنج منظمة."},
+    "kids-rooms":{en:"Kids Rooms",ar:"غرف الأطفال",tagEn:"Residential",tagAr:"سكني",descEn:"Creative playful details.",descAr:"تصميمات غرف أطفال مبهجة."},
+    "living rooms":{en:"Living Rooms",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Comfortable luxury.",descAr:"مساحات معيشة راقية."},
+    "bed-rooms":{en:"Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Calm interiors.",descAr:"غرف نوم هادئة."},
+    "dinning-rooms":{en:"Dining Rooms",ar:"غرف الطعام",tagEn:"Residential",tagAr:"سكني",descEn:"Elegant hosting.",descAr:"غرف طعام أنيقة."},
+    "bathrooms":{en:"Bathrooms",ar:"الحمامات",tagEn:"Residential",tagAr:"سكني",descEn:"Smart layout.",descAr:"حمامات بتوزيع ذكي."},
+    "ceilings":{en:"Ceilings",ar:"الأسقف",tagEn:"Details",tagAr:"تفاصيل",descEn:"Decorative finishing.",descAr:"تشطيبات أسقف ديكورية."},
+    "finishes":{en:"Finishes",ar:"التشطيبات",tagEn:"Details",tagAr:"تفاصيل",descEn:"Material & marble.",descAr:"خامات ورخام وحوائط."},
+    "offices":{en:"Offices",ar:"المكاتب",tagEn:"Commercial",tagAr:"تجاري",descEn:"Refined executive style.",descAr:"تصميمات مكاتب إدارية."},
+    "booths":{en:"Booths",ar:"البوثات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Visual attraction.",descAr:"بوثات عرض متميزة."},
+    "Exhibitions":{en:"Exhibitions",ar:"المعارض",tagEn:"Commercial",tagAr:"تجاري",descEn:"Visual impact.",descAr:"تصميمات معارض مبهرة."},
+    "units":{en:"TV Units",ar:"وحدات التلفزيون",tagEn:"Residential",tagAr:"سكني",descEn:"Custom compositions.",descAr:"وحدات تلفزيون عملية."}
+};
+
+async function loadCatalogData() {
+    const loadingNote = document.getElementById("loadingNote");
+    try {
+        const response = await fetch("catalog-data.json?v=20260504", { cache: "no-store" });
+        const data = await response.json();
+        catalogs = (data.catalogs || []).map(item => ({
+            folder: item.folder,
+            images: item.images || [],
+            cover: (item.images || [])[0]
+        })).filter(item => item.images.length > 0);
+        partnersImages = data.partners || [];
+        if (loadingNote) loadingNote.style.display = "none";
+        renderCatalogCards();
+        renderPartners();
+    } catch (error) {
+        if (loadingNote) loadingNote.textContent = "Data load error.";
+        console.warn(error);
     }
-    console.warn(error);
-  }
 }
 
-function renderCatalogCards(){
-  const grid = document.getElementById("catalogGrid");
-  if(!grid || !catalogs.length) return;
-  grid.innerHTML = "";
+function renderCatalogCards() {
+    const grid = document.getElementById("catalogGrid");
+    if (!grid || !catalogs.length) return;
+    grid.innerHTML = "";
+    catalogs.forEach((item, index) => {
+        const meta = folderMeta[item.folder] || {en: item.folder, ar: item.folder, tagEn: "Portfolio", tagAr: "أعمال", descEn: "View gallery", descAr: "عرض الصور"};
+        const title = currentLang === "ar" ? meta.ar : meta.en;
+        const tag = currentLang === "ar" ? meta.tagAr : meta.tagEn;
+        const desc = currentLang === "ar" ? meta.descAr : meta.descEn;
 
-  catalogs.forEach((item,index)=>{
-    const title = titleFromFolder(item.folder);
-    const tag = tagFromFolder(item.folder);
-    const desc = descFromFolder(item.folder);
-
-    const card = document.createElement("div");
-    card.className = "catalog-card";
-    card.style.backgroundImage = `url('${item.cover}')`;
-    card.onclick = ()=>openCatalog(index);
-
-    card.innerHTML = `
-      <div class="catalog-info">
-        <span>${tag}</span>
-        <h3>${title}</h3>
-        <p>${desc}</p>
-        <div class="catalog-count">${translations[currentLang].openCatalog} · ${item.images.length} ${translations[currentLang].images}</div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
+        const card = document.createElement("div");
+        card.className = "catalog-card";
+        card.style.backgroundImage = `url('${item.cover}')`;
+        card.onclick = () => openCatalog(index);
+        card.innerHTML = `
+            <div class="catalog-info">
+                <span>${tag}</span>
+                <h3>${title}</h3>
+                <p>${desc}</p>
+                <div class="catalog-count">${translations[currentLang].openCatalog} · ${item.images.length} ${translations[currentLang].images}</div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
 }
 
-function renderPartners(){
-  const partnersGrid = document.getElementById("partnersGrid");
-  if(!partnersGrid) return;
-
-  partnersGrid.innerHTML = "";
-
-  partnersImages.forEach((src,index)=>{
-    const item = document.createElement("div");
-    item.className = "partner-logo";
-    item.innerHTML = `<img src="${src}" alt="Partner Logo ${index + 1}" loading="lazy">`;
-    partnersGrid.appendChild(item);
-  });
+function renderPartners() {
+    const partnersGrid = document.getElementById("partnersGrid");
+    if (!partnersGrid) return;
+    partnersGrid.innerHTML = "";
+    partnersImages.forEach((src, index) => {
+        const item = document.createElement("div");
+        item.className = "partner-logo";
+        item.innerHTML = `<img src="${src}" alt="Partner" style="max-width:80%; max-height:80px; object-fit:contain;" loading="lazy">`;
+        partnersGrid.appendChild(item);
+    });
 }
 
-function openCatalog(index){
-  const item = catalogs[index];
-  const modal = document.getElementById("catalogModal");
-  const gallery = document.getElementById("modalGallery");
-
-  activeCatalogName = titleFromFolder(item.folder);
-
-  document.getElementById("modalTitle").textContent = activeCatalogName;
-  document.getElementById("modalDesc").textContent = `${descFromFolder(item.folder)} · ${item.images.length} ${translations[currentLang].images}`;
-
-  gallery.innerHTML = "";
-
-  item.images.forEach(src=>{
-    const img = document.createElement("img");
-    img.src = src;
-    img.alt = activeCatalogName;
-    img.loading = "lazy";
-    img.onerror = function(){ this.style.display = "none"; };
-    img.onclick = ()=>openImage(src);
-    gallery.appendChild(img);
-  });
-
-  document.getElementById("modalWhatsapp").textContent = translations[currentLang].whatsappConsultation;
-  document.getElementById("modalWhatsapp").onclick = function(e){
-    e.preventDefault();
-    trackWhatsApp("Catalog WhatsApp Button",activeCatalogName);
-  };
-
-  modal.classList.add("active");
-  document.body.style.overflow = "hidden";
+function openCatalog(index) {
+    const item = catalogs[index];
+    const modal = document.getElementById("catalogModal");
+    const gallery = document.getElementById("modalGallery");
+    activeCatalogName = (folderMeta[item.folder] || {}).en || item.folder;
+    document.getElementById("modalTitle").textContent = currentLang === "ar" ? (folderMeta[item.folder] || {}).ar : activeCatalogName;
+    gallery.innerHTML = "";
+    item.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.onclick = () => { document.getElementById("lightbox").style.display='flex'; document.getElementById("lightboxImg").src=src; };
+        gallery.appendChild(img);
+    });
+    document.getElementById("modalWhatsapp").onclick = (e) => { e.preventDefault(); trackWhatsApp("Modal", activeCatalogName); };
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
 }
 
-function closeCatalog(){
-  document.getElementById("catalogModal").classList.remove("active");
-  document.body.style.overflow = "";
-}
-function openImage(src){
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("lightboxImg").src = src;
-}
-function closeImage(){
-  document.getElementById("lightbox").style.display = "none";
+function closeCatalog() {
+    document.getElementById("catalogModal").classList.remove("active");
+    document.body.style.overflow = "";
 }
 
 const revealItems = document.querySelectorAll(".reveal");
-function revealOnScroll(){
-  revealItems.forEach(item=>{
-    const top = item.getBoundingClientRect().top;
-    if(top < window.innerHeight - 90) item.classList.add("active");
-  });
+function revealOnScroll() {
+    revealItems.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        if (top < window.innerHeight - 90) item.classList.add("active");
+    });
 }
 
-window.addEventListener("scroll",revealOnScroll);
-window.addEventListener("load",()=>{
-  revealOnScroll();
-  setLang(currentLang);
-  loadCatalogData();
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", () => {
+    revealOnScroll();
+    setLang(currentLang);
+    loadCatalogData();
 });
 </script>
 
