@@ -127,19 +127,36 @@ footer { background: #0b111d; color: white; text-align: center; padding: 2.5rem 
     font-weight: 700; box-shadow: 0 16px 40px rgba(37, 211, 102, .36); 
 }
 
-/* Modals */
-.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 9999; overflow-y: auto; padding: 2rem; }
+/* Modals & UI Buttons */
+.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 9999; overflow-y: auto; }
 .catalog-modal.active { display: block; }
-.modal-head { max-width: 1200px; margin: 0 auto 1.5rem; display: flex; justify-content: space-between; align-items: center; color: white; }
-.modal-gallery { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+.modal-head { position: sticky; top: 0; background: rgba(0,0,0,0.96); z-index: 10001; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; color: white; border-bottom: 1px solid rgba(201,165,90,0.2); backdrop-filter: blur(10px); }
+.modal-head h2 { font-family: "Playfair Display", serif; font-size: 1.5rem; color: var(--gold); margin: 0; }
+.modal-gallery { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 0 6%; }
 .modal-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 18px; cursor: pointer; transition: 0.3s; }
 .modal-gallery img:hover { transform: scale(1.03); }
+
+/* زر الرجوع (Back Button) الملكي */
+.floating-back {
+    background: rgba(26, 39, 68, 0.8); border: 1px solid var(--gold); color: white;
+    padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex;
+    align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; font-family: inherit;
+    transition: 0.3s; backdrop-filter: blur(5px);
+}
+.floating-back:hover { background: var(--gold); color: var(--navy); }
+.back-icon { display: inline-block; transition: 0.3s; font-size: 1.1rem; line-height: 1; }
+/* يعكس اتجاه السهم في اللغة العربية بشكل تلقائي */
+body.rtl .back-icon { transform: rotate(180deg); }
+
+/* هيدر الصور المكبرة (Lightbox Header) */
+.lightbox-header { position: absolute; top: 20px; left: 20px; z-index: 10001; }
+body.rtl .lightbox-header { left: auto; right: 20px; }
 
 /* Animations */
 @keyframes heroZoom { from { background-size: 100% 100%; } to { background-size: 115% 115%; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(45px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Mobile View Adjustments (الملكي) */
+/* Mobile View Adjustments */
 @media(max-width: 850px) {
     nav { background: transparent; backdrop-filter: none; padding: 1.2rem 5%; }
     nav.scrolled { background: rgba(26, 39, 68, 0.98); backdrop-filter: blur(15px); padding: 0.8rem 5%; }
@@ -149,6 +166,8 @@ footer { background: #0b111d; color: white; text-align: center; padding: 2.5rem 
     .hero p { font-size: 0.98rem; }
     .architect-wrap { grid-template-columns: 1fr; text-align: center; }
     .stats { grid-template-columns: repeat(2, 1fr); }
+    .modal-head { padding: 1rem 5%; }
+    .floating-back { padding: 0.4rem 1rem; font-size: 0.85rem; }
 }
 </style>
 </head>
@@ -236,30 +255,38 @@ footer { background: #0b111d; color: white; text-align: center; padding: 2.5rem 
     <div class="contact-actions" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
         <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
         <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
-/* Modals & Lightbox */
-.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 9999; overflow-y: auto; }
-.catalog-modal.active { display: block; }
-.modal-head { position: sticky; top: 0; background: rgba(0,0,0,0.96); z-index: 10001; padding: 1.5rem 6%; display: flex; justify-content: space-between; align-items: center; color: white; border-bottom: 1px solid rgba(201,165,90,0.2); backdrop-filter: blur(10px); }
-.modal-head h2 { font-family: "Playfair Display", serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 0.2rem; }
-.modal-head p { margin: 0; font-size: 0.85rem; color: #aaa; }
-.modal-gallery { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 0 6%; }
-.modal-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 18px; cursor: pointer; transition: 0.3s; }
-/* ... existing code ... -->
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">Royal Innovation</div>
+    <p data-i18n="footerLine">by Asmaa Allam · Bespoke Interior Design Engineering</p>
+    <p>© 2026 Royal Innovation. Crafted with Excellence.</p>
+</footer>
+
 <!-- Modals & Lightbox -->
 <div class="catalog-modal" id="catalogModal">
+    <!-- هيدر الكتالوج (الآن يحتوي على زر الرجوع الصريح) -->
     <div class="modal-head">
-        <div><h2 id="modalTitle">Catalog</h2><p id="modalDesc">Detailed visual preview.</p></div>
-        <button class="close-modal" style="background:transparent; border:1px solid #c9a55a; color:#c9a55a; border-radius:50%; width:44px; height:44px; font-size:1.5rem; cursor:pointer; flex-shrink: 0;" onclick="closeCatalog()">×</button>
+        <button class="floating-back" onclick="closeCatalog()">
+            <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
+        </button>
+        <h2 id="modalTitle">Catalog</h2>
     </div>
     <div class="modal-gallery" id="modalGallery"></div>
-    <div class="modal-actions" style="text-align:center; margin-top:2rem; padding-bottom: 3rem;">
+    <div class="modal-actions" style="text-align:center; margin-top:2rem; padding-bottom:3rem;">
         <a href="#" id="modalWhatsapp" class="btn btn-gold">Inquire via WhatsApp</a>
     </div>
 </div>
 
-<!-- Lightbox with display none properly configured -->
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
-    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:1px solid var(--gold); border-radius:12px;" src="">
+<!-- نافذة تكبير الصورة (تحتوي أيضاً على زر رجوع) -->
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="closeLightbox(event)">
+    <div class="lightbox-header">
+        <button class="floating-back" onclick="closeLightbox(event)">
+            <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
+        </button>
+    </div>
+    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:1px solid var(--gold); border-radius:12px; box-shadow:0 0 50px rgba(0,0,0,0.5);" src="" onclick="event.stopPropagation()">
 </div>
 
 <a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp">WhatsApp</a>
@@ -272,7 +299,6 @@ let catalogs = [];
 let partnersImages = [];
 let currentLang = localStorage.getItem("siteLang") || "en";
 
-// الترتيب الملكي الذكي: السكني أولاً ثم التجاري والفنادق
 const priorityOrder = [
     "living rooms", "bed-rooms", "kitchens", "dressing-rooms", 
     "dinning-rooms", "bathrooms", "kids-rooms", "units",
@@ -295,7 +321,8 @@ const translations = {
     projects: "Masterpieces", designSectors: "Specialized Sectors", yearsExperience: "Years of Heritage", updatedPortfolio: "2026 Collection",
     contactTitle: "Let’s Design Your Future", contactText: "Ready to transform your space? Contact us for a professional consultation.",
     chatWhatsapp: "Message on WhatsApp", callButton: "Direct Call: 0121 111 5200",
-    footerLine: "by Asmaa Allam · Bespoke Interior Engineering", openCatalog: "View Collection", images: "Images"
+    footerLine: "by Asmaa Allam · Bespoke Interior Engineering", openCatalog: "View Collection", images: "Images",
+    backBtn: "Back" // ترجمة زر الرجوع
   },
   ar: {
     navHome: "الرئيسية", navPortfolio: "إبداعاتنا", navAbout: "من نحن", navSectors: "شركاء النجاح", navContact: "تواصل معنا",
@@ -311,11 +338,11 @@ const translations = {
     projects: "مشروع أيقوني", designSectors: "قطاع تخصصي", yearsExperience: "عاماً من الإرث", updatedPortfolio: "رؤية 2026",
     contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجاتك.",
     chatWhatsapp: "تواصل عبر واتساب", callButton: "اتصال مباشر: 0121 111 5200",
-    footerLine: "بواسطة أسماء علام · هندسة التصميم والابتكار الداخلي", openCatalog: "افتح الكتالوج", images: "صورة"
+    footerLine: "بواسطة أسماء علام · هندسة التصميم والابتكار الداخلي", openCatalog: "افتح الكتالوج", images: "صورة",
+    backBtn: "رجوع" // ترجمة زر الرجوع
   }
 };
 
-// أسماء مبسطة ومباشرة للعميل لتسهيل الفهم والتصفح
 const folderMeta = {
     "hotels":{en:"Hotels",ar:"فنادق",tagEn:"Hospitality",tagAr:"فندقي"},
     "restaurants":{en:"Restaurants & Cafes",ar:"مطاعم وكافيهات",tagEn:"Commercial",tagAr:"تجاري"},
@@ -368,7 +395,6 @@ async function loadCatalogData() {
             cover: (item.images || [])[0]
         })).filter(item => item.images.length > 0);
 
-        // الترتيب الذكي الدقيق للمصفوفة
         catalogs = rawCatalogs.sort((a, b) => {
             let idxA = priorityOrder.indexOf(a.folder);
             let idxB = priorityOrder.indexOf(b.folder);
@@ -390,7 +416,6 @@ function renderCatalogCards() {
     if (!grid || !catalogs.length) return;
     grid.innerHTML = "";
     catalogs.forEach((item, index) => {
-        // المطابقة الدقيقة هنا تضمن عدم وجود أخطاء في العرض
         const folderKey = item.folder;
         const meta = folderMeta[folderKey] || {en: item.folder, ar: item.folder, tagEn: "Portfolio", tagAr: "أعمال"};
         const title = currentLang === "ar" ? meta.ar : meta.en;
@@ -399,10 +424,8 @@ function renderCatalogCards() {
         const card = document.createElement("div");
         card.className = "catalog-card";
         card.style.backgroundImage = `url('${item.cover}')`;
-        // إضافة الكليك على الكارت بالكامل لفتح النافذة
         card.onclick = () => openCatalog(index);
 
-        // إزالة العدد الثابت وإبقاء النص أنيقاً
         card.innerHTML = `
             <div class="catalog-info">
                 <span style="color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;">${tag}</span>
@@ -443,11 +466,12 @@ function openCatalog(index) {
         img.src = src;
         img.loading = "lazy";
         
-        // كود ذكي: إخفاء الصورة تماماً إذا لم تكن موجودة في المجلد (يظهر المليان فقط)
+        // إخفاء الصور الغير متوفرة ليبقى المنظر أنيقاً
         img.onerror = function() { this.style.display = 'none'; };
 
-        // فتح اللامبة (Lightbox) عند النقر على الصورة المحددة
-        img.onclick = () => { 
+        // فتح الصورة المكبرة (وإيقاف إغلاق الكتالوج)
+        img.onclick = (e) => { 
+            e.stopPropagation();
             document.getElementById("lightbox").style.display='flex'; 
             document.getElementById("lightboxImg").src=src; 
         };
@@ -459,7 +483,7 @@ function openCatalog(index) {
         trackWhatsApp("Catalog Detail", activeCatalogName); 
     };
     
-    // إضافة حالة للتاريخ لتفعيل زر الرجوع في الموبايل
+    // دعم زر الرجوع الخاص بالهاتف
     history.pushState({ modalOpen: true }, "", "#catalog");
     
     modal.classList.add("active");
@@ -470,42 +494,47 @@ function closeCatalog() {
     document.getElementById("catalogModal").classList.remove("active"); 
     document.body.style.overflow = ""; 
     
-    // إزالة حالة التاريخ لتنظيف الرابط
     if (window.location.hash === "#catalog") {
         history.back();
     }
 }
 
-// التحكم في زر الرجوع (Back Button / Swipe) يعمل على الموبايل واللابتوب
+// دالة غلق الصورة المكبرة
+function closeLightbox(e) {
+    if(e) e.stopPropagation();
+    document.getElementById("lightbox").style.display = 'none';
+}
+
+// التفاعل الذكي مع زر "رجوع" في المتصفح / الموبايل
 window.addEventListener('popstate', function() {
-    const modal = document.getElementById("catalogModal");
-    if (modal && modal.classList.contains("active")) {
-        modal.classList.remove("active");
-        document.body.style.overflow = "";
-    }
-    
     const lightbox = document.getElementById("lightbox");
     if (lightbox && lightbox.style.display === "flex") {
         lightbox.style.display = "none";
+    } else {
+        const modal = document.getElementById("catalogModal");
+        if (modal && modal.classList.contains("active")) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+        }
     }
 });
 
-// إضافة تحكم الكيبورد (زر ESC) للابتوب لسهولة الإغلاق
+// دعم زر الإغلاق (ESC) في اللابتوب
 document.addEventListener('keydown', function(e) {
     if (e.key === "Escape") {
         const lightbox = document.getElementById("lightbox");
         if (lightbox && lightbox.style.display === "flex") {
-            lightbox.style.display = "none"; // إغلاق الصورة المكبرة أولاً
+            closeLightbox(); 
         } else {
             const modal = document.getElementById("catalogModal");
             if (modal && modal.classList.contains("active")) {
-                closeCatalog(); // إغلاق الكتالوج بالكامل
+                closeCatalog();
             }
         }
     }
 });
 
-// تأثير القائمة العلوية
+// تأثير نافبار عند السكرول
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 80) nav.classList.add('scrolled');
