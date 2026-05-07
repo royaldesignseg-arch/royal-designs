@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Designs by Asmaa Allam | Luxury Interior Excellence</title>
+    <title>Royal Innovation by Asmaa Allam | Luxury Interior & Engineering</title>
 
-    <!-- تم إضافة خط Almarai للغة العربية لضمان الوضوح والتميز -->
+    <!-- تم استخدام خط Almarai للغة العربية لضمان الفخامة والوضوح -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -21,10 +21,20 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); }
+body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
-/* تنسيق الخط العربي المميز */
-body.rtl { font-family: "Almarai", sans-serif; direction: rtl; }
+/* تنسيق الخط العربي المطور وتنظيم الأسطر */
+body.rtl { 
+    font-family: "Almarai", sans-serif; 
+    direction: rtl; 
+}
+
+/* تنظيم شكل الكتابة العربية (الاليمنت) */
+body.rtl p {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.8; /* مسافة مريحة بين السطور */
+}
 
 nav { 
     position: fixed; top: 0; width: 100%; z-index: 1000; padding: 0.8rem 6%; 
@@ -85,7 +95,7 @@ nav {
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 2rem; animation: fadeUp 1.5s ease forwards; }
 .hero-label { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-size: .78rem; margin-bottom: 1rem; font-weight: 600; }
 .hero h1 { font-family: "Playfair Display", serif; color: white; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.05; margin-bottom: 1.2rem; text-shadow: 0 20px 50px rgba(0, 0, 0, .55); }
-.hero p { color: rgba(255, 255, 255, .9); font-size: 1.07rem; line-height: 1.9; max-width: 720px; margin: 0 auto 2rem; }
+.hero p { color: rgba(255, 255, 255, .9); font-size: 1.07rem; max-width: 720px; margin: 0 auto 2rem; }
 
 .btn { padding: .95rem 1.85rem; border-radius: 40px; text-decoration: none; transition: .3s; font-size: .9rem; display: inline-block; cursor: pointer; border: none; }
 .btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; }
@@ -96,7 +106,7 @@ nav {
 .section-title { text-align: center; margin-bottom: 3rem; }
 .label { color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .75rem; margin-bottom: .8rem; font-weight: 700; }
 .section-title h2 { font-family: "Playfair Display", serif; color: var(--navy); font-size: clamp(2rem, 4vw, 3.4rem); }
-.section-subtitle { max-width: 760px; margin: 1rem auto 0; color: var(--muted); line-height: 1.8; font-size: 1rem; }
+.section-subtitle { max-width: 760px; margin: 1rem auto 0; color: var(--muted); font-size: 1rem; }
 .gold-line { width: 70px; height: 2px; background: var(--gold); margin: 1rem auto 0; }
 
 .portfolio { background: var(--cream); }
@@ -111,8 +121,8 @@ nav {
 .catalog-info { position: absolute; bottom: 0; z-index: 2; color: white; padding: 1.8rem; }
 .catalog-info span { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: .72rem; font-weight: 700; }
 .catalog-info h3 { font-family: "Playfair Display", serif; font-size: 2rem; margin: .45rem 0; }
-.catalog-info p { color: rgba(255, 255, 255, .84); line-height: 1.6; font-size: .9rem; }
-.catalog-count { display: inline-block; margin-top: .9rem; padding: .45rem .8rem; border: 1px solid rgba(201, 165, 90, .65); border-radius: 40px; font-size: .78rem; color: var(--gold); background: rgba(0, 0, 0, .25); }
+.catalog-info p { color: rgba(255, 255, 255, .84); font-size: .9rem; text-align: left !important; }
+body.rtl .catalog-info p { text-align: right !important; }
 
 .about { background: white; }
 .architect-wrap { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: center; }
@@ -136,13 +146,9 @@ nav {
 .contact { background: var(--navy); color: white; text-align: center; }
 .contact h2 { font-family: "Playfair Display", serif; color: var(--gold); font-size: 3rem; margin-bottom: 1rem; }
 .contact p { color: rgba(255, 255, 255, .78); max-width: 720px; margin: 0 auto 2rem; }
-.contact-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 9999; overflow-y: auto; padding: 2rem; }
-.catalog-modal.active { display: block; }
-.modal-head { max-width: 1200px; margin: 0 auto 1.5rem; display: flex; justify-content: space-between; align-items: center; color: white; }
-.modal-gallery { max-width: 1200px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
-.modal-gallery img { width: 100%; height: 250px; object-fit: cover; border-radius: 18px; cursor: pointer; transition: .3s; }
+footer { background: #111827; color: white; text-align: center; padding: 2.5rem 6%; }
+.footer-logo { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem; }
 
 .whatsapp { 
     position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; 
@@ -150,7 +156,6 @@ nav {
     font-weight: 700; box-shadow: 0 16px 40px rgba(37, 211, 102, .36); 
 }
 
-footer { background: #111827; color: white; text-align: center; padding: 2.5rem 6%; }
 .reveal { opacity: 0; transform: translateY(45px); transition: .8s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -171,8 +176,8 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 
 <nav>
     <div class="nav-logo">
-        <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
-        <div class="logo-text">Royal Designs<small>BY ASMAA ALLAM</small></div>
+        <img class="logo-img" src="logo.png" alt="Royal Innovation Logo">
+        <div class="logo-text">Royal Innovation<small>BY ASMAA ALLAM</small></div>
     </div>
 
     <div class="nav-links">
@@ -194,7 +199,7 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 <header class="hero" id="home">
     <div class="hero-content">
         <div class="hero-label" data-i18n="heroLabel">Artistry & Engineering Precision</div>
-        <h1 data-i18n="heroTitle">Royal Designs by Asmaa Allam</h1>
+        <h1 data-i18n="heroTitle">Royal Innovation by Asmaa Allam</h1>
         <p data-i18n="heroText">Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic to create environments that inspire.</p>
         <div class="hero-buttons">
             <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">Explore Portfolio</a>
@@ -226,7 +231,7 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
         <div class="about-text">
             <div class="label" data-i18n="aboutLabel">Our Story</div>
             <h2 data-i18n="aboutTitle">Defining the Art of Living</h2>
-            <p data-i18n="aboutP1">With a career spanning over three decades, Royal Designs by Asmaa Allam has become a benchmark for excellence in the interior design industry, delivering over 600 successful projects.</p>
+            <p data-i18n="aboutP1">With a career spanning over three decades, Royal Innovation by Asmaa Allam has become a benchmark for excellence in the interior design industry, delivering over 600 successful projects.</p>
             <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with aesthetic elegance, ensuring that every project—from luxury hotels to boutique residences—is an original work of art.</p>
             <div class="stats">
                 <div class="stat"><strong>+600</strong><span data-i18n="projects">Masterpieces</span></div>
@@ -258,9 +263,9 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 </section>
 
 <footer>
-    <div class="footer-logo">Royal Designs</div>
+    <div class="footer-logo">Royal Innovation</div>
     <p data-i18n="footerLine">by Asmaa Allam · Bespoke Interior Design Engineering</p>
-    <p>© 2026 Royal Designs. Crafted with Excellence.</p>
+    <p>© 2026 Royal Innovation. Crafted with Excellence.</p>
 </footer>
 
 <div class="catalog-modal" id="catalogModal">
@@ -295,7 +300,7 @@ let activeCatalogName = "";
 const translations = {
   en: {
     navHome: "Home", navPortfolio: "Portfolio", navAbout: "About", navSectors: "Success Stories", navContact: "Contact",
-    bookConsultation: "Start Your Journey", heroLabel: "Where Art Meets Engineering", heroTitle: "Royal Designs by Asmaa Allam",
+    bookConsultation: "Start Your Journey", heroLabel: "Where Innovation Meets Engineering", heroTitle: "Royal Innovation by Asmaa Allam",
     heroText: "Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic to create environments that inspire.",
     explorePortfolio: "View Creations", whatsappConsultation: "WhatsApp Inquiry",
     portfolioLabel: "Visual Journey", portfolioTitle: "Excellence in Every Detail", loadingCatalogs: "Curating our masterpieces...",
@@ -303,7 +308,7 @@ const translations = {
     partnersSubtitle: "Reflecting our deep-rooted experience in hospitality, commercial, and luxury residential sectors.",
     leadArchitect: "Founder & Lead Architect", interiorEngineer: "Interior Design Specialist", aboutLabel: "The Legacy",
     aboutTitle: "Designing with Purpose & Elegance",
-    aboutP1: "For over 30 years, Royal Designs by Asmaa Allam has set the standard for bespoke interior engineering, delivering over 600 unique projects across the region.",
+    aboutP1: "For over 30 years, Royal Innovation by Asmaa Allam has set the standard for bespoke interior engineering, delivering over 600 unique projects across the region.",
     aboutP2: "Our commitment is to deliver designs that are not only visually stunning but also technically superior and operationally efficient.",
     projects: "Masterpieces", designSectors: "Specialized Sectors", yearsExperience: "Years of Heritage", updatedPortfolio: "2026 Collection",
     contactTitle: "Let’s Design Your Future", contactText: "Ready to transform your space? Contact us for a professional consultation tailored to your project's unique requirements.",
@@ -314,21 +319,21 @@ const translations = {
   },
   ar: {
     navHome: "الرئيسية", navPortfolio: "إبداعاتنا", navAbout: "من نحن", navSectors: "شركاء النجاح", navContact: "تواصل معنا",
-    bookConsultation: "ابدأ رحلة التصميم", heroLabel: "حين يلتقي الفن بدقة الهندسة", heroTitle: "رويال ديزاينز - أسماء علام",
+    bookConsultation: "ابدأ رحلة التصميم", heroLabel: "حين يلتقي الابتكار بدقة الهندسة", heroTitle: "رويال إنوفيشن - أسماء علام",
     heroText: "نحول المساحات العادية إلى تجارب بصرية استثنائية. نجمع بين الدقة الهندسية والجمال الملكي لنصمم بيئة تعكس هويتكم وتلهم حواسكم.",
     explorePortfolio: "استكشف أعمالنا", whatsappConsultation: "استشارة عبر واتساب",
-    portfolioLabel: "رحلة بصرية", portfolioTitle: "فلسفة التصميم والجمال", loadingCatalogs: "جاري تنسيق كتالوج الأعمال...",
+    portfolioLabel: "رحلة بصرية", portfolioTitle: "فلسفة الابتكار والجمال", loadingCatalogs: "جاري تنسيق كتالوج الأعمال...",
     partnersLabel: "شركاء التميز", partnersTitle: "مشروعات فارقة وشراكات استراتيجية",
     partnersSubtitle: "مجموعة مختارة تعكس تاريخنا الممتد في القطاعات التجارية والفندقية والسكنية الفاخرة.",
     leadArchitect: "المؤسس والمهندس الرئيسي", interiorEngineer: "خبير تصميم داخلي", aboutLabel: "قصتنا",
     aboutTitle: "فن صياغة التفاصيل الراقية",
-    aboutP1: "على مدار ثلاثة عقود، نجحت رويال ديزاينز بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد.",
-    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل، بل هو توازن دقيق بين الوظيفة والجمال، لنضمن لك تجربة عيش وعمل تفوق التوقعات.",
+    aboutP1: "على مدار ثلاثة عقود، نجحت رويال إنوفيشن بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد من نوعه يجمع بين الفكر الهندسي والروح الفنية.",
+    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل جمالي، بل هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة عيش وعمل تفوق التوقعات وتلبي أدق التفاصيل الاحترافية.",
     projects: "مشروع أيقوني", designSectors: "قطاع تخصصي", yearsExperience: "عاماً من الإرث", updatedPortfolio: "رؤية 2026",
-    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجات مشروعك وميزانيتك.",
+    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجات مشروعك وميزانيتك وطموحك الفني.",
     chatWhatsapp: "تواصل عبر واتساب", 
     callButton: "اتصال مباشر: 0121 111 5200",
-    footerLine: "بواسطة أسماء علام · هندسة التصميم الداخلي الفاخر",
+    footerLine: "بواسطة أسماء علام · هندسة التصميم والابتكار الداخلي",
     openCatalog: "تصفح المجموعة", images: "عمل فني"
   }
 };
