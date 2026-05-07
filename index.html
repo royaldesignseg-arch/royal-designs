@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Innovation by Asmaa Allam | Luxury Interior & Engineering</title>
 
-    <!-- تم استخدام خط Almarai للغة العربية لضمان الفخامة والوضوح -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -23,23 +22,14 @@
 html { scroll-behavior: smooth; }
 body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
-/* تنسيق الخط العربي المطور وتنظيم الأسطر */
-body.rtl { 
-    font-family: "Almarai", sans-serif; 
-    direction: rtl; 
-}
-
-/* تنظيم شكل الكتابة العربية (الاليمنت) */
-body.rtl p {
-    text-align: justify;
-    text-justify: inter-word;
-    line-height: 1.8; /* مسافة مريحة بين السطور */
-}
+body.rtl { font-family: "Almarai", sans-serif; direction: rtl; }
+body.rtl p { text-align: justify; text-justify: inter-word; line-height: 1.8; }
 
 nav { 
     position: fixed; top: 0; width: 100%; z-index: 1000; padding: 0.8rem 6%; 
     display: flex; justify-content: space-between; align-items: center; 
     background: rgba(26, 39, 68, .94); backdrop-filter: blur(14px); 
+    transition: background 0.4s ease;
 }
 
 .nav-logo { display: flex; align-items: center; gap: 1rem; }
@@ -52,29 +42,14 @@ nav {
 .nav-links a:hover { color: var(--gold); }
 
 .lang-switcher {
-    display: flex;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 4px;
-    border-radius: 30px;
-    border: 1px solid rgba(201, 165, 90, 0.3);
+    display: flex; gap: 0.5rem; background: rgba(255, 255, 255, 0.1);
+    padding: 4px; border-radius: 30px; border: 1px solid rgba(201, 165, 90, 0.3);
 }
-
 .lang-btn {
-    color: white;
-    text-decoration: none;
-    font-size: 0.75rem;
-    padding: 6px 12px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: 0.3s;
-    font-weight: 600;
+    color: white; border: none; background: transparent; cursor: pointer;
+    padding: 6px 12px; border-radius: 20px; transition: 0.3s; font-size: 0.75rem; font-weight: 600;
 }
-
 .lang-btn.active { background: var(--gold); color: var(--navy); }
-.lang-btn:hover:not(.active) { background: rgba(201, 165, 90, 0.2); }
 
 .nav-cta { 
     padding: .7rem 1.4rem; border: 1px solid var(--gold); color: var(--gold); 
@@ -89,66 +64,47 @@ nav {
 }
 .hero::before { 
     content: ""; position: absolute; inset: 0; 
-    background: radial-gradient(circle at center, rgba(201, 165, 90, .22), transparent 38%), 
-    linear-gradient(to bottom, rgba(0, 0, 0, .55), rgba(0, 0, 0, .28), rgba(0, 0, 0, .72)); 
+    background: radial-gradient(circle at center, rgba(201, 165, 90, .15), transparent 45%), 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7)); 
 }
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 2rem; animation: fadeUp 1.5s ease forwards; }
 .hero-label { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-size: .78rem; margin-bottom: 1rem; font-weight: 600; }
-.hero h1 { font-family: "Playfair Display", serif; color: white; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 1.05; margin-bottom: 1.2rem; text-shadow: 0 20px 50px rgba(0, 0, 0, .55); }
-.hero p { color: rgba(255, 255, 255, .9); font-size: 1.07rem; max-width: 720px; margin: 0 auto 2rem; }
+.hero h1 { font-family: "Playfair Display", serif; color: white; font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.1; margin-bottom: 1.2rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.hero p { color: rgba(255, 255, 255, .95); font-size: 1.07rem; max-width: 720px; margin: 0 auto 2.5rem; }
 
 .btn { padding: .95rem 1.85rem; border-radius: 40px; text-decoration: none; transition: .3s; font-size: .9rem; display: inline-block; cursor: pointer; border: none; }
-.btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; }
-.btn-outline { border: 1px solid rgba(255, 255, 255, .75); color: white; background: transparent; }
-.btn:hover { transform: translateY(-4px); }
+.btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; box-shadow: 0 10px 25px rgba(201, 165, 90, 0.3); }
+.btn-outline { border: 1px solid rgba(255, 255, 255, .75); color: white; background: transparent; backdrop-filter: blur(5px); }
+.btn:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 
 .section { padding: 6rem 6%; }
 .section-title { text-align: center; margin-bottom: 3rem; }
 .label { color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .75rem; margin-bottom: .8rem; font-weight: 700; }
 .section-title h2 { font-family: "Playfair Display", serif; color: var(--navy); font-size: clamp(2rem, 4vw, 3.4rem); }
-.section-subtitle { max-width: 760px; margin: 1rem auto 0; color: var(--muted); font-size: 1rem; }
 .gold-line { width: 70px; height: 2px; background: var(--gold); margin: 1rem auto 0; }
 
-.portfolio { background: var(--cream); }
 .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
 .catalog-card { 
     min-height: 390px; border-radius: 28px; overflow: hidden; position: relative; 
     background-size: cover; background-position: center; cursor: pointer; 
-    box-shadow: 0 25px 55px rgba(0, 0, 0, .15); transition: .45s; background-color: #1a2744; 
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .15); transition: .45s; 
 }
-.catalog-card:hover { transform: translateY(-9px) scale(1.02); }
-.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .84), rgba(0, 0, 0, .18), rgba(0, 0, 0, .02)); }
+.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .85), transparent); }
 .catalog-info { position: absolute; bottom: 0; z-index: 2; color: white; padding: 1.8rem; }
-.catalog-info span { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-size: .72rem; font-weight: 700; }
-.catalog-info h3 { font-family: "Playfair Display", serif; font-size: 2rem; margin: .45rem 0; }
-.catalog-info p { color: rgba(255, 255, 255, .84); font-size: .9rem; text-align: left !important; }
-body.rtl .catalog-info p { text-align: right !important; }
+.catalog-info h3 { font-family: "Playfair Display", serif; font-size: 1.8rem; margin: .45rem 0; }
 
-.about { background: white; }
 .architect-wrap { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: center; }
-.architect-img { width: 100%; max-width: 360px; border-radius: 28px; display: block; margin: auto; box-shadow: 0 28px 75px rgba(0, 0, 0, .22); }
-.architect-info { 
-    margin: -35px auto 0; width: 86%; position: relative; background: rgba(26, 39, 68, .96); 
-    border: 1px solid rgba(201, 165, 90, .55); border-radius: 22px; padding: 1.35rem 1rem; color: white; 
-}
-.architect-info span { display: block; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .72rem; font-weight: 700; margin-bottom: .5rem; }
-.architect-info h2 { font-family: "Playfair Display", serif; font-size: 2rem; margin-bottom: .35rem; }
+.architect-img { width: 100%; max-width: 360px; border-radius: 28px; box-shadow: 0 28px 75px rgba(0, 0, 0, .22); }
+.architect-info { margin: -35px auto 0; width: 86%; position: relative; background: var(--navy); border: 1px solid var(--gold); border-radius: 22px; padding: 1.35rem 1rem; color: white; text-align: center; }
 
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-.stat { background: var(--cream); padding: 1.1rem; border-radius: 18px; text-align: center; }
+.stat { background: white; padding: 1.1rem; border-radius: 18px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 .stat strong { color: var(--gold); font-size: 1.45rem; }
-.stat span { display: block; font-size: .78rem; color: var(--muted); margin-top: .3rem; }
-
-.partners { background: var(--warm); }
-.partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.4rem; align-items: center; }
-.partner-logo { background: white; border-radius: 24px; min-height: 150px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; box-shadow: 0 20px 45px rgba(0,0,0,.07); transition: .35s; }
 
 .contact { background: var(--navy); color: white; text-align: center; }
 .contact h2 { font-family: "Playfair Display", serif; color: var(--gold); font-size: 3rem; margin-bottom: 1rem; }
-.contact p { color: rgba(255, 255, 255, .78); max-width: 720px; margin: 0 auto 2rem; }
 
-footer { background: #111827; color: white; text-align: center; padding: 2.5rem 6%; }
-.footer-logo { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem; }
+footer { background: #0b111d; color: white; text-align: center; padding: 2.5rem 6%; border-top: 1px solid rgba(201, 165, 90, 0.1); }
 
 .whatsapp { 
     position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; 
@@ -159,22 +115,38 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 .reveal { opacity: 0; transform: translateY(45px); transition: .8s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-@keyframes heroZoom { from { background-size: 100%; } to { background-size: 112%; } }
+@keyframes heroZoom { from { background-size: 100% 100%; } to { background-size: 115% 115%; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(45px); } to { opacity: 1; transform: translateY(0); } }
 
+/* تعديلات الموبايل الاحترافية (Royal Mobile UI) */
 @media(max-width: 850px) {
-    nav { padding: .9rem 5%; }
+    nav { 
+        background: transparent; /* شفاف تماماً لدمج الصورة مع الهيدر */
+        backdrop-filter: none;
+        padding: 1rem 5%;
+    }
+    nav.scrolled {
+        background: rgba(26, 39, 68, 0.96); /* يظهر لون عند السكرول فقط */
+        backdrop-filter: blur(10px);
+    }
     .nav-links, .nav-cta { display: none; }
+    .logo-img { height: 55px; } /* موازنة الحجم للموبايل */
+    .logo-text { font-size: 1.2rem; }
+    
+    .hero { min-height: 100vh; }
+    .hero-content { padding: 1.5rem; margin-top: 60px; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 0.95rem; line-height: 1.7; }
+    
     .architect-wrap { grid-template-columns: 1fr; text-align: center; }
     .stats { grid-template-columns: repeat(2, 1fr); }
-    .logo-img { height: 50px; }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
+<nav id="navbar">
     <div class="nav-logo">
         <img class="logo-img" src="logo.png" alt="Royal Innovation Logo">
         <div class="logo-text">Royal Innovation<small>BY ASMAA ALLAM</small></div>
@@ -186,7 +158,6 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
         <a href="#about" data-i18n="navAbout">About</a>
         <a href="#services" data-i18n="navSectors">Success Stories</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
-        
         <div class="lang-switcher">
             <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
             <button id="lang-ar" class="lang-btn" onclick="setLang('ar')">AR</button>
@@ -200,9 +171,9 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
     <div class="hero-content">
         <div class="hero-label" data-i18n="heroLabel">Artistry & Engineering Precision</div>
         <h1 data-i18n="heroTitle">Royal Innovation by Asmaa Allam</h1>
-        <p data-i18n="heroText">Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic to create environments that inspire.</p>
+        <p data-i18n="heroText">Crafting timeless interiors that harmonize luxury with function. We design environments that reflect your unique identity through innovative engineering.</p>
         <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">Explore Portfolio</a>
+            <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">View Creations</a>
             <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Inquiry</a>
         </div>
     </div>
@@ -232,10 +203,10 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
             <div class="label" data-i18n="aboutLabel">Our Story</div>
             <h2 data-i18n="aboutTitle">Defining the Art of Living</h2>
             <p data-i18n="aboutP1">With a career spanning over three decades, Royal Innovation by Asmaa Allam has become a benchmark for excellence in the interior design industry, delivering over 600 successful projects.</p>
-            <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with aesthetic elegance, ensuring that every project—from luxury hotels to boutique residences—is an original work of art.</p>
+            <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with aesthetic elegance, ensuring that every project is an original work of art.</p>
             <div class="stats">
                 <div class="stat"><strong>+600</strong><span data-i18n="projects">Masterpieces</span></div>
-                <div class="stat"><strong>20</strong><span data-i18n="designSectors">Sectors Covered</span></div>
+                <div class="stat"><strong>20</strong><span data-i18n="designSectors">Sectors</span></div>
                 <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years Legacy</span></div>
                 <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Modern Vision</span></div>
             </div>
@@ -247,7 +218,6 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
     <div class="section-title">
         <div class="label" data-i18n="partnersLabel">Collaborative Excellence</div>
         <h2 data-i18n="partnersTitle">Our Professional Journey & Partnerships</h2>
-        <p class="section-subtitle" data-i18n="partnersSubtitle">A curated selection of brands and landmark projects that define our history and technical capability across diverse sectors.</p>
         <div class="gold-line"></div>
     </div>
     <div class="partners-grid" id="partnersGrid"></div>
@@ -255,7 +225,7 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 
 <section class="section contact reveal" id="contact">
     <h2 data-i18n="contactTitle">Bring Your Vision to Life</h2>
-    <p data-i18n="contactText">Let’s discuss your project and create a space that exceeds expectations. Our team is ready to provide expert guidance tailored to your lifestyle and budget.</p>
+    <p data-i18n="contactText">Let’s discuss your project and create a space that exceeds expectations.</p>
     <div class="contact-actions">
         <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
         <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
@@ -270,10 +240,7 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 
 <div class="catalog-modal" id="catalogModal">
     <div class="modal-head">
-        <div>
-            <h2 id="modalTitle">Catalog</h2>
-            <p id="modalDesc">Detailed visual preview.</p>
-        </div>
+        <div><h2 id="modalTitle">Catalog</h2><p id="modalDesc">Detailed visual preview.</p></div>
         <button class="close-modal" style="background:transparent; border:1px solid white; color:white; border-radius:50%; width:40px; height:40px; cursor:pointer;" onclick="closeCatalog()">×</button>
     </div>
     <div class="modal-gallery" id="modalGallery"></div>
@@ -282,8 +249,8 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
     </div>
 </div>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
-    <img id="lightboxImg" style="max-width:90%; max-height:90%; border:2px solid var(--gold);" src="">
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
+    <img id="lightboxImg" style="max-width:90%; max-height:90%; border:2px solid var(--gold); border-radius:10px;" src="">
 </div>
 
 <a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp">WhatsApp</a>
@@ -295,7 +262,14 @@ const WHATSAPP_NUMBER = "201211115200";
 let catalogs = [];
 let partnersImages = [];
 let currentLang = localStorage.getItem("siteLang") || "en";
-let activeCatalogName = "";
+
+// استراتيجية الترتيب الملكي: من السكني العاطفي إلى الفندقي الضخم إلى التفاصيل الهندسية
+const priorityOrder = [
+    "living rooms", "bed-rooms", "kitchens", "dressing-rooms", 
+    "dinning-rooms", "bathrooms", "kids-rooms", "units",
+    "offices", "shops", "restaurants", "hotels",
+    "booths", "Exhibitions", "ceilings", "finishes"
+];
 
 const translations = {
   en: {
@@ -305,17 +279,14 @@ const translations = {
     explorePortfolio: "View Creations", whatsappConsultation: "WhatsApp Inquiry",
     portfolioLabel: "Visual Journey", portfolioTitle: "Excellence in Every Detail", loadingCatalogs: "Curating our masterpieces...",
     partnersLabel: "Partners in Excellence", partnersTitle: "Landmark Projects & Collaborations",
-    partnersSubtitle: "Reflecting our deep-rooted experience in hospitality, commercial, and luxury residential sectors.",
     leadArchitect: "Founder & Lead Architect", interiorEngineer: "Interior Design Specialist", aboutLabel: "The Legacy",
     aboutTitle: "Designing with Purpose & Elegance",
     aboutP1: "For over 30 years, Royal Innovation by Asmaa Allam has set the standard for bespoke interior engineering, delivering over 600 unique projects across the region.",
-    aboutP2: "Our commitment is to deliver designs that are not only visually stunning but also technically superior and operationally efficient.",
+    aboutP2: "Our commitment is to deliver designs that are not only visually stunning but also technically superior.",
     projects: "Masterpieces", designSectors: "Specialized Sectors", yearsExperience: "Years of Heritage", updatedPortfolio: "2026 Collection",
     contactTitle: "Let’s Design Your Future", contactText: "Ready to transform your space? Contact us for a professional consultation tailored to your project's unique requirements.",
-    chatWhatsapp: "Message on WhatsApp", 
-    callButton: "Direct Call: 0121 111 5200",
-    footerLine: "by Asmaa Allam · Bespoke Interior Engineering",
-    openCatalog: "View Collection", images: "Pieces"
+    chatWhatsapp: "Message on WhatsApp", callButton: "Direct Call: 0121 111 5200",
+    footerLine: "by Asmaa Allam · Bespoke Interior Engineering", openCatalog: "View Collection", images: "Pieces"
   },
   ar: {
     navHome: "الرئيسية", navPortfolio: "إبداعاتنا", navAbout: "من نحن", navSectors: "شركاء النجاح", navContact: "تواصل معنا",
@@ -324,48 +295,16 @@ const translations = {
     explorePortfolio: "استكشف أعمالنا", whatsappConsultation: "استشارة عبر واتساب",
     portfolioLabel: "رحلة بصرية", portfolioTitle: "فلسفة الابتكار والجمال", loadingCatalogs: "جاري تنسيق كتالوج الأعمال...",
     partnersLabel: "شركاء التميز", partnersTitle: "مشروعات فارقة وشراكات استراتيجية",
-    partnersSubtitle: "مجموعة مختارة تعكس تاريخنا الممتد في القطاعات التجارية والفندقية والسكنية الفاخرة.",
     leadArchitect: "المؤسس والمهندس الرئيسي", interiorEngineer: "خبير تصميم داخلي", aboutLabel: "قصتنا",
     aboutTitle: "فن صياغة التفاصيل الراقية",
-    aboutP1: "على مدار ثلاثة عقود، نجحت رويال إنوفيشن بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد من نوعه يجمع بين الفكر الهندسي والروح الفنية.",
-    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل جمالي، بل هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة عيش وعمل تفوق التوقعات وتلبي أدق التفاصيل الاحترافية.",
+    aboutP1: "على مدار ثلاثة عقود، نجحت رويال إنوفيشن بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد يجمع بين الفكر الهندسي والروح الفنية.",
+    aboutP2: "نؤمن بأن التصميم هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة عيش وعمل تفوق التوقعات وتلبي أدق التفاصيل الاحترافية.",
     projects: "مشروع أيقوني", designSectors: "قطاع تخصصي", yearsExperience: "عاماً من الإرث", updatedPortfolio: "رؤية 2026",
     contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجات مشروعك وميزانيتك وطموحك الفني.",
-    chatWhatsapp: "تواصل عبر واتساب", 
-    callButton: "اتصال مباشر: 0121 111 5200",
-    footerLine: "بواسطة أسماء علام · هندسة التصميم والابتكار الداخلي",
-    openCatalog: "تصفح المجموعة", images: "عمل فني"
+    chatWhatsapp: "تواصل عبر واتساب", callButton: "اتصال مباشر: 0121 111 5200",
+    footerLine: "بواسطة أسماء علام · هندسة التصميم والابتكار الداخلي", openCatalog: "تصفح المجموعة", images: "عمل فني"
   }
 };
-
-function setLang(lang) {
-    currentLang = lang;
-    localStorage.setItem("siteLang", lang);
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    document.body.classList.toggle("rtl", lang === "ar");
-
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(`lang-${lang}`).classList.add('active');
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) el.textContent = translations[lang][key];
-    });
-
-    renderCatalogCards();
-}
-
-function trackWhatsApp(source, catalogName = "") {
-    const data = {
-        page: window.location.href, language: currentLang,
-        source: source, catalog: catalogName,
-        device: navigator.userAgent, whatsapp: WHATSAPP_NUMBER,
-        timestamp: new Date().toISOString()
-    };
-    fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
-}
 
 const folderMeta = {
     "hotels":{en:"Hotels & Resorts",ar:"الفنادق والمنتجعات",tagEn:"Hospitality",tagAr:"قطاع الضيافة",descEn:"World-class guest experiences.",descAr:"تجارب ضيافة بمقاييس عالمية."},
@@ -386,22 +325,52 @@ const folderMeta = {
     "units":{en:"Bespoke Units",ar:"الوحدات المتخصصة",tagEn:"Details",tagAr:"تفاصيل",descEn:"Clean custom compositions.",descAr:"تكوينات خاصة وعملية."}
 };
 
+function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem("siteLang", lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.body.classList.toggle("rtl", lang === "ar");
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`lang-${lang}`).classList.add('active');
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+    });
+    renderCatalogCards();
+}
+
+function trackWhatsApp(source, catalogName = "") {
+    const data = { page: window.location.href, language: currentLang, source: source, catalog: catalogName, device: navigator.userAgent, whatsapp: WHATSAPP_NUMBER, timestamp: new Date().toISOString() };
+    fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+}
+
 async function loadCatalogData() {
     const loadingNote = document.getElementById("loadingNote");
     try {
         const response = await fetch("catalog-data.json?v=20260504", { cache: "no-store" });
         const data = await response.json();
-        catalogs = (data.catalogs || []).map(item => ({
+        
+        // تطبيق نظام الترتيب الذكي
+        let rawCatalogs = (data.catalogs || []).map(item => ({
             folder: item.folder,
             images: item.images || [],
             cover: (item.images || [])[0]
         })).filter(item => item.images.length > 0);
+
+        catalogs = rawCatalogs.sort((a, b) => {
+            let idxA = priorityOrder.indexOf(a.folder);
+            let idxB = priorityOrder.indexOf(b.folder);
+            return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
+        });
+
         partnersImages = data.partners || [];
         if (loadingNote) loadingNote.style.display = "none";
         renderCatalogCards();
         renderPartners();
     } catch (error) {
-        if (loadingNote) loadingNote.textContent = "Unable to sync data.";
+        if (loadingNote) loadingNote.textContent = "Unable to sync masterpieces.";
         console.warn(error);
     }
 }
@@ -414,18 +383,17 @@ function renderCatalogCards() {
         const meta = folderMeta[item.folder] || {en: item.folder, ar: item.folder, tagEn: "Portfolio", tagAr: "أعمال", descEn: "View gallery", descAr: "عرض الصور"};
         const title = currentLang === "ar" ? meta.ar : meta.en;
         const tag = currentLang === "ar" ? meta.tagAr : meta.tagEn;
-        const desc = currentLang === "ar" ? meta.descAr : meta.descEn;
-
         const card = document.createElement("div");
         card.className = "catalog-card";
         card.style.backgroundImage = `url('${item.cover}')`;
         card.onclick = () => openCatalog(index);
         card.innerHTML = `
             <div class="catalog-info">
-                <span>${tag}</span>
+                <span style="color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;">${tag}</span>
                 <h3>${title}</h3>
-                <p>${desc}</p>
-                <div class="catalog-count">${translations[currentLang].openCatalog} · ${item.images.length} ${translations[currentLang].images}</div>
+                <div style="display:inline-block; margin-top:0.5rem; padding:0.3rem 0.8rem; border:1px solid rgba(201,165,90,0.4); border-radius:30px; font-size:0.75rem; color:var(--gold);">
+                    ${translations[currentLang].openCatalog}
+                </div>
             </div>
         `;
         grid.appendChild(card);
@@ -436,7 +404,7 @@ function renderPartners() {
     const partnersGrid = document.getElementById("partnersGrid");
     if (!partnersGrid) return;
     partnersGrid.innerHTML = "";
-    partnersImages.forEach((src, index) => {
+    partnersImages.forEach(src => {
         const item = document.createElement("div");
         item.className = "partner-logo";
         item.innerHTML = `<img src="${src}" alt="Partner" style="max-width:80%; max-height:80px; object-fit:contain;" loading="lazy">`;
@@ -457,16 +425,22 @@ function openCatalog(index) {
         img.onclick = () => { document.getElementById("lightbox").style.display='flex'; document.getElementById("lightboxImg").src=src; };
         gallery.appendChild(img);
     });
-    document.getElementById("modalWhatsapp").textContent = translations[currentLang].whatsappConsultation;
     document.getElementById("modalWhatsapp").onclick = (e) => { e.preventDefault(); trackWhatsApp("Catalog Detail", activeCatalogName); };
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
 }
 
-function closeCatalog() {
-    document.getElementById("catalogModal").classList.remove("active");
-    document.body.style.overflow = "";
-}
+function closeCatalog() { document.getElementById("catalogModal").classList.remove("active"); document.body.style.overflow = ""; }
+
+// تأثير الشفافية على النافبار عند السكرول للموبايل
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
 
 const revealItems = document.querySelectorAll(".reveal");
 function revealOnScroll() {
@@ -477,11 +451,7 @@ function revealOnScroll() {
 }
 
 window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", () => {
-    revealOnScroll();
-    setLang(currentLang);
-    loadCatalogData();
-});
+window.addEventListener("load", () => { revealOnScroll(); setLang(currentLang); loadCatalogData(); });
 </script>
 
 </body>
