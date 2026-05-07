@@ -21,11 +21,7 @@ html{scroll-behavior:smooth}
 body{font-family:"Inter",sans-serif;background:var(--cream);color:var(--text)}
 body.rtl{font-family:"Cairo",sans-serif;direction:rtl}
 
-nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  padding:1rem 6%;display:flex;justify-content:space-between;align-items:center;
-  background:rgba(26,39,68,.94);backdrop-filter:blur(14px)
-}
+nav{position:fixed;top:0;width:100%;z-index:1000;padding:1rem 6%;display:flex;justify-content:space-between;align-items:center;background:rgba(26,39,68,.94);backdrop-filter:blur(14px)}
 .nav-logo{display:flex;align-items:center;gap:.8rem}
 .logo-img{height:48px;width:auto;object-fit:contain}
 .logo-text{font-family:"Playfair Display",serif;color:var(--gold);font-size:1.35rem;line-height:1.1;letter-spacing:1.5px}
@@ -36,16 +32,8 @@ nav{
 .nav-cta{padding:.7rem 1.4rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:40px;font-size:.82rem;transition:.3s}
 .nav-cta:hover{background:var(--gold);color:var(--navy)}
 
-.hero{
-  min-height:100vh;background:url("villa_hero_bg.png") center/cover no-repeat;
-  position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
-  animation:heroZoom 14s ease-in-out infinite alternate
-}
-.hero::before{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),
-  linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72))
-}
+.hero{min-height:100vh;background:url("villa_hero_bg.png") center/cover no-repeat;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;animation:heroZoom 14s ease-in-out infinite alternate}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,rgba(201,165,90,.22),transparent 38%),linear-gradient(to bottom,rgba(0,0,0,.55),rgba(0,0,0,.28),rgba(0,0,0,.72))}
 .hero-content{position:relative;z-index:2;max-width:900px;padding:2rem;animation:fadeUp 1.5s ease forwards}
 .hero-label{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:.78rem;margin-bottom:1rem;font-weight:600}
 .hero h1{font-family:"Playfair Display",serif;color:white;font-size:clamp(3rem,7vw,5.6rem);line-height:1.05;margin-bottom:1.2rem;text-shadow:0 20px 50px rgba(0,0,0,.55)}
@@ -66,10 +54,7 @@ nav{
 
 .portfolio{background:var(--cream)}
 .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem}
-.catalog-card{
-  min-height:390px;border-radius:28px;overflow:hidden;position:relative;background-size:cover;background-position:center;
-  cursor:pointer;box-shadow:0 25px 55px rgba(0,0,0,.15);transition:.45s;background-color:#1a2744
-}
+.catalog-card{min-height:390px;border-radius:28px;overflow:hidden;position:relative;background-size:cover;background-position:center;cursor:pointer;box-shadow:0 25px 55px rgba(0,0,0,.15);transition:.45s;background-color:#1a2744}
 .catalog-card:hover{transform:translateY(-9px) scale(1.02)}
 .catalog-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.84),rgba(0,0,0,.18),rgba(0,0,0,.02))}
 .catalog-info{position:absolute;bottom:0;z-index:2;color:white;padding:1.8rem}
@@ -78,19 +63,6 @@ nav{
 .catalog-info p{color:rgba(255,255,255,.84);line-height:1.6;font-size:.9rem}
 .catalog-count{display:inline-block;margin-top:.9rem;padding:.45rem .8rem;border:1px solid rgba(201,165,90,.65);border-radius:40px;font-size:.78rem;color:var(--gold);background:rgba(0,0,0,.25)}
 .loading-note{text-align:center;color:var(--muted);padding:2rem}
-
-.featured-block{margin-top:5rem}
-.featured-title{margin-bottom:2.5rem}
-.featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
-.featured-card{
-  height:300px;border-radius:24px;overflow:hidden;position:relative;background-size:cover;background-position:center;
-  cursor:pointer;box-shadow:0 20px 45px rgba(0,0,0,.12);transition:.4s ease
-}
-.featured-card:hover{transform:translateY(-7px) scale(1.02)}
-.featured-card::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.08))}
-.featured-info{position:absolute;bottom:0;z-index:2;padding:1.4rem;color:white}
-.featured-info span{color:var(--gold);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700}
-.featured-info h3{font-family:"Playfair Display",serif;font-size:1.45rem;margin-top:.35rem}
 
 .about{background:white}
 .architect-wrap{max-width:1120px;margin:auto;display:grid;grid-template-columns:380px 1fr;gap:4rem;align-items:center}
@@ -109,10 +81,7 @@ nav{
 
 .partners{background:var(--warm)}
 .partners-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.4rem;align-items:center}
-.partner-logo{
-  background:white;border-radius:24px;min-height:150px;display:flex;align-items:center;justify-content:center;
-  padding:1.5rem;box-shadow:0 20px 45px rgba(0,0,0,.07);transition:.35s ease
-}
+.partner-logo{background:white;border-radius:24px;min-height:150px;display:flex;align-items:center;justify-content:center;padding:1.5rem;box-shadow:0 20px 45px rgba(0,0,0,.07);transition:.35s ease}
 .partner-logo:hover{transform:translateY(-7px);box-shadow:0 28px 60px rgba(0,0,0,.12)}
 .partner-logo img{max-width:100%;max-height:90px;object-fit:contain;filter:grayscale(10%)}
 
@@ -202,16 +171,6 @@ footer p{color:rgba(255,255,255,.55);font-size:.85rem}
 
   <div id="loadingNote" class="loading-note" data-i18n="loadingCatalogs">Loading portfolio catalogs...</div>
   <div class="catalog-grid" id="catalogGrid"></div>
-
-  <div class="featured-block" id="featuredBlock">
-    <div class="section-title featured-title">
-      <div class="label" data-i18n="featuredLabel">Featured Designs</div>
-      <h2 data-i18n="featuredTitle">Selected Highlights</h2>
-      <p class="section-subtitle" data-i18n="featuredSubtitle">A curated selection from the original portfolio visuals.</p>
-      <div class="gold-line"></div>
-    </div>
-    <div class="featured-grid" id="featuredGrid"></div>
-  </div>
 </section>
 
 <section class="section about reveal" id="about">
@@ -229,7 +188,7 @@ footer p{color:rgba(255,255,255,.55);font-size:.85rem}
       <div class="label" data-i18n="aboutLabel">About</div>
       <h2 data-i18n="aboutTitle">Design with Vision, Elegance & Precision</h2>
       <p data-i18n="aboutP1">With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.</p>
-      <p data-i18n="aboutP2">The portfolio covers hotels, restaurants, retail spaces, doors, kitchens, dressing rooms, villa furnishing, apartment furnishing, and more.</p>
+      <p data-i18n="aboutP2">The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.</p>
       <div class="stats">
         <div class="stat"><strong>+600</strong><span data-i18n="projects">Projects</span></div>
         <div class="stat"><strong>20</strong><span data-i18n="designSectors">Design Sectors</span></div>
@@ -289,7 +248,6 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd278J21GBUK08WW6gS
 const WHATSAPP_NUMBER = "201116211118";
 
 let catalogs = [];
-let featuredImages = [];
 let partnersImages = [];
 let currentLang = localStorage.getItem("siteLang") || "en";
 let activeCatalogName = "";
@@ -301,13 +259,12 @@ const translations = {
     heroText:"Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.",
     explorePortfolio:"Explore Portfolio",whatsappConsultation:"WhatsApp Consultation",
     portfolioLabel:"Image-Based Portfolio",portfolioTitle:"Explore Our Design Catalogs",loadingCatalogs:"Loading portfolio catalogs...",
-    featuredLabel:"Featured Designs",featuredTitle:"Selected Highlights",featuredSubtitle:"A curated selection from the original portfolio visuals.",featuredTag:"Featured",
     partnersLabel:"References & Collaborations",partnersTitle:"Trusted by Real Projects & Practical Partnerships",
     partnersSubtitle:"A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.",
     leadArchitect:"Lead Architect",interiorEngineer:"Interior Design Engineer",aboutLabel:"About",
     aboutTitle:"Design with Vision, Elegance & Precision",
     aboutP1:"With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.",
-    aboutP2:"The portfolio covers hotels, restaurants, retail spaces, doors, kitchens, dressing rooms, villa furnishing, apartment furnishing, and more.",
+    aboutP2:"The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.",
     projects:"Projects",designSectors:"Design Sectors",yearsExperience:"Years of Experience",updatedPortfolio:"Updated Portfolio",
     contactTitle:"Start Your Project",contactText:"Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
     chatWhatsapp:"Chat on WhatsApp",callButton:"Call 0111 621 1118",footerLine:"by Asmaa Allam · Interior Design Engineer",
@@ -319,13 +276,12 @@ const translations = {
     heroText:"تصميمات داخلية راقية للمساحات الفندقية والتجارية والسكنية، تجمع بين الدقة الهندسية والذوق الرفيع ورؤية واضحة للتنفيذ.",
     explorePortfolio:"استعرض الأعمال",whatsappConsultation:"استشارة عبر واتساب",
     portfolioLabel:"كتالوج الأعمال المصور",portfolioTitle:"استكشف كتالوجات التصميم",loadingCatalogs:"جاري تحميل كتالوجات الأعمال...",
-    featuredLabel:"تصميمات مختارة",featuredTitle:"مختارات من الأعمال",featuredSubtitle:"مجموعة مختارة من صور البورتفوليو الأصلية.",featuredTag:"مختارات",
     partnersLabel:"مراجع وشراكات عملية",partnersTitle:"خبرة موثوقة من مشروعات وشراكات فعلية",
     partnersSubtitle:"مجموعة مختارة من العلامات والمشروعات والشراكات العملية التي تعكس خبرة Royal Designs في التصميمات التجارية والفندقية والسكنية.",
     leadArchitect:"المهندسة المسؤولة",interiorEngineer:"مهندسة تصميم داخلي",aboutLabel:"عن الشركة",
     aboutTitle:"تصميم برؤية وأناقة ودقة تنفيذ",
     aboutP1:"بخبرة تمتد لأكثر من 30 عامًا، نفذت Royal Designs by Asmaa Allam أكثر من 600 مشروع في 20 قطاعًا تصميميًا.",
-    aboutP2:"تشمل الأعمال الفنادق، المطاعم، المحلات، الأبواب، المطابخ، الدريسنج، فرش الفيلات، فرش الشقق، والمزيد.",
+    aboutP2:"تشمل الأعمال الفنادق، المطاعم، المحلات، المطابخ، الدريسنج، غرف الأطفال، المساحات السكنية، المساحات التجارية، والمزيد.",
     projects:"مشروع",designSectors:"قطاع تصميم",yearsExperience:"سنة خبرة",updatedPortfolio:"كتالوج محدث",
     contactTitle:"ابدأ مشروعك",contactText:"شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
     chatWhatsapp:"تواصل عبر واتساب",callButton:"اتصل 0111 621 1118",footerLine:"بواسطة أسماء علام · مهندسة تصميم داخلي",
@@ -337,11 +293,8 @@ const folderMeta = {
   "hotels":{en:"Hotels",ar:"الفنادق",tagEn:"Hospitality",tagAr:"فندقي",descEn:"Premium hospitality interiors with refined guest experience.",descAr:"تصميمات فندقية راقية وتجربة ضيافة مميزة."},
   "restaurants":{en:"Restaurants",ar:"المطاعم",tagEn:"Commercial",tagAr:"تجاري",descEn:"Dining spaces with strong atmosphere and customer flow.",descAr:"مساحات مطاعم بأجواء قوية وحركة عملاء مدروسة."},
   "shops":{en:"Retail Shops",ar:"المحلات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Retail interiors designed for attractive product display.",descAr:"تصميمات محلات تدعم عرض المنتجات وجذب العملاء."},
-  "doors":{en:"Doors",ar:"الأبواب",tagEn:"Details",tagAr:"تفاصيل",descEn:"Statement doors and refined entrance details.",descAr:"أبواب ومداخل بتفاصيل راقية وحضور قوي."},
   "kitchens":{en:"Kitchens",ar:"المطابخ",tagEn:"Residential",tagAr:"سكني",descEn:"Modern kitchens with practical storage and premium finishes.",descAr:"مطابخ عصرية بتخزين عملي وتشطيبات فاخرة."},
   "dressing-rooms":{en:"Dressing Rooms",ar:"الدريسنج",tagEn:"Residential",tagAr:"سكني",descEn:"Organized dressing rooms with luxury storage details.",descAr:"غرف دريسنج منظمة بتفاصيل تخزين فاخرة."},
-  "villa-furnishing":{en:"Villa Furnishing",ar:"فرش الفيلات",tagEn:"Residential",tagAr:"سكني",descEn:"Complete villa furnishing concepts with refined materials.",descAr:"تصورات متكاملة لفرش الفيلات بخامات راقية وألوان متوازنة."},
-  "apartment-furnishing":{en:"Apartment Furnishing",ar:"فرش الشقق",tagEn:"Residential",tagAr:"سكني",descEn:"Smart apartment interiors for elegant everyday living.",descAr:"تصميمات شقق ذكية تجمع بين الراحة والوظيفة والأناقة اليومية."},
   "kids-rooms":{en:"Kids Rooms",ar:"غرف الأطفال",tagEn:"Residential",tagAr:"سكني",descEn:"Creative kids room interiors with playful details and practical storage.",descAr:"تصميمات غرف أطفال تجمع بين التفاصيل المبهجة والتخزين العملي."},
   "living rooms":{en:"Living Rooms",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Living spaces for villas and apartments with comfortable luxury.",descAr:"مساحات معيشة للفيلات والشقق بطابع راقٍ ومريح."},
   "bed-rooms":{en:"Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Calm bedroom interiors with balanced materials and lighting.",descAr:"غرف نوم هادئة بخامات وإضاءة متوازنة."},
@@ -353,17 +306,6 @@ const folderMeta = {
   "booths":{en:"Booths",ar:"البوثات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Display booths and presentation units designed for visual attraction.",descAr:"بوثات ووحدات عرض مصممة لجذب الانتباه."},
   "Exhibitions":{en:"Exhibitions",ar:"المعارض",tagEn:"Commercial",tagAr:"تجاري",descEn:"Exhibition interiors and display zones with strong visual impact.",descAr:"تصميمات معارض ومناطق عرض بتأثير بصري قوي."},
   "units":{en:"TV Units",ar:"وحدات التلفزيون",tagEn:"Residential",tagAr:"سكني",descEn:"Custom TV units and wall compositions with clean styling.",descAr:"وحدات تلفزيون وحوائط بتصميم عملي ونظيف."}
-};
-
-const featuredNames = {
-  "cafe-design.jpg":{en:"Café Design",ar:"تصميم كافيه"},
-  "dressing-room.jpg":{en:"Dressing Room",ar:"غرفة دريسنج"},
-  "hero-interior.jpg":{en:"Modern Interior",ar:"تصميم داخلي مودرن"},
-  "living-room.jpg":{en:"Living Room",ar:"غرفة معيشة"},
-  "luxury-kitchen.jpg":{en:"Luxury Kitchen",ar:"مطبخ فاخر"},
-  "main-door.jpg":{en:"Main Door",ar:"باب رئيسي"},
-  "pink-restaurant.jpg":{en:"Restaurant Design",ar:"تصميم مطعم"},
-  "sahel.jpg":{en:"Coastal Style",ar:"ستايل ساحلي"}
 };
 
 function setLang(lang){
@@ -379,7 +321,6 @@ function setLang(lang){
   });
 
   renderCatalogCards();
-  renderFeaturedRootImages();
 }
 
 function trackWhatsApp(source, catalogName = ""){
@@ -421,6 +362,7 @@ function descFromFolder(folderName){
 
 async function loadCatalogData(){
   const loadingNote = document.getElementById("loadingNote");
+
   try{
     const response = await fetch("catalog-data.json?v=20260504", {cache:"no-store"});
     const data = await response.json();
@@ -431,13 +373,11 @@ async function loadCatalogData(){
       cover:(item.images || [])[0]
     })).filter(item=>item.images.length > 0);
 
-    featuredImages = data.featured || [];
     partnersImages = data.partners || [];
 
     if(loadingNote) loadingNote.style.display = "none";
 
     renderCatalogCards();
-    renderFeaturedRootImages();
     renderPartners();
   }catch(error){
     if(loadingNote){
@@ -475,41 +415,6 @@ function renderCatalogCards(){
     `;
     grid.appendChild(card);
   });
-}
-
-function renderFeaturedRootImages(){
-  const featuredGrid = document.getElementById("featuredGrid");
-  const featuredBlock = document.getElementById("featuredBlock");
-  if(!featuredGrid || !featuredBlock) return;
-
-  featuredGrid.innerHTML = "";
-
-  if(!featuredImages.length){
-    featuredBlock.style.display = "none";
-    return;
-  }
-
-  featuredImages.forEach(file=>{
-    const card = document.createElement("div");
-    card.className = "featured-card";
-    card.style.backgroundImage = `url('${file}')`;
-    card.onclick = ()=>openImage(file);
-
-    const fileName = file.split("/").pop();
-    const title = featuredNames[fileName]
-      ? (currentLang === "ar" ? featuredNames[fileName].ar : featuredNames[fileName].en)
-      : fileName.replace(".jpg","");
-
-    card.innerHTML = `
-      <div class="featured-info">
-        <span>${translations[currentLang].featuredTag}</span>
-        <h3>${title}</h3>
-      </div>
-    `;
-    featuredGrid.appendChild(card);
-  });
-
-  featuredBlock.style.display = "block";
 }
 
 function renderPartners(){
