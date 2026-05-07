@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Designs by Asmaa Allam</title>
+    <title>Royal Designs by Asmaa Allam | Luxury Interior Excellence</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- تم إضافة خط Almarai للغة العربية لضمان الوضوح والتميز -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <style>
 :root {
@@ -21,7 +22,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); }
-body.rtl { font-family: "Cairo", sans-serif; direction: rtl; }
+
+/* تنسيق الخط العربي المميز */
+body.rtl { font-family: "Almarai", sans-serif; direction: rtl; }
 
 nav { 
     position: fixed; top: 0; width: 100%; z-index: 1000; padding: 0.8rem 6%; 
@@ -30,7 +33,6 @@ nav {
 }
 
 .nav-logo { display: flex; align-items: center; gap: 1rem; }
-/* تم زيادة مقاس اللوجو هنا ليكون أوضح */
 .logo-img { height: 65px; width: auto; object-fit: contain; }
 .logo-text { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.45rem; line-height: 1.1; letter-spacing: 1.5px; }
 .logo-text small { display: block; font-family: "Inter", sans-serif; font-size: .68rem; color: rgba(255, 255, 255, .6); letter-spacing: 2.5px; margin-top: 3px; }
@@ -39,7 +41,6 @@ nav {
 .nav-links a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-size: .83rem; letter-spacing: 1px; transition: .3s; }
 .nav-links a:hover { color: var(--gold); }
 
-/* Language Switcher Styling - Enhanced for visibility */
 .lang-switcher {
     display: flex;
     gap: 0.5rem;
@@ -62,14 +63,8 @@ nav {
     font-weight: 600;
 }
 
-.lang-btn.active {
-    background: var(--gold);
-    color: var(--navy);
-}
-
-.lang-btn:hover:not(.active) {
-    background: rgba(201, 165, 90, 0.2);
-}
+.lang-btn.active { background: var(--gold); color: var(--navy); }
+.lang-btn:hover:not(.active) { background: rgba(201, 165, 90, 0.2); }
 
 .nav-cta { 
     padding: .7rem 1.4rem; border: 1px solid var(--gold); color: var(--gold); 
@@ -167,7 +162,7 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
     .nav-links, .nav-cta { display: none; }
     .architect-wrap { grid-template-columns: 1fr; text-align: center; }
     .stats { grid-template-columns: repeat(2, 1fr); }
-    .logo-img { height: 50px; } /* حجم أصغر قليلاً للموبايل */
+    .logo-img { height: 50px; }
 }
 </style>
 </head>
@@ -184,10 +179,9 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#services" data-i18n="navSectors">References</a>
+        <a href="#services" data-i18n="navSectors">Success Stories</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
         
-        <!-- Enhanced Language Switcher -->
         <div class="lang-switcher">
             <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
             <button id="lang-ar" class="lang-btn" onclick="setLang('ar')">AR</button>
@@ -199,23 +193,23 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 
 <header class="hero" id="home">
     <div class="hero-content">
-        <div class="hero-label" data-i18n="heroLabel">Luxury Interior Design</div>
+        <div class="hero-label" data-i18n="heroLabel">Artistry & Engineering Precision</div>
         <h1 data-i18n="heroTitle">Royal Designs by Asmaa Allam</h1>
-        <p data-i18n="heroText">Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.</p>
+        <p data-i18n="heroText">Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic to create environments that inspire.</p>
         <div class="hero-buttons">
             <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">Explore Portfolio</a>
-            <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Consultation</a>
+            <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Inquiry</a>
         </div>
     </div>
 </header>
 
 <section class="section portfolio reveal" id="portfolio">
     <div class="section-title">
-        <div class="label" data-i18n="portfolioLabel">Image-Based Portfolio</div>
-        <h2 data-i18n="portfolioTitle">Explore Our Design Catalogs</h2>
+        <div class="label" data-i18n="portfolioLabel">A Legacy of Design</div>
+        <h2 data-i18n="portfolioTitle">Our Design Masterpieces</h2>
         <div class="gold-line"></div>
     </div>
-    <div id="loadingNote" class="loading-note" data-i18n="loadingCatalogs">Loading portfolio catalogs...</div>
+    <div id="loadingNote" class="loading-note" data-i18n="loadingCatalogs">Curating our visual catalogs...</div>
     <div class="catalog-grid" id="catalogGrid"></div>
 </section>
 
@@ -224,21 +218,21 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
         <div class="architect-card">
             <img src="engineer.jpg" alt="Asmaa Allam" class="architect-img">
             <div class="architect-info">
-                <span data-i18n="leadArchitect">Lead Architect</span>
+                <span data-i18n="leadArchitect">Founder & Lead Architect</span>
                 <h2>Asmaa Allam</h2>
-                <p data-i18n="interiorEngineer">Interior Design Engineer</p>
+                <p data-i18n="interiorEngineer">Interior Design Specialist</p>
             </div>
         </div>
         <div class="about-text">
-            <div class="label" data-i18n="aboutLabel">About</div>
-            <h2 data-i18n="aboutTitle">Design with Vision, Elegance & Precision</h2>
-            <p data-i18n="aboutP1">With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.</p>
-            <p data-i18n="aboutP2">The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.</p>
+            <div class="label" data-i18n="aboutLabel">Our Story</div>
+            <h2 data-i18n="aboutTitle">Defining the Art of Living</h2>
+            <p data-i18n="aboutP1">With a career spanning over three decades, Royal Designs by Asmaa Allam has become a benchmark for excellence in the interior design industry, delivering over 600 successful projects.</p>
+            <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with aesthetic elegance, ensuring that every project—from luxury hotels to boutique residences—is an original work of art.</p>
             <div class="stats">
-                <div class="stat"><strong>+600</strong><span data-i18n="projects">Projects</span></div>
-                <div class="stat"><strong>20</strong><span data-i18n="designSectors">Design Sectors</span></div>
-                <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years of Experience</span></div>
-                <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Updated Portfolio</span></div>
+                <div class="stat"><strong>+600</strong><span data-i18n="projects">Masterpieces</span></div>
+                <div class="stat"><strong>20</strong><span data-i18n="designSectors">Sectors Covered</span></div>
+                <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years Legacy</span></div>
+                <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Modern Vision</span></div>
             </div>
         </div>
     </div>
@@ -246,45 +240,45 @@ footer { background: #111827; color: white; text-align: center; padding: 2.5rem 
 
 <section class="section partners reveal" id="services">
     <div class="section-title">
-        <div class="label" data-i18n="partnersLabel">References & Collaborations</div>
-        <h2 data-i18n="partnersTitle">Trusted by Real Projects & Practical Partnerships</h2>
-        <p class="section-subtitle" data-i18n="partnersSubtitle">A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.</p>
+        <div class="label" data-i18n="partnersLabel">Collaborative Excellence</div>
+        <h2 data-i18n="partnersTitle">Our Professional Journey & Partnerships</h2>
+        <p class="section-subtitle" data-i18n="partnersSubtitle">A curated selection of brands and landmark projects that define our history and technical capability across diverse sectors.</p>
         <div class="gold-line"></div>
     </div>
     <div class="partners-grid" id="partnersGrid"></div>
 </section>
 
 <section class="section contact reveal" id="contact">
-    <h2 data-i18n="contactTitle">Start Your Project</h2>
-    <p data-i18n="contactText">Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.</p>
+    <h2 data-i18n="contactTitle">Bring Your Vision to Life</h2>
+    <p data-i18n="contactText">Let’s discuss your project and create a space that exceeds expectations. Our team is ready to provide expert guidance tailored to your lifestyle and budget.</p>
     <div class="contact-actions">
-        <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Chat on WhatsApp</a>
-        <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call 0121 111 5200</a>
+        <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
+        <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
     </div>
 </section>
 
 <footer>
     <div class="footer-logo">Royal Designs</div>
-    <p data-i18n="footerLine">by Asmaa Allam · Interior Design Engineer</p>
-    <p>© 2026 Royal Designs. All Rights Reserved.</p>
+    <p data-i18n="footerLine">by Asmaa Allam · Bespoke Interior Design Engineering</p>
+    <p>© 2026 Royal Designs. Crafted with Excellence.</p>
 </footer>
 
 <div class="catalog-modal" id="catalogModal">
     <div class="modal-head">
         <div>
             <h2 id="modalTitle">Catalog</h2>
-            <p id="modalDesc">Selected images from this category.</p>
+            <p id="modalDesc">Detailed visual preview.</p>
         </div>
         <button class="close-modal" style="background:transparent; border:1px solid white; color:white; border-radius:50%; width:40px; height:40px; cursor:pointer;" onclick="closeCatalog()">×</button>
     </div>
     <div class="modal-gallery" id="modalGallery"></div>
     <div class="modal-actions" style="text-align:center; margin-top:20px;">
-        <a href="#" id="modalWhatsapp" class="btn btn-gold">WhatsApp</a>
+        <a href="#" id="modalWhatsapp" class="btn btn-gold">Inquire via WhatsApp</a>
     </div>
 </div>
 
 <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:10000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
-    <img id="lightboxImg" style="max-width:90%; max-height:90%;" src="">
+    <img id="lightboxImg" style="max-width:90%; max-height:90%; border:2px solid var(--gold);" src="">
 </div>
 
 <a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp">WhatsApp</a>
@@ -300,42 +294,42 @@ let activeCatalogName = "";
 
 const translations = {
   en: {
-    navHome: "Home", navPortfolio: "Portfolio", navAbout: "About", navSectors: "References", navContact: "Contact",
-    bookConsultation: "Book Consultation", heroLabel: "Luxury Interior Design", heroTitle: "Royal Designs by Asmaa Allam",
-    heroText: "Refined interiors for hospitality, commercial, and residential spaces — crafted with engineering precision, elegant styling, and a clear execution vision.",
-    explorePortfolio: "Explore Portfolio", whatsappConsultation: "WhatsApp Consultation",
-    portfolioLabel: "Image-Based Portfolio", portfolioTitle: "Explore Our Design Catalogs", loadingCatalogs: "Loading portfolio catalogs...",
-    partnersLabel: "References & Collaborations", partnersTitle: "Trusted by Real Projects & Practical Partnerships",
-    partnersSubtitle: "A selected reference of brands, projects, and practical collaborations that reflect Royal Designs’ experience across commercial, hospitality, and residential interiors.",
-    leadArchitect: "Lead Architect", interiorEngineer: "Interior Design Engineer", aboutLabel: "About",
-    aboutTitle: "Design with Vision, Elegance & Precision",
-    aboutP1: "With more than 30 years of experience, Royal Designs by Asmaa Allam has delivered over 600 projects across 20 design sectors.",
-    aboutP2: "The portfolio covers hotels, restaurants, retail spaces, kitchens, dressing rooms, kids rooms, residential interiors, commercial spaces, and more.",
-    projects: "Projects", designSectors: "Design Sectors", yearsExperience: "Years of Experience", updatedPortfolio: "Updated Portfolio",
-    contactTitle: "Start Your Project", contactText: "Share your space details and receive a professional design direction tailored to your project type, budget level, and preferred style.",
-    chatWhatsapp: "Chat on WhatsApp", 
-    callButton: "Call 0121 111 5200",
-    footerLine: "by Asmaa Allam · Interior Design Engineer",
-    openCatalog: "Open Catalog", images: "Images"
+    navHome: "Home", navPortfolio: "Portfolio", navAbout: "About", navSectors: "Success Stories", navContact: "Contact",
+    bookConsultation: "Start Your Journey", heroLabel: "Where Art Meets Engineering", heroTitle: "Royal Designs by Asmaa Allam",
+    heroText: "Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic to create environments that inspire.",
+    explorePortfolio: "View Creations", whatsappConsultation: "WhatsApp Inquiry",
+    portfolioLabel: "Visual Journey", portfolioTitle: "Excellence in Every Detail", loadingCatalogs: "Curating our masterpieces...",
+    partnersLabel: "Partners in Excellence", partnersTitle: "Landmark Projects & Collaborations",
+    partnersSubtitle: "Reflecting our deep-rooted experience in hospitality, commercial, and luxury residential sectors.",
+    leadArchitect: "Founder & Lead Architect", interiorEngineer: "Interior Design Specialist", aboutLabel: "The Legacy",
+    aboutTitle: "Designing with Purpose & Elegance",
+    aboutP1: "For over 30 years, Royal Designs by Asmaa Allam has set the standard for bespoke interior engineering, delivering over 600 unique projects across the region.",
+    aboutP2: "Our commitment is to deliver designs that are not only visually stunning but also technically superior and operationally efficient.",
+    projects: "Masterpieces", designSectors: "Specialized Sectors", yearsExperience: "Years of Heritage", updatedPortfolio: "2026 Collection",
+    contactTitle: "Let’s Design Your Future", contactText: "Ready to transform your space? Contact us for a professional consultation tailored to your project's unique requirements.",
+    chatWhatsapp: "Message on WhatsApp", 
+    callButton: "Direct Call: 0121 111 5200",
+    footerLine: "by Asmaa Allam · Bespoke Interior Engineering",
+    openCatalog: "View Collection", images: "Pieces"
   },
   ar: {
-    navHome: "الرئيسية", navPortfolio: "الأعمال", navAbout: "عن الشركة", navSectors: "مراجعنا", navContact: "تواصل معنا",
-    bookConsultation: "احجز استشارة", heroLabel: "تصميم داخلي فاخر", heroTitle: "رويال ديزاينز - أسماء علام",
-    heroText: "تصميمات داخلية راقية للمساحات الفندقية والتجارية والسكنية، تجمع بين الدقة الهندسية والذوق الرفيع ورؤية واضحة للتنفيذ.",
-    explorePortfolio: "استعرض الأعمال", whatsappConsultation: "استشارة عبر واتساب",
-    portfolioLabel: "كتالوج الأعمال المصور", portfolioTitle: "استكشف كتالوجات التصميم", loadingCatalogs: "جاري تحميل كتالوجات الأعمال...",
-    partnersLabel: "مراجع وشراكات عملية", partnersTitle: "خبرة موثوقة من مشروعات وشراكات فعلية",
-    partnersSubtitle: "مجموعة مختارة من العلامات والمشروعات والشراكات العملية التي تعكس خبرة Royal Designs في التصميمات التجارية والفندقية والسكنية.",
-    leadArchitect: "المهندسة المسؤولة", interiorEngineer: "مهندسة تصميم داخلي", aboutLabel: "عن الشركة",
-    aboutTitle: "تصميم برؤية وأناقة ودقة تنفيذ",
-    aboutP1: "بخبرة تمتد لأكثر من 30 عامًا، نفذت رويال ديزاينز بواسطة أسماء علام أكثر من 600 مشروع في 20 قطاعًا تصميميًا.",
-    aboutP2: "تشمل الأعمال الفنادق، المطاعم، المحلات، المطابخ، الدريسنج، غرف الأطفال، المساحات السكنية، المساحات التجارية، والمزيد.",
-    projects: "مشروع", designSectors: "قطاع تصميم", yearsExperience: "سنة خبرة", updatedPortfolio: "كتالوج محدث",
-    contactTitle: "ابدأ مشروعك", contactText: "شاركنا تفاصيل المساحة للحصول على اتجاه تصميم احترافي يناسب نوع المشروع والميزانية والطابع المطلوب.",
+    navHome: "الرئيسية", navPortfolio: "إبداعاتنا", navAbout: "من نحن", navSectors: "شركاء النجاح", navContact: "تواصل معنا",
+    bookConsultation: "ابدأ رحلة التصميم", heroLabel: "حين يلتقي الفن بدقة الهندسة", heroTitle: "رويال ديزاينز - أسماء علام",
+    heroText: "نحول المساحات العادية إلى تجارب بصرية استثنائية. نجمع بين الدقة الهندسية والجمال الملكي لنصمم بيئة تعكس هويتكم وتلهم حواسكم.",
+    explorePortfolio: "استكشف أعمالنا", whatsappConsultation: "استشارة عبر واتساب",
+    portfolioLabel: "رحلة بصرية", portfolioTitle: "فلسفة التصميم والجمال", loadingCatalogs: "جاري تنسيق كتالوج الأعمال...",
+    partnersLabel: "شركاء التميز", partnersTitle: "مشروعات فارقة وشراكات استراتيجية",
+    partnersSubtitle: "مجموعة مختارة تعكس تاريخنا الممتد في القطاعات التجارية والفندقية والسكنية الفاخرة.",
+    leadArchitect: "المؤسس والمهندس الرئيسي", interiorEngineer: "خبير تصميم داخلي", aboutLabel: "قصتنا",
+    aboutTitle: "فن صياغة التفاصيل الراقية",
+    aboutP1: "على مدار ثلاثة عقود، نجحت رويال ديزاينز بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد.",
+    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل، بل هو توازن دقيق بين الوظيفة والجمال، لنضمن لك تجربة عيش وعمل تفوق التوقعات.",
+    projects: "مشروع أيقوني", designSectors: "قطاع تخصصي", yearsExperience: "عاماً من الإرث", updatedPortfolio: "رؤية 2026",
+    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجات مشروعك وميزانيتك.",
     chatWhatsapp: "تواصل عبر واتساب", 
-    callButton: "اتصل 0121 111 5200",
-    footerLine: "بواسطة أسماء علام · مهندسة تصميم داخلي",
-    openCatalog: "افتح الكتالوج", images: "صورة"
+    callButton: "اتصال مباشر: 0121 111 5200",
+    footerLine: "بواسطة أسماء علام · هندسة التصميم الداخلي الفاخر",
+    openCatalog: "تصفح المجموعة", images: "عمل فني"
   }
 };
 
@@ -359,42 +353,32 @@ function setLang(lang) {
 
 function trackWhatsApp(source, catalogName = "") {
     const data = {
-        page: window.location.href,
-        language: currentLang,
-        source: source,
-        catalog: catalogName,
-        device: navigator.userAgent,
-        whatsapp: WHATSAPP_NUMBER,
+        page: window.location.href, language: currentLang,
+        source: source, catalog: catalogName,
+        device: navigator.userAgent, whatsapp: WHATSAPP_NUMBER,
         timestamp: new Date().toISOString()
     };
-
-    fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    });
-
+    fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
 }
 
 const folderMeta = {
-    "hotels":{en:"Hotels",ar:"الفنادق",tagEn:"Hospitality",tagAr:"فندقي",descEn:"Premium hospitality interiors.",descAr:"تصميمات فندقية راقية."},
-    "restaurants":{en:"Restaurants",ar:"المطاعم",tagEn:"Commercial",tagAr:"تجاري",descEn:"Dining spaces with atmosphere.",descAr:"مساحات مطاعم بأجواء قوية."},
-    "shops":{en:"Retail Shops",ar:"المحلات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Retail interiors for display.",descAr:"تصميمات محلات جاذبة."},
-    "kitchens":{en:"Kitchens",ar:"المطابخ",tagEn:"Residential",tagAr:"سكني",descEn:"Modern kitchens.",descAr:"مطابخ عصرية."},
-    "dressing-rooms":{en:"Dressing Rooms",ar:"الدريسنج",tagEn:"Residential",tagAr:"سكني",descEn:"Organized luxury.",descAr:"غرف دريسنج منظمة."},
-    "kids-rooms":{en:"Kids Rooms",ar:"غرف الأطفال",tagEn:"Residential",tagAr:"سكني",descEn:"Creative playful details.",descAr:"تصميمات غرف أطفال مبهجة."},
-    "living rooms":{en:"Living Rooms",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Comfortable luxury.",descAr:"مساحات معيشة راقية."},
-    "bed-rooms":{en:"Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Calm interiors.",descAr:"غرف نوم هادئة."},
-    "dinning-rooms":{en:"Dining Rooms",ar:"غرف الطعام",tagEn:"Residential",tagAr:"سكني",descEn:"Elegant hosting.",descAr:"غرف طعام أنيقة."},
-    "bathrooms":{en:"Bathrooms",ar:"الحمامات",tagEn:"Residential",tagAr:"سكني",descEn:"Smart layout.",descAr:"حمامات بتوزيع ذكي."},
-    "ceilings":{en:"Ceilings",ar:"الأسقف",tagEn:"Details",tagAr:"تفاصيل",descEn:"Decorative finishing.",descAr:"تشطيبات أسقف ديكورية."},
-    "finishes":{en:"Finishes",ar:"التشطيبات",tagEn:"Details",tagAr:"تفاصيل",descEn:"Material & marble.",descAr:"خامات ورخام وحوائط."},
-    "offices":{en:"Offices",ar:"المكاتب",tagEn:"Commercial",tagAr:"تجاري",descEn:"Refined executive style.",descAr:"تصميمات مكاتب إدارية."},
-    "booths":{en:"Booths",ar:"البوثات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Visual attraction.",descAr:"بوثات عرض متميزة."},
-    "Exhibitions":{en:"Exhibitions",ar:"المعارض",tagEn:"Commercial",tagAr:"تجاري",descEn:"Visual impact.",descAr:"تصميمات معارض مبهرة."},
-    "units":{en:"TV Units",ar:"وحدات التلفزيون",tagEn:"Residential",tagAr:"سكني",descEn:"Custom compositions.",descAr:"وحدات تلفزيون عملية."}
+    "hotels":{en:"Hotels & Resorts",ar:"الفنادق والمنتجعات",tagEn:"Hospitality",tagAr:"قطاع الضيافة",descEn:"World-class guest experiences.",descAr:"تجارب ضيافة بمقاييس عالمية."},
+    "restaurants":{en:"Fine Dining & Cafes",ar:"المطاعم والكافيهات",tagEn:"Commercial",tagAr:"تجاري",descEn:"Concept-driven atmospheres.",descAr:"أجواء تعزز هوية المكان."},
+    "shops":{en:"Luxury Retail",ar:"المساحات التجارية",tagEn:"Commercial",tagAr:"تجاري",descEn:"Strategic display layouts.",descAr:"توزيع استراتيجي لجذب العملاء."},
+    "kitchens":{en:"Bespoke Kitchens",ar:"المطابخ العصرية",tagEn:"Residential",tagAr:"سكني",descEn:"Smart storage & elegance.",descAr:"أناقة مع تخزين ذكي وعملي."},
+    "dressing-rooms":{en:"Dressing Rooms",ar:"غرف الملابس",tagEn:"Residential",tagAr:"سكني",descEn:"Boutique-style organization.",descAr:"تنظيم فاخر على طراز البوتيك."},
+    "kids-rooms":{en:"Creative Kids Spaces",ar:"غرف الأطفال",tagEn:"Residential",tagAr:"سكني",descEn:"Where imagination lives.",descAr:"عالم من الإبداع والخيال."},
+    "living rooms":{en:"Living Masterpieces",ar:"غرف المعيشة",tagEn:"Residential",tagAr:"سكني",descEn:"Comfort meets high-end style.",descAr:"الراحة في أرقى صورها."},
+    "bed-rooms":{en:"Elite Bedrooms",ar:"غرف النوم",tagEn:"Residential",tagAr:"سكني",descEn:"Serene personal sanctuaries.",descAr:"ملاذات هادئة للنوم والراحة."},
+    "dinning-rooms":{en:"Grand Dining Halls",ar:"غرف الطعام",tagEn:"Residential",tagAr:"سكني",descEn:"Designed for hosting.",descAr:"مساحات مصممة لاستقبال راقٍ."},
+    "bathrooms":{en:"Spa-like Bathrooms",ar:"الحمامات",tagEn:"Residential",tagAr:"سكني",descEn:"Smart luxurious layouts.",descAr:"توزيع ذكي وتفاصيل مترفة."},
+    "ceilings":{en:"Ceiling Artistry",ar:"الأسقف والديكور",tagEn:"Art",tagAr:"فن",descEn:"Architectural lighting lines.",descAr:"خطوط إضاءة ومعالجات معمارية."},
+    "finishes":{en:"Material Mastery",ar:"التشطيبات الفاخرة",tagEn:"Craft",tagAr:"إتقان",descEn:"Marble & texture curation.",descAr:"اختيارات دقيقة للرخام والخامات."},
+    "offices":{en:"Executive Offices",ar:"المكاتب الإدارية",tagEn:"Corporate",tagAr:"إداري",descEn:"Productive professional environments.",descAr:"بيئات عمل احترافية وملهمة."},
+    "booths":{en:"Exhibition Booths",ar:"بوثات العرض",tagEn:"Event",tagAr:"فعاليات",descEn:"Impactful visual presence.",descAr:"حضور بصري قوي وجذاب."},
+    "Exhibitions":{en:"Grand Exhibitions",ar:"المعارض",tagEn:"Corporate",tagAr:"تجاري",descEn:"Large scale visual impact.",descAr:"تأثير بصري واسع النطاق."},
+    "units":{en:"Bespoke Units",ar:"الوحدات المتخصصة",tagEn:"Details",tagAr:"تفاصيل",descEn:"Clean custom compositions.",descAr:"تكوينات خاصة وعملية."}
 };
 
 async function loadCatalogData() {
@@ -412,7 +396,7 @@ async function loadCatalogData() {
         renderCatalogCards();
         renderPartners();
     } catch (error) {
-        if (loadingNote) loadingNote.textContent = "Data load error.";
+        if (loadingNote) loadingNote.textContent = "Unable to sync data.";
         console.warn(error);
     }
 }
@@ -468,7 +452,8 @@ function openCatalog(index) {
         img.onclick = () => { document.getElementById("lightbox").style.display='flex'; document.getElementById("lightboxImg").src=src; };
         gallery.appendChild(img);
     });
-    document.getElementById("modalWhatsapp").onclick = (e) => { e.preventDefault(); trackWhatsApp("Modal", activeCatalogName); };
+    document.getElementById("modalWhatsapp").textContent = translations[currentLang].whatsappConsultation;
+    document.getElementById("modalWhatsapp").onclick = (e) => { e.preventDefault(); trackWhatsApp("Catalog Detail", activeCatalogName); };
     modal.classList.add("active");
     document.body.style.overflow = "hidden";
 }
