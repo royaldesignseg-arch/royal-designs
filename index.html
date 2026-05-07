@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags (تهيئة محركات البحث) -->
+    <meta name="description" content="Royal Innovation by Asmaa Allam - Expert interior design, architectural precision, and bespoke engineering. تصميمات داخلية راقية ودقة هندسية بواسطة أسماء علام.">
+    <meta name="keywords" content="Interior design, Asmaa Allam, Royal Innovation, Architecture, Egypt interiors, تصميم داخلي, ديكور, أسماء علام, هندسة معمارية, تشطيبات فاخرة">
+    <meta name="author" content="Asmaa Allam">
+    
+    <!-- Open Graph Tags (لتحسين شكل الرابط عند مشاركته على واتساب وفيسبوك) -->
+    <meta property="og:title" content="Royal Innovation by Asmaa Allam">
+    <meta property="og:description" content="Crafting timeless interiors that harmonize luxury with function. نصمم بيئة تعكس هويتكم وتلهم حواسكم.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:type" content="website">
+
     <title>Royal Innovation by Asmaa Allam | Luxury Interior & Engineering</title>
 
     <!-- خطوط جوجل: Almarai للعربي و Playfair/Inter للإنجليزي -->
@@ -43,6 +55,9 @@ nav {
 .nav-links { display: flex; gap: 1.5rem; align-items: center; }
 .nav-links a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-size: .83rem; letter-spacing: 1px; transition: .3s; }
 .nav-links a:hover { color: var(--gold); }
+
+/* زر الموبايل (القائمة الجانبية) */
+.mobile-btn { display: none; font-size: 1.8rem; color: var(--gold); background: none; border: none; cursor: pointer; }
 
 .lang-switcher {
     display: flex; gap: 0.5rem; background: rgba(255, 255, 255, 0.1);
@@ -160,7 +175,20 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 @media(max-width: 850px) {
     nav { background: transparent; backdrop-filter: none; padding: 1.2rem 5%; }
     nav.scrolled { background: rgba(26, 39, 68, 0.98); backdrop-filter: blur(15px); padding: 0.8rem 5%; }
-    .nav-links, .nav-cta { display: none; }
+    
+    /* تنسيق قائمة الموبايل المنسدلة بشكل ملكي */
+    .mobile-btn { display: block; }
+    .nav-cta { display: none; } /* إخفاء الزر الجانبي في الموبايل للتبسيط */
+    .nav-links { 
+        position: absolute; top: 100%; left: 0; right: 0; 
+        background: rgba(26, 39, 68, 0.98); backdrop-filter: blur(15px);
+        flex-direction: column; padding: 2rem 5%; gap: 1.5rem;
+        transform: translateY(-150%); opacity: 0; transition: 0.4s ease-in-out; 
+        z-index: -1; pointer-events: none; border-bottom: 1px solid rgba(201,165,90,0.2);
+    }
+    .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-links .lang-switcher { justify-content: center; margin-top: 1rem; }
+    
     .logo-img { height: 58px; }
     .hero h1 { font-size: 2.6rem; line-height: 1.1; }
     .hero p { font-size: 0.98rem; }
@@ -179,7 +207,11 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
         <img class="logo-img" src="logo.png" alt="Royal Innovation Logo">
         <div class="logo-text">Royal Innovation<small>BY ASMAA ALLAM</small></div>
     </div>
-    <div class="nav-links">
+    
+    <!-- زر فتح القائمة في الموبايل -->
+    <button class="mobile-btn" onclick="toggleMenu()">☰</button>
+
+    <div class="nav-links" id="navLinks">
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#about" data-i18n="navAbout">About</a>
@@ -539,6 +571,17 @@ window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 80) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
+});
+
+// التحكم في قائمة الموبايل
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+}
+// إغلاق القائمة تلقائياً عند الضغط على أي رابط
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+    });
 });
 
 const revealItems = document.querySelectorAll(".reveal");
