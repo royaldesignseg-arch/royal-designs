@@ -4,76 +4,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Tags (تهيئة محركات البحث الشاملة) -->
-    <meta name="description" content="Royal Designs by Asmaa Allam - Expert in interior design, landscape, exhibition booths, and bespoke engineering. تصميمات داخلية، لاندسكيب، ومعارض بواسطة أسماء علام.">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Royal Designs by Asmaa Allam - Expert in interior design, landscape, exhibition booths, and bespoke engineering. مساحتك، هويتك. تصميمات داخلية، لاندسكيب، ومعارض.">
     <meta name="keywords" content="Interior design, Landscape, Exhibition booths, Event design, Asmaa Allam, Royal Designs, Egypt architecture, تصميم داخلي, لاندسكيب, معارض, ديكور, أسماء علام, هندسة معمارية, بوثات">
     <meta name="author" content="Asmaa Allam">
-    
-    <!-- Open Graph Tags -->
     <meta property="og:title" content="Royal Designs by Asmaa Allam">
-    <meta property="og:description" content="Crafting timeless spaces across interiors, landscapes, and exhibitions. نصمم بيئة متكاملة تعكس هويتكم بدءاً من الديكور الداخلي واللاندسكيب وحتى بوثات العرض.">
+    <meta property="og:description" content="Design Beyond Limits. نصمم بيئة متكاملة تعكس هويتكم بدءاً من الديكور الداخلي واللاندسكيب وحتى بوثات العرض.">
     <meta property="og:image" content="logo.png">
     <meta property="og:type" content="website">
 
     <title>Royal Designs by Asmaa Allam | Architecture, Interior & Event Design</title>
 
-    <!-- خطوط جوجل: Almarai للعربي و Playfair/Inter للإنجليزي -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Cairo for Arabic -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <!-- ========================================== -->
+    <!-- 1. GOOGLE ANALYTICS & ADS TRACKING CODE    -->
+    <!-- ========================================== -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-60QG3LN182"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Google Analytics (الخاص بكِ)
+      gtag('config', 'G-60QG3LN182');
+      
+      // Google Ads / YouTube (ضعي رقم حسابك هنا للإعلانات)
+      gtag('config', 'AW-XXXXXXXXX'); 
+    </script>
+
+    <!-- ========================================== -->
+    <!-- 2. TIKTOK PIXEL TRACKING CODE              -->
+    <!-- ========================================== -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+      
+      // استبدلي الحروف بالأسفل برقم بيكسل تيك توك الخاص بكِ
+      ttq.load('YOUR_TIKTOK_PIXEL_ID');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
 
     <style>
+/* Royal Design Brand Identity Colors (Softened Dark Mode) */
 :root {
-    --navy: #1a2744;
-    --gold: #c9a55a;
-    --gold-light: #e0c285;
-    --cream: #faf7f2;
-    --warm: #f5ede0;
-    --text: #2a2a2a;
-    --muted: #777;
+    --obsidian-black: #0D0D0D;   /* Darkest (Used sparingly for contrast) */
+    --royal-orange: #D4521A;     /* Accents & CTA */
+    --pure-white: #FFFFFF;       /* Primary Text */
+    --warm-ivory: #F4EFE9;       /* Light Sections */
+    --charcoal: #1E1E1E;         /* Main Soothing Background (رمادي داكن مريح للعين) */
+    --graphite: #2E2E2E;         /* Inner Cards & Borders */
+    --deep-ember: #B03D10;       /* Dark Hover Accent */
+    --silver: #CCCCCC;           /* Secondary Text */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: "Inter", sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; }
 
-/* تنسيق اللغة العربية (Almarai) مع ضبط المحاذاة والأسطر */
-body.rtl { font-family: "Almarai", sans-serif; direction: rtl; }
+/* English Typography (Arial / Arial Black) */
+body { 
+    font-family: Arial, Helvetica, sans-serif; 
+    background: var(--charcoal); /* استخدام الرمادي الداكن المريح بدلاً من الأسود القاتم */
+    color: var(--silver); 
+    line-height: 1.7; 
+}
+h1, h2, h3, h4, .brand-font { 
+    font-family: "Arial Black", Arial, sans-serif; 
+    color: var(--pure-white); 
+    text-transform: uppercase;
+}
+
+/* Arabic Typography (Cairo) */
+body.rtl { 
+    font-family: "Cairo", sans-serif; 
+    direction: rtl; 
+}
+body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl .brand-font {
+    font-family: "Cairo", sans-serif;
+    font-weight: 800;
+    text-transform: none;
+}
 body.rtl p { text-align: justify; text-justify: inter-word; line-height: 1.8; }
 
 /* Navigation Styling */
 nav { 
     position: fixed; top: 0; width: 100%; z-index: 1000; padding: 0.8rem 6%; 
     display: flex; justify-content: space-between; align-items: center; 
-    background: rgba(26, 39, 68, .96); backdrop-filter: blur(14px); 
+    background: rgba(30, 30, 30, 0.96); /* Charcoal with opacity */
+    backdrop-filter: blur(14px); 
+    border-bottom: 1px solid var(--graphite);
     transition: all 0.4s ease;
 }
 
 .nav-logo { display: flex; align-items: center; gap: 1rem; }
 .logo-img { height: 65px; width: auto; object-fit: contain; }
-.logo-text { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.45rem; line-height: 1.1; letter-spacing: 1.5px; }
-.logo-text small { display: block; font-family: "Inter", sans-serif; font-size: .68rem; color: rgba(255, 255, 255, .6); letter-spacing: 2.5px; margin-top: 3px; }
+.logo-text { font-family: "Arial Black", sans-serif; color: var(--pure-white); font-size: 1.45rem; line-height: 1.1; letter-spacing: 1.5px; }
+.logo-text small { display: block; font-family: Arial, sans-serif; font-weight: bold; font-size: .68rem; color: var(--royal-orange); letter-spacing: 2.5px; margin-top: 3px; }
 
 .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-.nav-links a { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-size: .83rem; letter-spacing: 1px; transition: .3s; }
-.nav-links a:hover { color: var(--gold); }
+.nav-links a { color: var(--silver); text-decoration: none; font-size: .83rem; font-weight: bold; letter-spacing: 1px; transition: .3s; text-transform: uppercase; }
+body.rtl .nav-links a { text-transform: none; }
+.nav-links a:hover { color: var(--royal-orange); }
 
-/* زر الموبايل (القائمة الجانبية) */
-.mobile-btn { display: none; font-size: 1.8rem; color: var(--gold); background: none; border: none; cursor: pointer; }
+.mobile-btn { display: none; font-size: 1.8rem; color: var(--royal-orange); background: none; border: none; cursor: pointer; }
 
 .lang-switcher {
-    display: flex; gap: 0.5rem; background: rgba(255, 255, 255, 0.1);
-    padding: 4px; border-radius: 30px; border: 1px solid rgba(201, 165, 90, 0.3);
+    display: flex; gap: 0.5rem; background: var(--graphite);
+    padding: 4px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);
 }
 .lang-btn {
-    color: white; border: none; background: transparent; cursor: pointer;
-    padding: 6px 12px; border-radius: 20px; transition: 0.3s; font-size: 0.75rem; font-weight: 600;
+    color: var(--silver); border: none; background: transparent; cursor: pointer;
+    padding: 6px 12px; border-radius: 20px; transition: 0.3s; font-size: 0.75rem; font-weight: bold;
 }
-.lang-btn.active { background: var(--gold); color: var(--navy); }
+.lang-btn.active { background: var(--royal-orange); color: var(--pure-white); }
 
-.nav-cta { 
-    padding: .7rem 1.4rem; border: 1px solid var(--gold); color: var(--gold); 
-    text-decoration: none; border-radius: 40px; font-size: .82rem; transition: .3s; 
+/* Royal Button Style */
+.btn { 
+    padding: 1rem 2rem; border-radius: 40px; text-decoration: none; transition: .3s; 
+    font-size: .9rem; font-weight: bold; display: inline-block; cursor: pointer; 
+    text-transform: uppercase;
 }
-.nav-cta:hover { background: var(--gold); color: var(--navy); }
+body.rtl .btn { text-transform: none; }
+
+.btn-primary { 
+    background: var(--charcoal); 
+    color: var(--royal-orange); 
+    border: 2px solid var(--royal-orange); 
+}
+.btn-primary:hover { 
+    background: var(--royal-orange); 
+    color: var(--pure-white); 
+}
+
+.btn-solid {
+    background: var(--royal-orange); 
+    color: var(--pure-white); 
+    border: 2px solid var(--royal-orange);
+}
+.btn-solid:hover {
+    background: var(--deep-ember);
+    border-color: var(--deep-ember);
+}
+
+.nav-cta { padding: .6rem 1.4rem; font-size: .8rem; }
 
 /* Hero Section */
 .hero { 
@@ -83,114 +158,121 @@ nav {
 }
 .hero::before { 
     content: ""; position: absolute; inset: 0; 
-    background: radial-gradient(circle at center, rgba(201, 165, 90, .15), transparent 45%), 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75)); 
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.4), rgba(30, 30, 30, 0.95)); 
 }
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 2rem; animation: fadeUp 1.5s ease forwards; }
-.hero-label { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; font-size: .78rem; margin-bottom: 1rem; font-weight: 600; }
-.hero h1 { font-family: "Playfair Display", serif; color: white; font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.1; margin-bottom: 1.2rem; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-.hero p { color: rgba(255, 255, 255, .95); font-size: 1.07rem; max-width: 720px; margin: 0 auto 2.5rem; }
+.hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .85rem; margin-bottom: 1rem; font-weight: bold; }
+.hero h1 { font-size: clamp(2.8rem, 7vw, 5.6rem); line-height: 1.1; margin-bottom: 1.2rem; }
+.hero p { color: var(--pure-white); font-size: 1.1rem; max-width: 720px; margin: 0 auto 2.5rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
 
-.btn { padding: .95rem 1.85rem; border-radius: 40px; text-decoration: none; transition: .3s; font-size: .9rem; display: inline-block; cursor: pointer; border: none; }
-.btn-gold { background: var(--gold); color: var(--navy); font-weight: 700; box-shadow: 0 10px 25px rgba(201, 165, 90, 0.3); }
-.btn-outline { border: 1px solid rgba(255, 255, 255, .75); color: white; background: transparent; backdrop-filter: blur(5px); }
+.hero-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+/* General Sections */
+.section { padding: 6rem 6%; }
+.section-title { text-align: center; margin-bottom: 4rem; }
+.label { color: var(--royal-orange); letter-spacing: 3px; text-transform: uppercase; font-size: .8rem; margin-bottom: 1rem; font-weight: bold; }
+.section-title h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
+.orange-line { width: 70px; height: 3px; background: var(--royal-orange); margin: 1.5rem auto 0; }
 
 /* Portfolio Grid */
-.section { padding: 6rem 6%; }
-.section-title { text-align: center; margin-bottom: 3rem; }
-.label { color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-size: .75rem; margin-bottom: .8rem; font-weight: 700; }
-.section-title h2 { font-family: "Playfair Display", serif; color: var(--navy); font-size: clamp(2rem, 4vw, 3.4rem); }
-.gold-line { width: 70px; height: 2px; background: var(--gold); margin: 1rem auto 0; }
-
 .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .catalog-card { 
-    min-height: 300px; border-radius: 28px; overflow: hidden; position: relative; 
+    min-height: 320px; border-radius: 0; overflow: hidden; position: relative; 
     background-size: cover; background-position: center; cursor: pointer; 
-    box-shadow: 0 25px 55px rgba(0, 0, 0, .15); transition: .45s; 
+    transition: .45s; border: 1px solid var(--graphite);
 }
-.catalog-card:hover { transform: translateY(-10px) scale(1.02); }
-.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, .85), transparent); }
-.catalog-info { position: absolute; bottom: 0; z-index: 2; color: white; padding: 1.8rem; pointer-events: none; }
-.catalog-info h3 { font-family: "Playfair Display", serif; font-size: 1.8rem; margin: .45rem 0; }
+.catalog-card:hover { transform: translateY(-10px); border-color: var(--royal-orange); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30, 30, 30, 0.95), transparent); }
+.catalog-info { position: absolute; bottom: 0; z-index: 2; color: var(--pure-white); padding: 1.8rem; pointer-events: none; width: 100%; }
+.catalog-info h3 { font-size: 1.6rem; margin: .45rem 0; color: var(--pure-white); }
+.tag-style { color: var(--royal-orange); font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
 
 /* About Section */
+.about { background: var(--charcoal); border-top: 1px solid var(--graphite); }
 .architect-wrap { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: center; }
-.architect-img { width: 100%; max-width: 360px; border-radius: 28px; box-shadow: 0 28px 75px rgba(0, 0, 0, .22); }
-.architect-info { margin: -35px auto 0; width: 86%; position: relative; background: var(--navy); border: 1px solid var(--gold); border-radius: 22px; padding: 1.35rem 1rem; color: white; text-align: center; }
+.architect-img { width: 100%; max-width: 360px; display: block; margin: auto; border: 1px solid var(--graphite); }
+.architect-info { margin: -35px auto 0; width: 90%; position: relative; background: var(--graphite); border: 2px solid var(--royal-orange); padding: 1.5rem 1rem; text-align: center; }
+.architect-info span { display: block; color: var(--royal-orange); font-weight: bold; text-transform: uppercase; font-size: .75rem; margin-bottom: .5rem; letter-spacing: 2px; }
+.architect-info h2 { font-size: 1.8rem; margin-bottom: .35rem; }
+.architect-info p { color: var(--silver); font-size: .9rem; }
 
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
-.stat { background: white; padding: 1.1rem; border-radius: 18px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-.stat strong { color: var(--gold); font-size: 1.45rem; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+.stat { background: var(--graphite); padding: 1.5rem 1rem; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
+.stat strong { display: block; color: var(--royal-orange); font-size: 2rem; font-family: "Arial Black", sans-serif; }
+.stat span { display: block; font-size: .8rem; color: var(--silver); margin-top: .5rem; font-weight: bold; text-transform: uppercase; }
 
-/* Partners & Contact */
-.partners { background: var(--warm); }
-.partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.4rem; align-items: center; }
-.partner-logo { background: white; border-radius: 24px; min-height: 150px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; box-shadow: 0 20px 45px rgba(0,0,0,.07); transition: .35s; }
+/* Services / Partners Section */
+.partners { background: var(--warm-ivory); color: var(--obsidian-black); }
+.partners .label { color: var(--royal-orange); }
+.partners .section-title h2 { color: var(--obsidian-black); }
+.partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; align-items: center; }
+.partner-logo { background: var(--pure-white); min-height: 150px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; transition: .35s; border: 1px solid #DDDDDD; }
+.partner-logo:hover { transform: translateY(-7px); border-color: var(--royal-orange); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-.contact { background: var(--navy); color: white; text-align: center; padding: 6rem 6%; }
-.contact h2 { font-family: "Playfair Display", serif; color: var(--gold); font-size: 3rem; margin-bottom: 1rem; }
-.contact p { max-width: 700px; margin: 0 auto 2rem; color: rgba(255,255,255,0.8); }
+/* Contact Section */
+.contact { background: var(--charcoal); text-align: center; padding: 6rem 6%; border-top: 1px solid var(--graphite); }
+.contact h2 { color: var(--pure-white); font-size: 3rem; margin-bottom: 1rem; }
+.contact p { max-width: 700px; margin: 0 auto 2.5rem; color: var(--silver); }
 
 /* Footer */
-footer { background: #0b111d; color: white; text-align: center; padding: 2.5rem 6%; border-top: 1px solid rgba(201, 165, 90, 0.1); }
-.footer-logo { font-family: "Playfair Display", serif; color: var(--gold); font-size: 1.8rem; margin-bottom: 0.5rem; }
+footer { background: var(--obsidian-black); color: var(--silver); text-align: center; padding: 3rem 6%; border-top: 1px solid var(--graphite); }
+.footer-logo { font-family: "Arial Black", sans-serif; color: var(--pure-white); font-size: 1.8rem; margin-bottom: 0.5rem; }
 
 /* WhatsApp Floating Button */
 .whatsapp { 
     position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; 
     color: white; padding: .9rem 1.3rem; border-radius: 999px; text-decoration: none; 
-    font-weight: 700; box-shadow: 0 16px 40px rgba(37, 211, 102, .36); 
+    font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, .3); 
 }
 
-/* Modals & UI Buttons */
-.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.98); z-index: 9999; overflow-y: auto; }
+/* Modals & Lightbox */
+.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(30, 30, 30, 0.98); z-index: 9999; overflow-y: auto; }
 .catalog-modal.active { display: block; }
-.modal-head { position: sticky; top: 0; background: rgba(0,0,0,0.96); z-index: 10001; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; color: white; border-bottom: 1px solid rgba(201,165,90,0.2); backdrop-filter: blur(10px); }
-.modal-head h2 { font-family: "Playfair Display", serif; font-size: 1.5rem; color: var(--gold); margin: 0; }
+.modal-head { position: sticky; top: 0; background: var(--charcoal); z-index: 10001; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--graphite); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+.modal-head h2 { font-size: 1.5rem; color: var(--pure-white); margin: 0; }
 .modal-gallery { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 0 6%; }
-.modal-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 18px; cursor: pointer; transition: 0.3s; }
-.modal-gallery img:hover { transform: scale(1.03); }
+.modal-gallery img { width: 100%; height: 200px; object-fit: cover; cursor: pointer; transition: 0.3s; opacity: 0.9; border: 1px solid var(--graphite); }
+.modal-gallery img:hover { transform: scale(1.02); opacity: 1; border-color: var(--royal-orange); z-index: 2; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
-/* زر الرجوع (Back Button) الملكي */
+/* Floating Back Button */
 .floating-back {
-    background: rgba(26, 39, 68, 0.8); border: 1px solid var(--gold); color: white;
-    padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex;
-    align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; font-family: inherit;
-    transition: 0.3s; backdrop-filter: blur(5px);
+    background: var(--graphite); border: 1px solid var(--graphite); color: var(--silver);
+    padding: 0.6rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex;
+    align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: bold; font-family: inherit;
+    transition: 0.3s;
 }
-.floating-back:hover { background: var(--gold); color: var(--navy); }
+.floating-back:hover { background: var(--royal-orange); color: var(--pure-white); border-color: var(--royal-orange); }
 .back-icon { display: inline-block; transition: 0.3s; font-size: 1.1rem; line-height: 1; }
-/* يعكس اتجاه السهم في اللغة العربية بشكل تلقائي */
 body.rtl .back-icon { transform: rotate(180deg); }
 
-/* هيدر الصور المكبرة (Lightbox Header) */
 .lightbox-header { position: absolute; top: 20px; left: 20px; z-index: 10001; }
 body.rtl .lightbox-header { left: auto; right: 20px; }
 
 /* Animations */
 @keyframes heroZoom { from { background-size: 100% 100%; } to { background-size: 115% 115%; } }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(45px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(45px); transition: .8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
 /* Mobile View Adjustments */
 @media(max-width: 850px) {
-    nav { background: transparent; backdrop-filter: none; padding: 1.2rem 5%; }
-    nav.scrolled { background: rgba(26, 39, 68, 0.98); backdrop-filter: blur(15px); padding: 0.8rem 5%; }
+    nav { background: transparent; backdrop-filter: none; padding: 1.2rem 5%; border: none; }
+    nav.scrolled { background: rgba(30, 30, 30, 0.98); padding: 0.8rem 5%; border-bottom: 1px solid var(--graphite); }
     
-    /* تنسيق قائمة الموبايل المنسدلة بشكل ملكي */
     .mobile-btn { display: block; }
     .nav-cta { display: none; }
     .nav-links { 
         position: absolute; top: 100%; left: 0; right: 0; 
-        background: rgba(26, 39, 68, 0.98); backdrop-filter: blur(15px);
+        background: var(--charcoal); border-bottom: 1px solid var(--royal-orange);
         flex-direction: column; padding: 2rem 5%; gap: 1.5rem;
         transform: translateY(-150%); opacity: 0; transition: 0.4s ease-in-out; 
-        z-index: -1; pointer-events: none; border-bottom: 1px solid rgba(201,165,90,0.2);
+        z-index: -1; pointer-events: none; 
     }
-    .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .nav-links.active { transform: translateY(0); opacity: 1; pointer-events: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
     .nav-links .lang-switcher { justify-content: center; margin-top: 1rem; }
     
-    .logo-img { height: 58px; }
-    .hero h1 { font-size: 2.6rem; line-height: 1.1; }
+    .logo-img { height: 50px; }
+    .hero h1 { font-size: 2.6rem; }
     .hero p { font-size: 0.98rem; }
     .architect-wrap { grid-template-columns: 1fr; text-align: center; }
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -205,36 +287,33 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 <nav id="navbar">
     <div class="nav-logo">
         <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
-        <div class="logo-text">Royal Designs<small>BY ASMAA ALLAM</small></div>
+        <div class="logo-text">ROYAL<small>CONTRACTING & COMMERCIAL AGENCIES</small></div>
     </div>
     
-    <!-- زر فتح القائمة في الموبايل -->
     <button class="mobile-btn" onclick="toggleMenu()">☰</button>
 
     <div class="nav-links" id="navLinks">
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
         <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#services" data-i18n="navSectors">Success Stories</a>
+        <a href="#services" data-i18n="navSectors">Sectors</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
         <div class="lang-switcher">
             <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
             <button id="lang-ar" class="lang-btn" onclick="setLang('ar')">AR</button>
         </div>
     </div>
-    <a class="nav-cta" href="#" onclick="trackWhatsApp('Navbar Consultation')" data-i18n="bookConsultation">Book Consultation</a>
+    <a class="nav-cta btn btn-primary" href="#" onclick="trackWhatsApp('Navbar Consultation')" data-i18n="bookConsultation">Book Consultation</a>
 </nav>
 
 <header class="hero" id="home">
     <div class="hero-content">
-        <!-- تحديث العنوان ليعكس الشمولية -->
         <div class="hero-label" data-i18n="heroLabel">Architecture, Interior & Event Design</div>
-        <h1 data-i18n="heroTitle">Royal Designs by Asmaa Allam</h1>
-        <!-- تحديث الوصف -->
-        <p data-i18n="heroText">Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic across interiors, landscapes, and exhibitions.</p>
+        <h1 data-i18n="heroTitle">Design Beyond Limits</h1>
+        <p data-i18n="heroText">Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a bold aesthetic across interiors, landscapes, and exhibitions.</p>
         <div class="hero-buttons">
-            <a href="#portfolio" class="btn btn-gold" data-i18n="explorePortfolio">View Creations</a>
-            <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-outline" data-i18n="whatsappConsultation">WhatsApp Inquiry</a>
+            <a href="#portfolio" class="btn btn-solid" data-i18n="explorePortfolio">View Projects</a>
+            <a href="#" onclick="trackWhatsApp('Hero WhatsApp Button')" class="btn btn-primary" data-i18n="whatsappConsultation">WhatsApp Inquiry</a>
         </div>
     </div>
 </header>
@@ -242,10 +321,10 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 <section class="section portfolio reveal" id="portfolio">
     <div class="section-title">
         <div class="label" data-i18n="portfolioLabel">A Legacy of Design</div>
-        <h2 data-i18n="portfolioTitle">Our Design Masterpieces</h2>
-        <div class="gold-line"></div>
+        <h2 data-i18n="portfolioTitle">Our Masterpieces</h2>
+        <div class="orange-line"></div>
     </div>
-    <div id="loadingNote" class="loading-note" style="text-align:center;" data-i18n="loadingCatalogs">Curating our visual catalogs...</div>
+    <div id="loadingNote" class="loading-note" style="text-align:center; color: var(--silver);" data-i18n="loadingCatalogs">Curating our visual catalogs...</div>
     <div class="catalog-grid" id="catalogGrid"></div>
 </section>
 
@@ -255,21 +334,20 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
             <img src="engineer.jpg" alt="Asmaa Allam" class="architect-img">
             <div class="architect-info">
                 <span data-i18n="leadArchitect">Founder & Lead Architect</span>
-                <h2>Asmaa Allam</h2>
-                <!-- تعديل المسمى ليشمل المعماري والداخلي -->
+                <h2 class="brand-font">Asmaa Allam</h2>
                 <p data-i18n="interiorEngineer">Architecture & Design Expert</p>
             </div>
         </div>
         <div class="about-text">
             <div class="label" data-i18n="aboutLabel">Our Story</div>
             <h2 data-i18n="aboutTitle">Defining the Art of Living</h2>
-            <p data-i18n="aboutP1">For over 30 years, Royal Designs by Asmaa Allam has delivered over 600 unique projects spanning luxurious interiors, breathtaking landscapes, and impactful exhibition booths.</p>
-            <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with aesthetic elegance, ensuring that every project is an original work of art.</p>
+            <p data-i18n="aboutP1">For over 30 years, Royal Designs has delivered over 600 unique projects spanning luxurious interiors, breathtaking landscapes, and impactful exhibition booths.</p>
+            <p data-i18n="aboutP2">Our philosophy is built on merging architectural logic with a bold identity, ensuring that every project is an original work of art.</p>
             <div class="stats">
-                <div class="stat"><strong>+600</strong><span data-i18n="projects">Masterpieces</span></div>
+                <div class="stat"><strong>+600</strong><span data-i18n="projects">Projects</span></div>
                 <div class="stat"><strong>20</strong><span data-i18n="designSectors">Sectors</span></div>
-                <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years Legacy</span></div>
-                <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Modern Vision</span></div>
+                <div class="stat"><strong>30</strong><span data-i18n="yearsExperience">Years</span></div>
+                <div class="stat"><strong>2026</strong><span data-i18n="updatedPortfolio">Vision</span></div>
             </div>
         </div>
     </div>
@@ -278,48 +356,47 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 <section class="section partners reveal" id="services">
     <div class="section-title">
         <div class="label" data-i18n="partnersLabel">Collaborative Excellence</div>
-        <h2 data-i18n="partnersTitle">Our Professional Journey & Partnerships</h2>
-        <div class="gold-line"></div>
+        <h2 data-i18n="partnersTitle">Our Corporate Partners</h2>
+        <div class="orange-line"></div>
     </div>
     <div class="partners-grid" id="partnersGrid"></div>
 </section>
 
 <section class="section contact reveal" id="contact">
     <h2 data-i18n="contactTitle">Bring Your Vision to Life</h2>
-    <p data-i18n="contactText">Let’s discuss your project and create a space that exceeds expectations.</p>
+    <p data-i18n="contactText">Let’s discuss your project and create a space that demands attention.</p>
     <div class="contact-actions" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
-        <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-gold" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
-        <a href="tel:01211115200" class="btn btn-outline" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
+        <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-solid" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
+        <a href="tel:01211115200" class="btn btn-primary" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
     </div>
 </section>
 
 <footer>
-    <div class="footer-logo">Royal Designs</div>
-    <p data-i18n="footerLine">by Asmaa Allam · Bespoke Architecture & Design</p>
-    <p>© 2026 Royal Designs. Crafted with Excellence.</p>
+    <div class="footer-logo">ROYAL DESIGN</div>
+    <p data-i18n="footerLine">Contracting & Commercial Agencies</p>
+    <p style="margin-top:1rem; font-size:0.8rem; color:var(--silver);">© 2026 Royal Designs. Crafted with Excellence.</p>
 </footer>
 
-<!-- Modals & Lightbox -->
 <div class="catalog-modal" id="catalogModal">
     <div class="modal-head">
         <button class="floating-back" onclick="closeCatalog()">
             <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
         </button>
-        <h2 id="modalTitle">Catalog</h2>
+        <h2 id="modalTitle" class="brand-font">Catalog</h2>
     </div>
     <div class="modal-gallery" id="modalGallery"></div>
-    <div class="modal-actions" style="text-align:center; margin-top:2rem; padding-bottom:3rem;">
-        <a href="#" id="modalWhatsapp" class="btn btn-gold">Inquire via WhatsApp</a>
+    <div class="modal-actions" style="text-align:center; margin-top:3rem; padding-bottom:3rem;">
+        <a href="#" id="modalWhatsapp" class="btn btn-solid">Inquire via WhatsApp</a>
     </div>
 </div>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="closeLightbox(event)">
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(30,30,30,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="closeLightbox(event)">
     <div class="lightbox-header">
         <button class="floating-back" onclick="closeLightbox(event)">
             <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
         </button>
     </div>
-    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:1px solid var(--gold); border-radius:12px; box-shadow:0 0 50px rgba(0,0,0,0.5);" src="" onclick="event.stopPropagation()">
+    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:2px solid var(--graphite); cursor:default; box-shadow: 0 10px 40px rgba(0,0,0,0.6);" src="" onclick="event.stopPropagation()">
 </div>
 
 <a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp">WhatsApp</a>
@@ -330,7 +407,7 @@ const WHATSAPP_NUMBER = "201211115200";
 
 let catalogs = [];
 let partnersImages = [];
-let currentLang = localStorage.getItem("siteLang") || "en";
+let currentLang = localStorage.getItem("siteLang") || "ar"; // Default to Arabic based on target audience
 
 const priorityOrder = [
     "living rooms", "bed-rooms", "kitchens", "dressing-rooms", 
@@ -341,45 +418,45 @@ const priorityOrder = [
 
 const translations = {
   en: {
-    navHome: "Home", navPortfolio: "Portfolio", navAbout: "About", navSectors: "Success Stories", navContact: "Contact",
-    bookConsultation: "Start Your Journey", 
+    navHome: "Home", navPortfolio: "Projects", navAbout: "About Us", navSectors: "Sectors", navContact: "Contact",
+    bookConsultation: "Start Project", 
     heroLabel: "Architecture, Interior & Event Design", 
-    heroTitle: "Royal Designs by Asmaa Allam", 
-    heroText: "Transforming ordinary spaces into extraordinary experiences. We blend architectural precision with a refined aesthetic across interiors, landscapes, and exhibitions.",
-    explorePortfolio: "View Creations", whatsappConsultation: "WhatsApp Inquiry",
-    portfolioLabel: "Visual Journey", portfolioTitle: "Excellence in Every Detail", loadingCatalogs: "Curating our masterpieces...",
-    partnersLabel: "Partners in Excellence", partnersTitle: "Landmark Projects & Collaborations",
+    heroTitle: "Design Beyond Limits", 
+    heroText: "Transforming ideas into exceptional spaces. We combine architectural precision with a bold, unique identity.",
+    explorePortfolio: "View Projects", whatsappConsultation: "WhatsApp Consultation",
+    portfolioLabel: "Visual Portfolio", portfolioTitle: "Our Masterpieces", loadingCatalogs: "Loading collections...",
+    partnersLabel: "Trusted By", partnersTitle: "Corporate Partners",
     leadArchitect: "Founder & Lead Architect", 
     interiorEngineer: "Architecture & Design Expert", 
-    aboutLabel: "The Legacy",
-    aboutTitle: "Designing with Purpose & Elegance",
-    aboutP1: "For over 30 years, Royal Designs by Asmaa Allam has delivered over 600 unique projects spanning luxurious interiors, breathtaking landscapes, and impactful exhibition booths.",
-    aboutP2: "Our commitment is to deliver designs that are not only visually stunning but also technically superior.",
-    projects: "Masterpieces", designSectors: "Specialized Sectors", yearsExperience: "Years of Heritage", updatedPortfolio: "2026 Collection",
-    contactTitle: "Let’s Design Your Future", contactText: "Ready to transform your space? Contact us for a professional consultation.",
-    chatWhatsapp: "Message on WhatsApp", callButton: "Direct Call: 0121 111 5200",
-    footerLine: "by Asmaa Allam · Bespoke Architecture & Design", openCatalog: "View Collection", images: "Images",
+    aboutLabel: "Our Story",
+    aboutTitle: "Defining the Art of Space",
+    aboutP1: "With over 25 years of experience, Royal Designs has delivered more than 800 projects spanning luxurious interiors, breathtaking landscapes, and impactful exhibition booths.",
+    aboutP2: "We believe design is an exact balance between function and bold innovation.",
+    projects: "Projects", designSectors: "Sectors", yearsExperience: "Years", updatedPortfolio: "Vision",
+    contactTitle: "Bring Your Vision to Life", contactText: "Let’s discuss your project and create a space that demands attention.",
+    chatWhatsapp: "Message via WhatsApp", callButton: "Call: 0121 111 5200",
+    footerLine: "Contracting & Commercial Agencies", openCatalog: "View Collection", images: "Images",
     backBtn: "Back" 
   },
   ar: {
-    navHome: "الرئيسية", navPortfolio: "إبداعاتنا", navAbout: "من نحن", navSectors: "شركاء النجاح", navContact: "تواصل معنا",
-    bookConsultation: "ابدأ رحلة التصميم", 
+    navHome: "الرئيسية", navPortfolio: "مشاريعنا", navAbout: "عن الشركة", navSectors: "قطاعاتنا", navContact: "تواصل معنا",
+    bookConsultation: "ابدأ مشروعك", 
     heroLabel: "تصميم داخلي، لاندسكيب، ومعارض",
-    heroTitle: "رويال ديزاينز - أسماء علام", 
-    heroText: "نحول المساحات العادية إلى تجارب بصرية استثنائية. نصمم بيئة متكاملة تعكس هويتكم بدءاً من الديكور الداخلي واللاندسكيب وحتى بوثات العرض والفعاليات الكبرى.",
-    explorePortfolio: "استكشف أعمالنا", whatsappConsultation: "استشارة عبر واتساب",
-    portfolioLabel: "رحلة بصرية", portfolioTitle: "كتالوج الأعمال", loadingCatalogs: "جاري تنسيق كتالوج الأعمال...",
-    partnersLabel: "شركاء التميز", partnersTitle: "مشروعات فارقة وشراكات استراتيجية",
+    heroTitle: "مساحتك، هويتك", 
+    heroText: "نحوّل أفكارك إلى مساحات استثنائية. نجمع بين الدقة الهندسية والجرأة في التصميم لنخلق بيئة تعكس شخصيتك بدقة.",
+    explorePortfolio: "استكشف المشاريع", whatsappConsultation: "استشارة عبر واتساب",
+    portfolioLabel: "رحلة بصرية", portfolioTitle: "أعمالنا الاستثنائية", loadingCatalogs: "جاري تحميل الأعمال...",
+    partnersLabel: "شركاء النجاح", partnersTitle: "علامات تجارية نثق بها",
     leadArchitect: "المؤسس والمهندس الرئيسي", 
     interiorEngineer: "خبيرة التصميم المعماري والداخلي", 
     aboutLabel: "قصتنا",
-    aboutTitle: "فن صياغة التفاصيل الراقية",
-    aboutP1: "على مدار ثلاثة عقود، نجحت رويال ديزاينز بقيادة المهندسة أسماء علام في وضع بصمة لا تُنسى بأكثر من 600 مشروع فريد يجمع بين الديكورات الفاخرة، اللاندسكيب، وبوثات المعارض.",
-    aboutP2: "نؤمن بأن التصميم هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة عيش وعمل تفوق التوقعات.",
-    projects: "مشروع أيقوني", designSectors: "قطاع تخصصي", yearsExperience: "عاماً من الإرث", updatedPortfolio: "رؤية 2026",
-    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "هل أنت جاهز لتحويل مساحتك؟ تواصل معنا للحصول على استشارة احترافية مصممة خصيصاً لتناسب احتياجاتك.",
+    aboutTitle: "فن صياغة المساحات",
+    aboutP1: "بخبرة تتجاوز 25 عاماً، نجحت رويال ديزاينز في تنفيذ أكثر من 800 مشروع يجمع بين الديكورات الفاخرة، اللاندسكيب، وبوثات المعارض.",
+    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل، بل هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة تفوق التوقعات.",
+    projects: "مشروع", designSectors: "قطاع", yearsExperience: "عاماً من الخبرة", updatedPortfolio: "رؤية",
+    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "تصميم مساحتك يبدأ من رؤيتك. تواصل معنا للحصول على الحل الأمثل لمشروعك.",
     chatWhatsapp: "تواصل عبر واتساب", callButton: "اتصال مباشر: 0121 111 5200",
-    footerLine: "بواسطة أسماء علام · هندسة التصميم المعماري والابتكار", openCatalog: "افتح الكتالوج", images: "صورة",
+    footerLine: "مقاولات وتوكيلات تجارية", openCatalog: "افتح الكتالوج", images: "صورة",
     backBtn: "رجوع" 
   }
 };
@@ -387,20 +464,20 @@ const translations = {
 const folderMeta = {
     "hotels":{en:"Hotels",ar:"فنادق",tagEn:"Hospitality",tagAr:"فندقي"},
     "restaurants":{en:"Restaurants & Cafes",ar:"مطاعم وكافيهات",tagEn:"Commercial",tagAr:"تجاري"},
-    "shops":{en:"Shops",ar:"محلات تجارية",tagEn:"Commercial",tagAr:"تجاري"},
+    "shops":{en:"Retail Shops",ar:"محلات تجارية",tagEn:"Commercial",tagAr:"تجاري"},
     "kitchens":{en:"Kitchens",ar:"مطابخ",tagEn:"Residential",tagAr:"سكني"},
     "dressing-rooms":{en:"Dressing Rooms",ar:"دريسنج روم",tagEn:"Residential",tagAr:"سكني"},
     "kids-rooms":{en:"Kids Rooms",ar:"غرف أطفال",tagEn:"Residential",tagAr:"سكني"},
     "living rooms":{en:"Living Rooms",ar:"ليفينج روم",tagEn:"Residential",tagAr:"سكني"},
     "bed-rooms":{en:"Bedrooms",ar:"غرف نوم",tagEn:"Residential",tagAr:"سكني"},
-    "dinning-rooms":{en:"Dining Rooms",ar:"سفرة (غرف طعام)",tagEn:"Residential",tagAr:"سكني"},
+    "dinning-rooms":{en:"Dining Rooms",ar:"سفرة",tagEn:"Residential",tagAr:"سكني"},
     "bathrooms":{en:"Bathrooms",ar:"حمامات",tagEn:"Residential",tagAr:"سكني"},
-    "ceilings":{en:"Ceilings",ar:"أسقف معلقة",tagEn:"Details",tagAr:"تفاصيل"},
-    "finishes":{en:"Finishes",ar:"أعمال تشطيبات",tagEn:"Details",tagAr:"تفاصيل"},
-    "offices":{en:"Offices",ar:"مكاتب",tagEn:"Commercial",tagAr:"إداري"},
-    "booths":{en:"Booths",ar:"بوثات عرض",tagEn:"Commercial",tagAr:"فعاليات"},
-    "Exhibitions":{en:"Exhibitions",ar:"معارض",tagEn:"Commercial",tagAr:"تجاري"},
-    "units":{en:"TV Units",ar:"تي في يونت (TV Units)",tagEn:"Details",tagAr:"تفاصيل"}
+    "ceilings":{en:"Ceiling Designs",ar:"تصميمات أسقف",tagEn:"Details",tagAr:"تفاصيل"},
+    "finishes":{en:"Finishes & Materials",ar:"أعمال تشطيبات",tagEn:"Details",tagAr:"تفاصيل"},
+    "offices":{en:"Corporate Offices",ar:"مكاتب إدارية",tagEn:"Commercial",tagAr:"إداري"},
+    "booths":{en:"Exhibition Booths",ar:"بوثات عرض",tagEn:"Events",tagAr:"فعاليات"},
+    "Exhibitions":{en:"Exhibitions",ar:"معارض متكاملة",tagEn:"Events",tagAr:"فعاليات"},
+    "units":{en:"TV Units",ar:"ديكورات شاشات",tagEn:"Details",tagAr:"تفاصيل"}
 };
 
 function setLang(lang) {
@@ -419,8 +496,24 @@ function setLang(lang) {
 }
 
 function trackWhatsApp(source, catalogName = "") {
+    // 1. Google Script Tracking
     const data = { page: window.location.href, language: currentLang, source: source, catalog: catalogName, device: navigator.userAgent, whatsapp: WHATSAPP_NUMBER, timestamp: new Date().toISOString() };
     fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }).catch(err => console.log(err));
+    
+    // 2. Google Ads / Analytics Conversion Event
+    if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-XXXXXXXXX/YOUR_CONVERSION_LABEL', // ضعي الكود الخاص بجوجل أدز هنا
+            'event_category': 'Contact',
+            'event_label': source
+        });
+    }
+
+    // 3. TikTok Pixel Conversion
+    if (typeof ttq !== 'undefined') {
+        ttq.track('Contact', { content_name: source, content_category: catalogName });
+    }
+
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
 }
 
@@ -469,9 +562,9 @@ function renderCatalogCards() {
 
         card.innerHTML = `
             <div class="catalog-info">
-                <span style="color:var(--gold); font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase;">${tag}</span>
-                <h3>${title}</h3>
-                <div style="display:inline-block; margin-top:0.5rem; padding:0.3rem 0.8rem; border:1px solid rgba(201,165,90,0.4); border-radius:30px; font-size:0.75rem; color:var(--gold);">
+                <span class="tag-style">${tag}</span>
+                <h3 class="brand-font">${title}</h3>
+                <div style="display:inline-block; margin-top:0.8rem; padding:0.4rem 1rem; border:1px solid var(--royal-orange); border-radius:30px; font-size:0.75rem; color:var(--pure-white); font-weight:bold; background:rgba(30,30,30,0.6);">
                     ${translations[currentLang].openCatalog}
                 </div>
             </div>
@@ -487,7 +580,7 @@ function renderPartners() {
     partnersImages.forEach(src => {
         const item = document.createElement("div");
         item.className = "partner-logo";
-        item.innerHTML = `<img src="${src}" alt="Partner Logo" style="max-width:80%; max-height:80px; object-fit:contain;" loading="lazy">`;
+        item.innerHTML = `<img src="${src}" alt="Partner Logo" style="max-width:80%; max-height:80px; object-fit:contain; filter:grayscale(100%); transition:0.3s;" onmouseover="this.style.filter='none'" onmouseout="this.style.filter='grayscale(100%)'" loading="lazy">`;
         partnersGrid.appendChild(item);
     });
 }
@@ -575,11 +668,9 @@ window.addEventListener('scroll', () => {
     else nav.classList.remove('scrolled');
 });
 
-// التحكم في قائمة الموبايل
 function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('active');
 }
-// إغلاق القائمة تلقائياً عند الضغط على أي رابط
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('active');
