@@ -38,34 +38,33 @@
     </script>
 
     <style>
-/* Royal Design Brand Identity Colors */
+/* Royal Design Brand Identity Colors (Light "Warm Ivory" Theme) */
 :root {
     --obsidian-black: #0D0D0D;   
     --royal-orange: #D4521A;     
     --pure-white: #FFFFFF;       
-    --warm-ivory: #F4EFE9;       
-    --charcoal: #2A2A2A;         /* خلفية مريحة للعين */
-    --graphite: #3A3A3A;         
-    --silver: #E0E0E0;           
-    --sidebar-width: 280px;      /* عرض القائمة الجانبية */
-    --glossy-bg: linear-gradient(145deg, #3b3b3b 0%, #222222 50%, #111111 100%);
+    --warm-ivory: #F4EFE9;       /* البيج الملكي - الخلفية الأساسية الجديدة */
+    --charcoal: #1E1E1E;         
+    --graphite: #2E2E2E;         
+    --silver: #888888;           
+    --sidebar-width: 280px;      
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
 
+/* الخلفية البيج المريحة للعين */
 body { 
     font-family: Arial, Helvetica, sans-serif; 
-    background: var(--glossy-bg); 
-    background-attachment: fixed;
-    color: var(--silver); 
+    background: var(--warm-ivory); 
+    color: var(--charcoal); 
     line-height: 1.7; 
-    display: flex; /* Layout الأساسي */
+    display: flex; 
 }
 
 h1, h2, h3, h4, .brand-font { 
     font-family: "Arial Black", Arial, sans-serif; 
-    color: var(--pure-white); 
+    color: var(--obsidian-black); 
     text-transform: uppercase;
 }
 
@@ -76,32 +75,35 @@ body.rtl h1, body.rtl h2, body.rtl h3, body.rtl h4, body.rtl .brand-font {
 }
 
 /* ==================================================== */
-/* 1. SIDEBAR NAVIGATION (Studio Layout)                */
+/* 1. SIDEBAR NAVIGATION (Black as requested)           */
 /* ==================================================== */
 .sidebar {
     position: fixed;
     top: 0; bottom: 0; left: 0;
     width: var(--sidebar-width);
-    background: var(--pure-white);
+    background: var(--obsidian-black); /* الشريط الجانبي أسود فخم */
+    color: var(--pure-white);
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #E5E5E5;
+    border-right: 1px solid var(--graphite);
     transition: transform 0.4s ease;
 }
-body.rtl .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid #E5E5E5; }
+body.rtl .sidebar { left: auto; right: 0; border-right: none; border-left: 1px solid var(--graphite); }
 
-/* مربع الشعار الأسود في القائمة */
 .sidebar-logo {
-    background: var(--obsidian-black);
-    color: var(--pure-white);
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.5rem 1rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
 }
-.sidebar-logo h2 { font-size: 2.5rem; letter-spacing: 5px; margin: 0; }
-body.rtl .sidebar-logo h2 { letter-spacing: 0; font-size: 2.2rem; }
-.sidebar-logo small { font-size: 0.6rem; letter-spacing: 3px; color: #888; display: block; margin-top: 5px; }
+.logo-img { height: 75px; width: auto; object-fit: contain; }
+.logo-text { font-family: "Arial Black", sans-serif; color: var(--pure-white); font-size: 1.45rem; line-height: 1.1; letter-spacing: 1.5px; }
+body.rtl .logo-text { letter-spacing: 0; }
+.logo-text small { display: block; font-family: Arial, sans-serif; font-weight: bold; font-size: .65rem; color: var(--royal-orange); letter-spacing: 2px; margin-top: 5px; }
 
 /* الروابط في القائمة */
 .nav-list {
@@ -111,7 +113,7 @@ body.rtl .sidebar-logo h2 { letter-spacing: 0; font-size: 2.2rem; }
 }
 .nav-list li { margin-bottom: 1.2rem; }
 .nav-list a {
-    color: #444;
+    color: var(--silver);
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 600;
@@ -119,7 +121,7 @@ body.rtl .sidebar-logo h2 { letter-spacing: 0; font-size: 2.2rem; }
     text-transform: uppercase;
     display: block;
     padding-bottom: 0.8rem;
-    border-bottom: 1px solid #F0F0F0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: 0.3s;
 }
 body.rtl .nav-list a { text-transform: none; letter-spacing: 0; font-size: 1rem; }
@@ -130,25 +132,25 @@ body.rtl .nav-list a { text-transform: none; letter-spacing: 0; font-size: 1rem;
 }
 body.rtl .nav-list a:hover { padding-left: 0; padding-right: 8px; }
 
-/* تبديل اللغة وأيقونات التواصل في أسفل القائمة */
+/* Social Icons (Including TikTok & YouTube) */
 .sidebar-footer { padding: 2rem; }
 .lang-switcher {
-    display: flex; gap: 0.5rem; background: #F5F5F5;
-    padding: 4px; border-radius: 30px; border: 1px solid #E0E0E0; margin-bottom: 1.5rem;
+    display: flex; gap: 0.5rem; background: rgba(255,255,255,0.05);
+    padding: 4px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 1.5rem;
 }
 .lang-btn {
-    color: #555; border: none; background: transparent; cursor: pointer;
+    color: #AAA; border: none; background: transparent; cursor: pointer;
     padding: 6px 12px; border-radius: 20px; transition: 0.3s; font-size: 0.75rem; font-weight: bold; width: 50%;
 }
-.lang-btn.active { background: var(--obsidian-black); color: var(--pure-white); }
+.lang-btn.active { background: var(--royal-orange); color: var(--pure-white); }
 
-.social-icons { display: flex; gap: 0.8rem; justify-content: center; }
+.social-icons { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
 .social-icons a {
-    width: 38px; height: 38px; border-radius: 50%; border: 1px solid #DDD;
+    width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
     display: flex; align-items: center; justify-content: center;
-    color: #777; transition: 0.3s; text-decoration: none;
+    color: var(--silver); transition: 0.3s; text-decoration: none;
 }
-.social-icons a:hover { border-color: var(--royal-orange); color: var(--royal-orange); }
+.social-icons a:hover { border-color: var(--royal-orange); color: var(--royal-orange); background: rgba(212,82,26,0.1); }
 .social-icons svg { width: 16px; height: 16px; fill: currentColor; }
 
 
@@ -164,7 +166,7 @@ body.rtl .main-content { margin-left: 0; margin-right: var(--sidebar-width); }
 
 
 /* ==================================================== */
-/* 3. HERO SECTION (Studio Vibe)                        */
+/* 3. HERO SECTION                                      */
 /* ==================================================== */
 .hero { 
     min-height: 100vh; background: url("villa_hero_bg.png") center/cover no-repeat; 
@@ -173,22 +175,21 @@ body.rtl .main-content { margin-left: 0; margin-right: var(--sidebar-width); }
 }
 .hero::before { 
     content: ""; position: absolute; inset: 0; 
-    background: linear-gradient(to right, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.7)); 
+    background: linear-gradient(to right, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.8)); 
 }
-body.rtl .hero::before { background: linear-gradient(to left, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.7)); }
+body.rtl .hero::before { background: linear-gradient(to left, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.8)); }
 
 .hero-content { position: relative; z-index: 2; max-width: 800px; margin-left: auto; text-align: right; }
 body.rtl .hero-content { margin-left: 0; margin-right: auto; text-align: left; }
 
-.hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .85rem; margin-bottom: 1rem; font-weight: bold; }
-.hero h1 { font-size: clamp(3rem, 6vw, 6rem); line-height: 1.1; margin-bottom: 1rem; letter-spacing: 5px; }
+.hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .85rem; margin-bottom: 1rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+.hero h1 { color: var(--pure-white); font-size: clamp(3rem, 6vw, 6rem); line-height: 1.1; margin-bottom: 1rem; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 body.rtl .hero h1 { letter-spacing: 0; }
 .hero p { color: var(--pure-white); font-size: 1.1rem; margin-bottom: 2.5rem; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
 
 .hero-buttons { display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap; }
 body.rtl .hero-buttons { justify-content: flex-start; }
 
-/* Navigation Arrows over Hero */
 .slider-arrows { position: absolute; bottom: 40px; left: 40px; display: flex; gap: 10px; z-index: 5; }
 body.rtl .slider-arrows { left: auto; right: 40px; }
 .slider-arrows button { width: 50px; height: 50px; border-radius: 50%; background: transparent; border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; transition: 0.3s; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
@@ -198,25 +199,25 @@ body.rtl .slider-arrows { left: auto; right: 40px; }
 /* Buttons */
 .btn { padding: 1rem 2rem; border-radius: 40px; text-decoration: none; transition: .3s; font-size: .9rem; font-weight: bold; display: inline-block; cursor: pointer; text-transform: uppercase; }
 body.rtl .btn { text-transform: none; }
-.btn-primary { background: rgba(0,0,0,0.5); color: var(--royal-orange); border: 2px solid var(--royal-orange); backdrop-filter: blur(5px); }
-.btn-primary:hover { background: var(--royal-orange); color: var(--pure-white); }
-.btn-solid { background: var(--pure-white); color: var(--obsidian-black); border: 2px solid var(--pure-white); }
-.btn-solid:hover { background: var(--royal-orange); border-color: var(--royal-orange); color: var(--pure-white); }
+.btn-primary { background: rgba(0,0,0,0.6); color: var(--pure-white); border: 2px solid var(--obsidian-black); backdrop-filter: blur(5px); }
+.btn-primary:hover { background: var(--obsidian-black); color: var(--pure-white); }
+.btn-solid { background: var(--royal-orange); color: var(--pure-white); border: 2px solid var(--royal-orange); box-shadow: 0 5px 15px rgba(212,82,26,0.3); }
+.btn-solid:hover { background: var(--deep-ember); border-color: var(--deep-ember); transform: translateY(-3px); }
 
 
 /* General Sections */
-.section { padding: 6rem 5%; background: rgba(0, 0, 0, 0.15); border-top: 1px solid rgba(255,255,255,0.05); }
+.section { padding: 6rem 5%; }
 .section-title { text-align: center; margin-bottom: 4rem; }
 .label { color: var(--royal-orange); letter-spacing: 3px; text-transform: uppercase; font-size: .8rem; margin-bottom: 1rem; font-weight: bold; }
-.section-title h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
-.orange-line { width: 70px; height: 3px; background: var(--royal-orange); margin: 1.5rem auto 0; box-shadow: 0 0 10px var(--royal-orange); }
+.section-title h2 { font-size: clamp(2rem, 4vw, 3.4rem); color: var(--obsidian-black); }
+.orange-line { width: 70px; height: 3px; background: var(--royal-orange); margin: 1.5rem auto 0; }
 
 
 /* Portfolio Grid */
 .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; }
-.catalog-card { min-height: 350px; border-radius: 35px; overflow: hidden; position: relative; background-size: cover; background-position: center; cursor: pointer; transition: .45s; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-.catalog-card:hover { transform: translateY(-12px); border-color: var(--royal-orange); box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(212, 82, 26, 0.2); }
-.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13, 13, 13, 0.95), transparent); }
+.catalog-card { min-height: 350px; border-radius: 20px; overflow: hidden; position: relative; background-size: cover; background-position: center; cursor: pointer; transition: .4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #E5E5E5; }
+.catalog-card:hover { transform: translateY(-10px); border-color: var(--royal-orange); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+.catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13, 13, 13, 0.9), transparent); }
 .catalog-info { position: absolute; bottom: 0; z-index: 2; color: var(--pure-white); padding: 2rem; pointer-events: none; width: 100%; }
 .catalog-info h3 { font-size: 1.6rem; margin: .45rem 0; color: var(--pure-white); }
 .tag-style { color: var(--royal-orange); font-size: 0.75rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
@@ -224,61 +225,77 @@ body.rtl .btn { text-transform: none; }
 
 /* About Section */
 .architect-wrap { max-width: 1120px; margin: auto; display: grid; grid-template-columns: 350px 1fr; gap: 4rem; align-items: center; }
-.architect-img { width: 100%; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-.architect-info { margin: -45px auto 0; width: 90%; position: relative; background: rgba(30,30,30,0.8); backdrop-filter: blur(10px); border-radius: 35px; border: 1px solid var(--royal-orange); padding: 1.5rem 1rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.architect-img { width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+.architect-info { margin: -45px auto 0; width: 90%; position: relative; background: var(--obsidian-black); border-radius: 20px; border-bottom: 4px solid var(--royal-orange); padding: 1.5rem 1rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 .architect-info span { display: block; color: var(--royal-orange); font-weight: bold; text-transform: uppercase; font-size: .75rem; margin-bottom: .5rem; letter-spacing: 2px; }
-.architect-info h2 { font-size: 1.8rem; margin-bottom: .35rem; }
+.architect-info h2 { font-size: 1.8rem; margin-bottom: .35rem; color: var(--pure-white); }
+.architect-info p { color: #CCC; font-size: .9rem; margin-bottom: 0; }
+
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
-.stat { background: rgba(255,255,255,0.03); backdrop-filter: blur(5px); border-radius: 25px; padding: 1.5rem 1rem; text-align: center; border: 1px solid rgba(255,255,255,0.05); }
-.stat strong { display: block; color: var(--royal-orange); font-size: 2rem; font-family: "Arial Black", sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
-.stat span { display: block; font-size: .8rem; color: var(--silver); margin-top: .5rem; font-weight: bold; text-transform: uppercase; }
+.stat { background: var(--pure-white); border-radius: 20px; padding: 1.5rem 1rem; text-align: center; border: 1px solid #E5E5E5; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.stat strong { display: block; color: var(--obsidian-black); font-size: 2.2rem; font-family: "Arial Black", sans-serif; }
+.stat span { display: block; font-size: .8rem; color: var(--royal-orange); margin-top: .2rem; font-weight: bold; text-transform: uppercase; }
 
 
 /* Services / Partners */
-.partners { background: var(--warm-ivory); color: var(--obsidian-black); }
-.partners .label { color: var(--royal-orange); }
-.partners .section-title h2 { color: var(--obsidian-black); }
+.partners { background: var(--pure-white); }
 .partners-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; align-items: center; }
-.partner-logo { background: var(--pure-white); border-radius: 35px; width: calc(20% - 1.5rem); min-width: 160px; min-height: 140px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; transition: .35s; border: 1px solid #DDDDDD; }
-.partner-logo:hover { transform: translateY(-7px); border-color: var(--royal-orange); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.partner-logo { background: var(--warm-ivory); border-radius: 20px; width: calc(20% - 1.5rem); min-width: 160px; min-height: 140px; display: flex; align-items: center; justify-content: center; padding: 1.5rem; transition: .35s; border: 1px solid #E5E5E5; }
+.partner-logo:hover { transform: translateY(-7px); border-color: var(--royal-orange); box-shadow: 0 15px 30px rgba(0,0,0,0.08); background: var(--pure-white); }
 
 
 /* Contact & Footer */
 .contact { text-align: center; }
-.contact h2 { font-size: 3rem; margin-bottom: 1rem; }
-.contact p { max-width: 700px; margin: 0 auto 2.5rem; }
-footer { background: var(--obsidian-black); text-align: center; padding: 3rem 6%; border-top: 1px solid var(--graphite); }
+.contact h2 { font-size: 3rem; margin-bottom: 1rem; color: var(--obsidian-black); }
+.contact p { max-width: 700px; margin: 0 auto 2.5rem; color: var(--charcoal); }
+
+footer { background: var(--obsidian-black); text-align: center; padding: 4rem 6%; border-top: 1px solid var(--graphite); color: #888; }
 .footer-logo { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--pure-white); }
+.footer-contact-info { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; }
+.footer-contact-info span { display: flex; align-items: center; gap: 8px; }
 
 
 /* Mobile Header (Hidden on Desktop) */
 .mobile-header {
     display: none; position: fixed; top: 0; width: 100%; height: 70px;
-    background: rgba(13,13,13,0.95); backdrop-filter: blur(10px); z-index: 1500;
+    background: var(--obsidian-black); z-index: 1500;
     align-items: center; justify-content: space-between; padding: 0 5%;
     border-bottom: 1px solid var(--graphite);
 }
 .mobile-menu-btn { background: none; border: none; color: var(--pure-white); font-size: 1.8rem; cursor: pointer; }
-.mobile-logo { color: var(--pure-white); font-family: "Arial Black", sans-serif; font-size: 1.2rem; }
+.mobile-logo { color: var(--pure-white); font-family: "Arial Black", sans-serif; font-size: 1.2rem; letter-spacing: 2px; }
 
 
 /* WhatsApp Floating */
-.whatsapp { position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; color: white; padding: .9rem 1.3rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, .4); }
+.whatsapp { position: fixed; right: 22px; bottom: 22px; z-index: 1500; background: #25D366; color: white; padding: .9rem 1.3rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, .4); display: flex; align-items: center; gap: 8px; }
 
 
-/* Modals */
-.catalog-modal { display: none; position: fixed; inset: 0; background: rgba(20, 20, 20, 0.98); z-index: 9999; overflow-y: auto; }
+/* ==================================================== */
+/* MODALS (Black Top Banner as requested)               */
+/* ==================================================== */
+.catalog-modal { display: none; position: fixed; inset: 0; background: var(--warm-ivory); z-index: 9999; overflow-y: auto; }
 .catalog-modal.active { display: block; }
-.modal-head { position: sticky; top: 0; background: rgba(30, 30, 30, 0.9); backdrop-filter: blur(15px); z-index: 10001; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.modal-head { 
+    position: sticky; top: 0; 
+    background: var(--obsidian-black); /* البانر العلوي أسود */
+    color: var(--pure-white);
+    z-index: 10001; padding: 1.2rem 6%; display: flex; justify-content: space-between; align-items: center; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+}
+.modal-head h2 { font-size: 1.5rem; color: var(--pure-white); margin: 0; }
 .modal-gallery { max-width: 1200px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; padding: 0 6%; }
-.modal-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 25px; cursor: pointer; transition: 0.3s; opacity: 0.9; border: 1px solid rgba(255,255,255,0.1); }
-.modal-gallery img:hover { transform: scale(1.03); opacity: 1; border-color: var(--royal-orange); z-index: 2; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.modal-gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.modal-gallery img:hover { transform: scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
-.floating-back { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: var(--pure-white); padding: 0.6rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: bold; transition: 0.3s; backdrop-filter: blur(5px); }
+/* زر الرجوع */
+.floating-back { 
+    background: transparent; border: 1px solid rgba(255,255,255,0.3); color: var(--pure-white); 
+    padding: 0.5rem 1.2rem; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: bold; transition: 0.3s; 
+}
 .floating-back:hover { background: var(--royal-orange); border-color: var(--royal-orange); }
 body.rtl .back-icon { transform: rotate(180deg); }
 
-#lightbox { display:none; position:fixed; inset:0; background:rgba(20,20,20,0.98); z-index:10000; justify-content:center; align-items:center; }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(13,13,13,0.98); z-index:10000; justify-content:center; align-items:center; }
 .lightbox-header { position: absolute; top: 20px; left: 20px; z-index: 10001; }
 body.rtl .lightbox-header { left: auto; right: 20px; }
 
@@ -288,9 +305,7 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 
-/* ==================================================== */
-/* 4. RESPONSIVE DESIGN (Mobile View)                   */
-/* ==================================================== */
+/* Responsive */
 @media(max-width: 950px) {
     body { display: block; }
     .mobile-header { display: flex; }
@@ -311,9 +326,10 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
     .hero h1 { font-size: 2.8rem; letter-spacing: 2px; }
     .hero-buttons { justify-content: center; }
     body.rtl .hero-buttons { justify-content: center; }
-    .slider-arrows { display: none; } /* إخفاء الأسهم في الموبايل لتبسيط الشاشة */
+    .slider-arrows { display: none; } 
 
     .architect-wrap { grid-template-columns: 1fr; text-align: center; }
+    .architect-info { margin: -30px auto 0; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .partner-logo { width: calc(50% - 1.5rem); }
 }
@@ -322,17 +338,19 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 
 <body>
 
-<!-- Mobile Top Header (يظهر فقط في الموبايل) -->
+<!-- Mobile Top Header (Black) -->
 <header class="mobile-header">
     <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="mobile-logo">ROYAL DESIGNS</div>
+    <div class="mobile-logo">
+        <img src="logo.png" alt="Royal Designs Logo" style="height: 40px; object-fit: contain;">
+    </div>
 </header>
 
-<!-- Sidebar Navigation (شريط التنقل الجانبي الثابت الأبيض) -->
+<!-- Sidebar Navigation (Black) -->
 <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
-        <h2>ROYAL</h2>
-        <small>DESIGN STUDIO</small>
+        <img class="logo-img" src="logo.png" alt="Royal Designs Logo">
+        <div class="logo-text">ROYAL<small>CONTRACTING & COMMERCIAL AGENCIES</small></div>
     </div>
 
     <ul class="nav-list">
@@ -349,11 +367,16 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
             <button id="lang-ar" class="lang-btn" onclick="setLang('ar')">AR</button>
         </div>
         
-        <!-- أيقونات السوشيال ميديا كما في الصورة -->
+        <!-- Social Icons (TikTok & YouTube Added) -->
         <div class="social-icons">
+            <a href="https://tiktok.com/@royaldesignseg" target="_blank" aria-label="TikTok">
+                <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93v7.2c0 1.96-.59 3.94-1.75 5.42-1.46 1.84-3.7 2.87-6.05 3.03-2.34.15-4.75-.41-6.55-1.85-1.57-1.26-2.58-3.13-2.77-5.11-.2-2.12.35-4.29 1.6-5.96 1.34-1.78 3.4-2.85 5.62-3.05v4.13c-1.14.07-2.28.66-3.03 1.55-.71.84-1.02 2.01-.84 3.08.2 1.25 1.05 2.37 2.19 2.89 1.28.58 2.8.53 4-.19 1.13-.67 1.83-1.91 1.89-3.23V.02z"/></svg>
+            </a>
+            <a href="https://youtube.com/@royaldesignseg" target="_blank" aria-label="YouTube">
+                <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
             <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg></a>
-            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
         </div>
     </div>
 </aside>
@@ -374,7 +397,6 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
             </div>
         </div>
         
-        <!-- أسهم التمرير على صورة الهيرو -->
         <div class="slider-arrows">
             <button aria-label="Previous Slide">&lt;</button>
             <button aria-label="Next Slide">&gt;</button>
@@ -398,7 +420,7 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
                 <div class="architect-info">
                     <span data-i18n="leadArchitect">Founder & Lead Architect</span>
                     <h2 class="brand-font">Asmaa Allam</h2>
-                    <p data-i18n="interiorEngineer">Architecture & Design Expert</p>
+                    <p data-i18n="interiorEngineer" style="color:var(--silver);">Architecture & Design Expert</p>
                 </div>
             </div>
             <div class="about-text">
@@ -430,42 +452,55 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
         <p data-i18n="contactText">Let’s discuss your project and create a space that demands attention.</p>
         <div class="contact-actions" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
             <a href="#" onclick="trackWhatsApp('Contact WhatsApp Button')" class="btn btn-solid" data-i18n="chatWhatsapp">Connect via WhatsApp</a>
-            <a href="tel:01211115200" class="btn btn-primary" id="call-link" data-i18n="callButton">Call: 0121 111 5200</a>
         </div>
     </section>
 
     <footer>
         <div class="footer-logo brand-font">ROYAL DESIGN</div>
         <p data-i18n="footerLine">Contracting & Commercial Agencies</p>
-        <p style="margin-top:1rem; font-size:0.8rem; color:var(--silver);">© 2026 Royal Designs. Crafted with Excellence.</p>
+        
+        <!-- إضافة بيانات الاتصال الرسمية من دليل الهوية -->
+        <div class="footer-contact-info">
+            <span>📍 Building 14, Block 3, Third District, Degla</span>
+            <span>📞 Tel: 02 25216305</span>
+            <span>📱 Mob: 0121 1115200</span>
+        </div>
+
+        <p style="margin-top:2rem; font-size:0.8rem; color:#666;">© 2026 Royal Designs. Crafted with Excellence.</p>
     </footer>
 
 </main>
 
 <!-- Modals & Lightbox -->
 <div class="catalog-modal" id="catalogModal">
+    <!-- البانر العلوي (أسود حسب الطلب) -->
     <div class="modal-head">
         <button class="floating-back" onclick="closeCatalog()" aria-label="Close Catalog">
             <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
         </button>
         <h2 id="modalTitle" class="brand-font">Catalog</h2>
     </div>
+    <!-- خلفية عرض الكتالوج (بيج مريح) -->
     <div class="modal-gallery" id="modalGallery"></div>
     <div class="modal-actions" style="text-align:center; margin-top:3rem; padding-bottom:3rem;">
         <a href="#" id="modalWhatsapp" class="btn btn-solid">Inquire via WhatsApp</a>
     </div>
 </div>
 
-<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(20,20,20,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="closeLightbox(event)">
+<div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(13,13,13,0.98); z-index:10000; justify-content:center; align-items:center;" onclick="closeLightbox(event)">
     <div class="lightbox-header">
         <button class="floating-back" onclick="closeLightbox(event)" aria-label="Close Image">
             <span class="back-icon">←</span> <span data-i18n="backBtn">Back</span>
         </button>
     </div>
-    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:2px solid var(--royal-orange); border-radius: 25px; cursor:default; box-shadow: 0 10px 40px rgba(0,0,0,0.6);" src="" alt="Enlarged Project View" onclick="event.stopPropagation()">
+    <img id="lightboxImg" style="max-width:92%; max-height:92%; border:2px solid var(--royal-orange); border-radius: 15px; cursor:default; box-shadow: 0 10px 40px rgba(0,0,0,0.6);" src="" alt="Enlarged Project View" onclick="event.stopPropagation()">
 </div>
 
-<a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp" aria-label="Contact via WhatsApp">WhatsApp</a>
+<!-- تم تعديل رقم الواتساب هنا أيضاً للرقم الصحيح -->
+<a href="#" onclick="trackWhatsApp('Floating WhatsApp Button')" class="whatsapp" aria-label="Contact via WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.548 4.182 1.587 6.007l-1.68 6.155 6.295-1.65A11.956 11.956 0 0012.03 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.03 0zm5.666 17.291c-.24.676-1.397 1.288-1.928 1.346-.51.054-1.163.262-3.69-.785-3.04-1.261-5.006-4.364-5.158-4.568-.152-.204-1.233-1.642-1.233-3.13 0-1.488.77-2.227 1.042-2.527.272-.298.59-.373.785-.373.195 0 .39.004.565.013.18.01.423-.07.662.51.248.598.813 1.986.885 2.133.072.148.12.321.03.518-.09.195-.136.319-.272.482-.136.162-.288.358-.41.482-.136.148-.282.31-.12.56.162.25 7.72 4.184 1.261 1.764 1.83 2.106.205.25.195.422-.01.196-.443.418-.62.564-.176.149-.406.398-.226.685z"/></svg>
+    WhatsApp
+</a>
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd278J21GBUK08WW6gSqK0vTn54MIvVKhDngsUBeqt0J5g1MRFLPsa4BSOw-kL7fLJJw/exec";
@@ -482,46 +517,49 @@ const priorityOrder = [
     "booths", "Exhibitions", "ceilings", "finishes"
 ];
 
+/* تمت صياغة المحتوى بناءً على دليل الهوية البصرية وشعارات البراند (Brand Voice) 
+   مع دمج كلمات مفتاحية (SEO) مثل: مقاولات، تصميم داخلي، معارض، هندسة 
+*/
 const translations = {
   en: {
-    navHome: "Home", navPortfolio: "Projects", navAbout: "Biography", navSectors: "Services", navContact: "Contact",
-    bookConsultation: "Start Project", 
-    heroLabel: "Architecture, Interior & Event Design", 
-    heroTitle: "A Pioneering<br>Award-Winners", 
-    heroText: "Transforming ideas into exceptional spaces. We combine architectural precision with a bold, unique identity.",
-    explorePortfolio: "View Projects", whatsappConsultation: "WhatsApp Consultation",
+    navHome: "Home", navPortfolio: "Projects", navAbout: "Biography", navSectors: "Expertise", navContact: "Contact",
+    bookConsultation: "Book Consultation", 
+    heroLabel: "Contracting & Commercial Agencies", 
+    heroTitle: "Design Beyond<br>Limits", 
+    heroText: "Expert interior design, landscape architecture, and exhibition contracting in Egypt. We transform visions into bold, functional spaces that demand attention.",
+    explorePortfolio: "Explore Portfolio", whatsappConsultation: "WhatsApp Inquiry",
     portfolioLabel: "Visual Portfolio", portfolioTitle: "Our Masterpieces", loadingCatalogs: "Loading collections...",
-    partnersLabel: "Trusted By", partnersTitle: "Corporate Partners",
+    partnersLabel: "Trusted By", partnersTitle: "Strategic Partners",
     leadArchitect: "Founder & Lead Architect", 
-    interiorEngineer: "Architecture & Design Expert", 
-    aboutLabel: "Our Story",
-    aboutTitle: "Defining the Art of Space",
-    aboutP1: "With over 25 years of experience, Royal Designs has delivered more than 800 projects spanning luxurious interiors, breathtaking landscapes, and impactful exhibition booths.",
-    aboutP2: "We believe design is an exact balance between function and bold innovation.",
-    projects: "Projects", designSectors: "Sectors", yearsExperience: "Years", updatedPortfolio: "Vision",
-    contactTitle: "Bring Your Vision to Life", contactText: "Let’s discuss your project and create a space that demands attention.",
-    chatWhatsapp: "Message via WhatsApp", callButton: "Call: 0121 111 5200",
+    interiorEngineer: "Interior & Architecture Expert", 
+    aboutLabel: "The Legacy",
+    aboutTitle: "Where Vision Meets Space",
+    aboutP1: "With over 30 years of industry leadership, Royal Designs by Asmaa Allam has delivered 600+ landmark projects across luxury interiors, landscapes, and global exhibitions.",
+    aboutP2: "We don't just design; we engineer bespoke environments. Our approach is a precise balance of architectural logic and bold aesthetics, built to make a difference.",
+    projects: "Landmark Projects", designSectors: "Engineering Sectors", yearsExperience: "Years of Excellence", updatedPortfolio: "Global Vision",
+    contactTitle: "Every Detail Tells Your Story", contactText: "Ready to elevate your space? Partner with Egypt's premier contracting and design agency for unparalleled results.",
+    chatWhatsapp: "Chat on WhatsApp", callButton: "Call: 0121 1115200",
     footerLine: "Contracting & Commercial Agencies", openCatalog: "View Collection", images: "Images",
     backBtn: "Back" 
   },
   ar: {
-    navHome: "الرئيسية", navPortfolio: "مشاريعنا", navAbout: "السيرة الذاتية", navSectors: "خدماتنا", navContact: "تواصل معنا",
-    bookConsultation: "ابدأ مشروعك", 
-    heroLabel: "تصميم داخلي، لاندسكيب، ومعارض",
-    heroTitle: "رواد التصميم<br>والابتكار", 
-    heroText: "نحوّل أفكارك إلى مساحات استثنائية. نجمع بين الدقة الهندسية والجرأة في التصميم لنخلق بيئة تعكس شخصيتك بدقة.",
-    explorePortfolio: "استكشف المشاريع", whatsappConsultation: "استشارة عبر واتساب",
+    navHome: "الرئيسية", navPortfolio: "مشاريعنا", navAbout: "السيرة الذاتية", navSectors: "خبراتنا", navContact: "تواصل معنا",
+    bookConsultation: "احجز استشارتك", 
+    heroLabel: "مقاولات وتوكيلات تجارية",
+    heroTitle: "مساحتك،<br>هويتك", 
+    heroText: "خبراء التصميم الداخلي، العمارة، وتنفيذ المعارض في مصر. نحوّل أفكارك إلى مساحات استثنائية تجمع بين الدقة الهندسية والجرأة في التصميم.",
+    explorePortfolio: "تصفح أعمالنا", whatsappConsultation: "استشارة عبر واتساب",
     portfolioLabel: "رحلة بصرية", portfolioTitle: "أعمالنا الاستثنائية", loadingCatalogs: "جاري تحميل الأعمال...",
-    partnersLabel: "شركاء النجاح", partnersTitle: "علامات تجارية نثق بها",
+    partnersLabel: "شركاء النجاح", partnersTitle: "شراكات استراتيجية",
     leadArchitect: "المؤسس والمهندس الرئيسي", 
-    interiorEngineer: "خبيرة التصميم المعماري والداخلي", 
-    aboutLabel: "قصتنا",
-    aboutTitle: "فن صياغة المساحات",
-    aboutP1: "بخبرة تتجاوز 25 عاماً، نجحت رويال ديزاينز في تنفيذ أكثر من 800 مشروع يجمع بين الديكورات الفاخرة، اللاندسكيب، وبوثات المعارض.",
-    aboutP2: "نؤمن بأن التصميم ليس مجرد شكل، بل هو توازن دقيق بين الوظيفة والابتكار، لنضمن لك تجربة تفوق التوقعات.",
-    projects: "مشروع", designSectors: "قطاع", yearsExperience: "عاماً من الخبرة", updatedPortfolio: "رؤية",
-    contactTitle: "لنبدأ في صياغة واقعك الجديد", contactText: "تصميم مساحتك يبدأ من رؤيتك. تواصل معنا للحصول على الحل الأمثل لمشروعك.",
-    chatWhatsapp: "تواصل عبر واتساب", callButton: "اتصال مباشر: 0121 111 5200",
+    interiorEngineer: "خبيرة العمارة والتصميم الداخلي", 
+    aboutLabel: "إرث رويال",
+    aboutTitle: "حيث الرؤية تلتقي بالمكان",
+    aboutP1: "بقيادة المهندسة أسماء علام، نجحت رويال ديزاينز على مدار 30 عاماً في تنفيذ أكثر من 600 مشروع أيقوني يشمل الديكورات الفاخرة، اللاندسكيب، وبوثات المعارض الكبرى.",
+    aboutP2: "نحن لا نصمم فقط، بل نبني بيئات متكاملة. فلسفتنا هي التوازن الدقيق بين الوظيفة العملية والابتكار الجريء، لأننا نؤمن بأن التصميم صُنع للفرق.",
+    projects: "مشروع أيقوني", designSectors: "قطاع هندسي", yearsExperience: "عاماً من التميز", updatedPortfolio: "رؤية عالمية",
+    contactTitle: "كل تفصيلة تحكي قصتك", contactText: "مساحتك تستحق الأفضل. تواصل مع خبراء التصميم والمقاولات في مصر لنبدأ في صياغة واقعك الجديد بأعلى معايير الجودة.",
+    chatWhatsapp: "تواصل عبر واتساب", callButton: "اتصال مباشر: 0121 1115200",
     footerLine: "مقاولات وتوكيلات تجارية", openCatalog: "افتح الكتالوج", images: "صورة",
     backBtn: "رجوع" 
   }
@@ -558,7 +596,7 @@ function setLang(lang) {
     
     document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) el.innerHTML = translations[lang][key]; // innerHTML لدعم الـ <br>
+        if (translations[lang][key]) el.innerHTML = translations[lang][key]; 
     });
     renderCatalogCards();
 }
@@ -629,7 +667,7 @@ function renderCatalogCards() {
             <div class="catalog-info">
                 <span class="tag-style">${tag}</span>
                 <h3 class="brand-font">${title}</h3>
-                <div style="display:inline-block; margin-top:0.8rem; padding:0.4rem 1rem; border:1px solid var(--royal-orange); border-radius:30px; font-size:0.75rem; color:var(--pure-white); font-weight:bold; background:rgba(0,0,0,0.6); backdrop-filter:blur(3px);">
+                <div style="display:inline-block; margin-top:0.8rem; padding:0.4rem 1rem; border:1px solid var(--royal-orange); border-radius:30px; font-size:0.75rem; color:var(--pure-white); font-weight:bold; background:rgba(13,13,13,0.7); backdrop-filter:blur(3px);">
                     ${translations[currentLang].openCatalog}
                 </div>
             </div>
