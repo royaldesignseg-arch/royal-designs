@@ -15,6 +15,9 @@
 
     <title>Royal Design By Asmaa Allam | Interior Design & Contracting in Egypt</title>
 
+    <!-- إضافة أيقونة المتصفح (Favicon) لتبدو احترافية في التابات -->
+    <link rel="icon" type="image/png" href="logo.png">
+
     <!-- تسريع تحميل صورة الخلفية الرئيسية (Preload) -->
     <link rel="preload" as="image" href="villa_hero_bg.png">
 
@@ -609,7 +612,32 @@ function setLang(lang) {
 function trackWhatsApp(source, catalogName = "") {
     const data = { page: window.location.href, language: currentLang, source: source, catalog: catalogName, device: navigator.userAgent, whatsapp: WHATSAPP_NUMBER, timestamp: new Date().toISOString() };
     fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }).catch(err => console.log(err));
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+    
+    if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+            event_category: 'contact',
+            event_label: source,
+            catalog_name: catalogName
+        });
+    }
+
+    if (typeof ttq !== 'undefined') {
+        ttq.track('Contact', { content_name: source, content_category: catalogName });
+    }
+
+    // برمجة الرسالة الافتراضية الذكية للواتساب
+    let message = currentLang === 'ar' 
+        ? "مرحباً، تصفحت موقعكم وأرغب في مناقشة مشروع تصميم/تنفيذ." 
+        : "Hello, I viewed your portfolio and would like to discuss a design/contracting project.";
+        
+    if (catalogName) {
+        message = currentLang === 'ar'
+            ? `مرحباً، كنت أتصفح قسم (${catalogName}) على موقعكم وأرغب في الاستفسار.`
+            : `Hello, I was browsing the (${catalogName}) section on your website and would like to inquire about it.`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, "_blank");
 }
 
 async function loadCatalogData() {
