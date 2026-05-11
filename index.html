@@ -167,13 +167,15 @@ body.rtl .main-content { margin-left: 0; margin-right: var(--sidebar-width); }
 }
 body.rtl .hero::before { background: linear-gradient(to left, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.85)); }
 
-.hero-content { position: relative; z-index: 2; max-width: 800px; margin-left: auto; text-align: right; animation: fadeUp 1.5s ease forwards; }
+/* تم تقليل أقصى عرض للنص ليكون أنيقاً ومتماسكاً */
+.hero-content { position: relative; z-index: 2; max-width: 650px; margin-left: auto; text-align: right; animation: fadeUp 1.5s ease forwards; }
 body.rtl .hero-content { margin-left: 0; margin-right: auto; text-align: left; }
 
-.hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .85rem; margin-bottom: 1rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
-.hero h1 { color: var(--pure-white); font-size: clamp(3rem, 6vw, 6rem); line-height: 1.1; margin-bottom: 1rem; letter-spacing: 5px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+/* تصغير الخطوط وزيادة الأناقة */
+.hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .75rem; margin-bottom: 1rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+.hero h1 { color: var(--pure-white); font-size: clamp(2.2rem, 3.5vw, 3.8rem); line-height: 1.2; margin-bottom: 1rem; letter-spacing: 3px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 body.rtl .hero h1 { letter-spacing: 0; }
-.hero p { color: var(--pure-white); font-size: 1.1rem; margin-bottom: 2.5rem; text-shadow: 0 2px 5px rgba(0,0,0,0.8); line-height: 1.8; }
+.hero p { color: var(--pure-white); font-size: 0.95rem; margin-bottom: 2.5rem; text-shadow: 0 2px 5px rgba(0,0,0,0.8); line-height: 1.8; }
 
 .hero-buttons { display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap; }
 body.rtl .hero-buttons { justify-content: flex-start; }
@@ -317,9 +319,11 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
     .main-content { margin-left: 0; margin-right: 0 !important; width: 100%; padding-top: 70px; }
     
     .hero { padding: 2rem 5%; text-align: center; }
-    .hero-content { margin: 0 auto; text-align: center; }
+    .hero-content { margin: 0 auto; text-align: center; max-width: 100%; }
     body.rtl .hero-content { text-align: center; }
-    .hero h1 { font-size: 2.8rem; letter-spacing: 2px; }
+    /* تصغير متناسق للموبايل أيضاً */
+    .hero h1 { font-size: 2.2rem; letter-spacing: 1px; }
+    .hero p { font-size: 0.9rem; }
     .hero-buttons { justify-content: center; }
     body.rtl .hero-buttons { justify-content: center; }
 
