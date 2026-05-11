@@ -15,6 +15,9 @@
 
     <title>Royal Design By Asmaa Allam | Interior Design & Contracting in Egypt</title>
 
+    <!-- تسريع تحميل صورة الخلفية الرئيسية (Preload) -->
+    <link rel="preload" as="image" href="villa_hero_bg.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
 
     <!-- Google tag (gtag.js) -->
@@ -63,7 +66,7 @@ h1, h2, h3, h4, .brand-font {
     font-family: "Arial Black", Arial, sans-serif; 
     color: var(--obsidian-black); 
     text-transform: uppercase;
-    letter-spacing: 0.5px; /* لمسة أناقة للمسافات */
+    letter-spacing: 0.5px; 
 }
 
 body.rtl { font-family: "Cairo", sans-serif; direction: rtl; }
@@ -167,11 +170,9 @@ body.rtl .main-content { margin-left: 0; margin-right: var(--sidebar-width); }
 }
 body.rtl .hero::before { background: linear-gradient(to left, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.85)); }
 
-/* تم تقليل أقصى عرض للنص ليكون أنيقاً ومتماسكاً */
 .hero-content { position: relative; z-index: 2; max-width: 650px; margin-left: auto; text-align: right; animation: fadeUp 1.5s ease forwards; }
 body.rtl .hero-content { margin-left: 0; margin-right: auto; text-align: left; }
 
-/* تصغير الخطوط وزيادة الأناقة */
 .hero-label { color: var(--royal-orange); letter-spacing: 4px; text-transform: uppercase; font-size: .75rem; margin-bottom: 1rem; font-weight: bold; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
 .hero h1 { color: var(--pure-white); font-size: clamp(2.2rem, 3.5vw, 3.8rem); line-height: 1.2; margin-bottom: 1rem; letter-spacing: 3px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 body.rtl .hero h1 { letter-spacing: 0; }
@@ -193,13 +194,13 @@ body.rtl .btn { text-transform: none; }
 .section-title { text-align: center; margin-bottom: 4rem; }
 .label { color: var(--royal-orange); letter-spacing: 3px; text-transform: uppercase; font-size: .8rem; margin-bottom: 1rem; font-weight: bold; }
 .section-title h2 { font-size: clamp(2rem, 4vw, 3.4rem); color: var(--obsidian-black); }
-.orange-line { width: 60px; height: 2px; background: var(--royal-orange); margin: 1.5rem auto 0; } /* خط أرفع ولمسة أهدأ */
+.orange-line { width: 60px; height: 2px; background: var(--royal-orange); margin: 1.5rem auto 0; } 
 
 /* Portfolio Grid */
 .catalog-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
 .catalog-card { 
     min-height: 350px; 
-    border-radius: 24px; /* حواف أكثر نعومة وأناقة */
+    border-radius: 24px; 
     overflow: hidden; 
     position: relative; 
     background-size: cover; 
@@ -207,11 +208,12 @@ body.rtl .btn { text-transform: none; }
     cursor: pointer; 
     transition: all 0.5s ease; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.06); 
-    border: none; 
+    border: none;
+    background-color: var(--graphite); /* Placeholder color until image loads */
 }
 .catalog-card:hover { 
     transform: translateY(-8px); 
-    box-shadow: 0 20px 40px rgba(212, 82, 26, 0.15); /* ظل برتقالي خفيف جداً يبرز الفخامة */
+    box-shadow: 0 20px 40px rgba(212, 82, 26, 0.15); 
 }
 .catalog-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13, 13, 13, 0.9), transparent); transition: opacity 0.5s ease; }
 .catalog-card:hover::before { opacity: 0.95; }
@@ -321,7 +323,6 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
     .hero { padding: 2rem 5%; text-align: center; }
     .hero-content { margin: 0 auto; text-align: center; max-width: 100%; }
     body.rtl .hero-content { text-align: center; }
-    /* تصغير متناسق للموبايل أيضاً */
     .hero h1 { font-size: 2.2rem; letter-spacing: 1px; }
     .hero p { font-size: 0.9rem; }
     .hero-buttons { justify-content: center; }
@@ -405,7 +406,7 @@ body.rtl .lightbox-header { left: auto; right: 20px; }
 <section class="section about reveal" id="about">
     <div class="architect-wrap">
         <div class="architect-card">
-            <img src="engineer.jpg" alt="Asmaa Allam - Interior Design and Contracting Expert" class="architect-img">
+            <img src="engineer.jpg" alt="Asmaa Allam - Interior Design and Contracting Expert" class="architect-img" loading="lazy">
             <div class="architect-info">
                 <span data-i18n="leadArchitect">Founder & Lead Architect</span>
                 <h2 class="brand-font">Asmaa Allam</h2>
@@ -639,13 +640,28 @@ function renderCatalogCards() {
     const grid = document.getElementById("catalogGrid");
     if (!grid || !catalogs.length) return;
     grid.innerHTML = "";
+    
+    // إعداد مراقب التحميل الذكي (Lazy Loading) للصور الخلفية
+    const bgObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                card.style.backgroundImage = `url('${card.dataset.bg}')`;
+                observer.unobserve(card);
+            }
+        });
+    }, { rootMargin: "100px 0px" });
+
     catalogs.forEach((item, index) => {
         const meta = folderMeta[item.folder] || {en: item.folder, ar: item.folder, tagEn: "Portfolio", tagAr: "أعمال"};
         const title = currentLang === "ar" ? meta.ar : meta.en;
         const tag = currentLang === "ar" ? meta.tagAr : meta.tagEn;
         const card = document.createElement("div");
         card.className = "catalog-card";
-        card.style.backgroundImage = `url('${item.cover}')`;
+        
+        // استخدام data-bg للتحميل الذكي بدلاً من تحميل كل الصور فوراً
+        card.dataset.bg = item.cover;
+        
         card.onclick = () => openCatalog(index);
         card.innerHTML = `
             <div class="catalog-info">
@@ -657,6 +673,7 @@ function renderCatalogCards() {
             </div>
         `;
         grid.appendChild(card);
+        bgObserver.observe(card); // تفعيل المراقبة للكارت
     });
 }
 
