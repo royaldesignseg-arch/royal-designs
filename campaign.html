@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رويال ديزاين | شقتك على المفتاح بدون صداع</title>
     
-    <!-- أكواد التتبع الخاصة بجوجل أناليتكس -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-60QG3LN182"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -14,6 +13,21 @@
       gtag('config', 'G-60QG3LN182');
     </script>
 
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1533648661463999');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1533648661463999&ev=PageView&noscript=1"
+    /></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
     
     <style>
@@ -27,30 +41,25 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Cairo", sans-serif; }
         body { background: var(--warm-ivory); color: var(--charcoal); line-height: 1.7; overflow-x: hidden; }
         
-        /* الهيدر مع زر العودة للرئيسية */
         header { background: var(--obsidian-black); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--royal-orange); }
         .logo-text { color: var(--pure-white); font-weight: 900; font-size: 1.5rem; line-height: 1.2; text-decoration: none; }
         .logo-text small { display: block; color: var(--royal-orange); font-size: 0.8rem; font-weight: 600; }
         .back-home { color: #888; text-decoration: none; font-size: 0.9rem; border: 1px solid #333; padding: 5px 15px; border-radius: 20px; transition: 0.3s; }
         .back-home:hover { color: var(--pure-white); border-color: var(--royal-orange); }
 
-        /* Hero Section */
         .hero { background: linear-gradient(rgba(13,13,13,0.85), rgba(13,13,13,0.85)), url('villa_hero_bg.png') center/cover; padding: 5rem 5%; text-align: center; color: var(--pure-white); }
         .hero-label { background: var(--royal-orange); display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; }
         .hero h1 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 900; margin-bottom: 15px; line-height: 1.3; }
         .hero h1 span { color: var(--royal-orange); }
         .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 30px; color: #CCC; }
         
-        /* الأزرار */
         .btn-solid { background: var(--royal-orange); color: var(--pure-white); padding: 15px 35px; border-radius: 30px; text-decoration: none; font-size: 1.1rem; font-weight: bold; display: inline-block; border: none; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(212,82,26,0.3); }
         .btn-solid:hover { transform: translateY(-3px); background: #ba4716; }
 
-        /* المميزات */
         .features { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: -40px 5% 4rem; position: relative; margin-top: -40px; }
         .feature-card { background: var(--pure-white); padding: 30px; border-radius: 15px; width: 300px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-bottom: 3px solid var(--royal-orange); }
         .feature-card h3 { color: var(--obsidian-black); margin-bottom: 10px; font-weight: 800; }
 
-        /* نموذج البيانات */
         .lead-section { padding: 4rem 5%; display: flex; justify-content: center; align-items: center; }
         .lead-box { background: var(--obsidian-black); padding: 40px; border-radius: 20px; width: 100%; max-width: 600px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
         .lead-box h2 { color: var(--pure-white); margin-bottom: 10px; font-weight: 800; }
@@ -59,7 +68,6 @@
         .form-control { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #333; background: #1A1A1A; color: white; font-size: 1rem; outline: none; }
         .form-control:focus { border-color: var(--royal-orange); }
         
-        /* الواتساب العائم */
         .whatsapp-float { position: fixed; left: 22px; bottom: 22px; z-index: 1500; background: #25D366; color: white; padding: 0.9rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); display: flex; align-items: center; gap: 8px; transition: transform 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.05); }
 
@@ -121,7 +129,6 @@
         </div>
     </section>
 
-    <!-- زر الواتساب العائم -->
     <a href="https://wa.me/201211115200?text=مرحباً،%20أتيت%20من%20الإعلان%20وأرغب%20في%20استشارة%20لتشطيب%20وحدتي." target="_blank" class="whatsapp-float">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.548 4.182 1.587 6.007l-1.68 6.155 6.295-1.65A11.956 11.956 0 0012.03 24c6.645 0 12.03-5.385 12.03-12.03S18.676 0 12.03 0zm5.666 17.291c-.24.676-1.397 1.288-1.928 1.346-.51.054-1.163.262-3.69-.785-3.04-1.261-5.006-4.364-5.158-4.568-.152-.204-1.233-1.642-1.233-3.13 0-1.488.77-2.227 1.042-2.527.272-.298.59-.373.785-.373.195 0 .39.004.565.013.18.01.423-.07.662.51.248.598.813 1.986.885 2.133.072.148.12.321.03.518-.09.195-.136.319-.272.482-.136.162-.288.358-.41.482-.136.148-.282.31-.12.56.162.25 7.72 4.184 1.261 1.764 1.83 2.106.205.25.195.422-.01.196-.443.418-.62.564-.176.149-.406.398-.226.685z"/></svg>
         واتساب
@@ -135,12 +142,17 @@
         function submitLead(e) {
             e.preventDefault();
             
-            // تسجيل الحدث في أناليتكس (لتصحيح مشكلة التتبع لديك)
+            // تسجيل الحدث في GA4
             if (typeof gtag === 'function') {
                 gtag('event', 'generate_lead', {
                     'event_category': 'form_submit',
                     'event_label': 'Campaign Landing Page'
                 });
+            }
+
+            // تسجيل الحدث في Meta Pixel كعميل محتمل (Lead)
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
             }
 
             const name = document.getElementById('name').value;
