@@ -178,8 +178,48 @@
       font-size:.98rem
     }
 
+    /* إعدادات شريط الصور التلقائي الملموم والشيك */
+    .catalog-slider-section {
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .catalog-slider-section h2 {
+      color: var(--obsidian-black);
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 1.5rem;
+    }
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      background: transparent;
+    }
+    .slider-track {
+      display: flex;
+      gap: 15px;
+      width: calc((180px + 15px) * 12);
+      animation: scrollImages 20s linear infinite;
+    }
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+    .slider-track img {
+      width: 180px; /* مقاس ملموم ومظبوط جداً بصرياً */
+      height: 130px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      border: 1px solid rgba(212,82,26,0.15);
+      transition: transform 0.3s ease;
+    }
+    @keyframes scrollImages {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc((-180px - 15px) * 6)); }
+    }
+
     .budget-strip {
-      padding:0 5% 3rem;
+      padding:1rem 5% 3rem;
       text-align:center
     }
 
@@ -283,6 +323,7 @@
       .hero { padding:4rem 5% }
       .hero p { font-size:1rem }
       .lead-box { padding:28px 20px }
+      .catalog-slider-section h2 { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -291,7 +332,7 @@
 
   <header>
     <div class="logo-area">
-      <div class="logo-text">ROYAL INTERIORS EG<small>BY ASMAا ALLAM</small></div>
+      <div class="logo-text">ROYAL INTERIORS EG<small>BY ASMAA ALLAM</small></div>
       <span class="logo-slogan">Elegant Concepts, Flawlessly Delivered</span>
     </div>
     <a href="index.html" class="back-home">← العودة للموقع الرئيسي</a>
@@ -320,6 +361,27 @@
     <div class="feature-card">
       <h3>Flawless Management</h3>
       <p>ندير كافة مراحل التنفيذ والتشطيب بدقة متكاملة، لنمنحك تجربة سلسة وراحة بال مطلقة.</p>
+    </div>
+  </section>
+
+  <section class="catalog-slider-section">
+    <h2>لمحات من مشاريعنا وتصاميمنا السابقة</h2>
+    <div class="slider-container">
+      <div class="slider-track">
+        <img src="project1.jpg" alt="Royal Interiors">
+        <img src="project2.jpg" alt="Royal Interiors">
+        <img src="project3.jpg" alt="Royal Interiors">
+        <img src="project4.jpg" alt="Royal Interiors">
+        <img src="project5.jpg" alt="Royal Interiors">
+        <img src="project6.jpg" alt="Royal Interiors">
+        
+        <img src="project1.jpg" alt="Royal Interiors">
+        <img src="project2.jpg" alt="Royal Interiors">
+        <img src="project3.jpg" alt="Royal Interiors">
+        <img src="project4.jpg" alt="Royal Interiors">
+        <img src="project5.jpg" alt="Royal Interiors">
+        <img src="project6.jpg" alt="Royal Interiors">
+      </div>
     </div>
   </section>
 
